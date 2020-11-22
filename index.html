@@ -1,16 +1,30 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="index.css">
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <script type="module" src="app.js"></script>
   </head>
   <body>
     <header>
-      <div id="header-container">
+      <!-- <div id="header-container">
         <div id="header-top-triangle"></div>
         <h1>Talon Gonyeau
           <br /><span id="header-subtitle">Software Developer<span>
         </h1>
         <div id="header-bottom-triangle"></div>
-      </div>
+      </div> -->
     </header>
+    <div id="app">
+        <Pillar>
+          <div id="triangle-a" class="shape triangle"></div>
+          <div id="container-b" class="container">
+            <div id="trapezoid-b" class="shape trapezoid"></div>
+          </div>
+          <div id="triangle-c" class="shape triangle"></div>
+          <div id="container-d" class="container">
+            <div id="trapezoid-d" class="shape trapezoid"></div>
+          </div>
+        </Pillar>
+    </div>
   </body>
 </html>
