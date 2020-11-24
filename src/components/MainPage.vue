@@ -1,5 +1,5 @@
 <template>
-  <div class="main-page">
+  <div class="mainPage">
     <h1>{{ msg }}</h1>
       <header>
       <div id="header-container">
@@ -11,7 +11,7 @@
       </div>
     </header>
     <div >
-        <Pillar>
+        <!-- <Pillar>
           <div id="triangle-a" class="shape triangle"></div>
           <div id="container-b" class="container">
             <div id="trapezoid-b" class="shape trapezoid"></div>
@@ -20,7 +20,7 @@
           <div id="container-d" class="container">
             <div id="trapezoid-d" class="shape trapezoid"></div>
           </div>
-        </Pillar>
+        </Pillar> -->
     </div>
   </div>
 </template>
