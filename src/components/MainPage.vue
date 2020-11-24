@@ -10,7 +10,10 @@
         <div id="header-bottom-triangle"></div>
       </div>
     </header>
-    <div >
+    <div>
+      <canvas class="zdog-canvas" width="240" height="240">
+
+      </canvas>
         <!-- <Pillar>
           <div id="triangle-a" class="shape triangle"></div>
           <div id="container-b" class="container">
@@ -26,10 +29,39 @@
 </template>
 
 <script>
+/* eslint-disable no-unused-vars */
+import h  from 'vue'
+import Zdog from "zdog";
+
 export default {
   name: 'MainPage',
   props: {
     msg: String
+  },
+  components: {
+    // ZIllustration,
+    // ZRoundedRect,
+    // ZRect,
+    // ZCone,
+    // ZPath,
+    // ZBox
+  },
+  mounted() {
+    let illo = new Zdog.Illustration({
+      // set canvas with selector
+      element: '.zdog-canvas',
+    });
+
+    // add circle
+    new Zdog.Ellipse({
+      addTo: illo,
+      diameter: 80,
+      stroke: 20,
+      color: '#636',
+    });
+
+    // update & render
+    illo.updateRenderGraph();
   }
 }
 </script>
