@@ -1,7 +1,10 @@
 <template>
   <div class="mainPage">
+    <div>
+      <ZdogCanvas></ZdogCanvas>
+    </div>
     <h1>{{ msg }}</h1>
-      <header>
+    <header>
       <div id="header-container">
         <div id="header-top-triangle"></div>
         <h1>Talon Gonyeau
@@ -10,59 +13,21 @@
         <div id="header-bottom-triangle"></div>
       </div>
     </header>
-    <div>
-      <canvas class="zdog-canvas" width="240" height="240">
-
-      </canvas>
-        <!-- <Pillar>
-          <div id="triangle-a" class="shape triangle"></div>
-          <div id="container-b" class="container">
-            <div id="trapezoid-b" class="shape trapezoid"></div>
-          </div>
-          <div id="triangle-c" class="shape triangle"></div>
-          <div id="container-d" class="container">
-            <div id="trapezoid-d" class="shape trapezoid"></div>
-          </div>
-        </Pillar> -->
-    </div>
   </div>
 </template>
 
 <script>
-/* eslint-disable no-unused-vars */
-import h  from 'vue'
-import Zdog from "zdog";
+import ZdogCanvas from './ZdogCanvas.vue'
 
 export default {
   name: 'MainPage',
   props: {
-    msg: String
+    msg: String,
   },
   components: {
-    // ZIllustration,
-    // ZRoundedRect,
-    // ZRect,
-    // ZCone,
-    // ZPath,
-    // ZBox
+    ZdogCanvas
   },
-  mounted() {
-    let illo = new Zdog.Illustration({
-      // set canvas with selector
-      element: '.zdog-canvas',
-    });
-
-    // add circle
-    new Zdog.Ellipse({
-      addTo: illo,
-      diameter: 80,
-      stroke: 20,
-      color: '#636',
-    });
-
-    // update & render
-    illo.updateRenderGraph();
-  }
+  
 }
 </script>
 
