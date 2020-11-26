@@ -1,16 +1,24 @@
 <template>
-<div>
+<div class="pillar">
 </div>
 </template>
 
 <script>
 /* eslint-disable no-unused-vars */
-import h  from 'vue'
-import Zdog from "zdog";
-// import {} from './ZdogCanvas.vue'
+import h  from "vue"
+import Zdog from "zdog"
 
 export default {
   name: 'Pillar',
+  props: {
+      canvas: {
+          type: Object
+      }
+  },
+  updated() {  
+      console.log(this.canvas.element)
+
+  }
 }
 
 </script>
