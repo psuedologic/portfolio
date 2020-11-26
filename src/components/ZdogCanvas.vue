@@ -1,8 +1,11 @@
 <template>
 <div>
-    <canvas class="zdog-canvas" width="800" height="600">
-        <Pillar v-bind:canvas="this.canvas"></Pillar>
-    </canvas>
+  <canvas class="zdog-canvas" width="800" height="600">
+    <Pillar 
+      v-bind:canvas="this.canvas"
+        
+    ></Pillar>
+  </canvas>
 </div>
 </template>
 
@@ -37,7 +40,7 @@ export default {
   },
   data() {
       return {
-          canvas: false,
+          canvas: {},
       }
   },
   computed: {
