@@ -10,8 +10,22 @@ class Pillar {
         this.position = position
         this.angle = {x: 0, y: 0, z: 0}
         this.scale = scale
+        this.colors = {
+            color: '#C25',
+            leftFace: '#EA0',
+            rightFace: '#E62',
+            topFace: '#ED0',
+            bottomFace: '#636'}
         this.create()
         
+    }
+    setColors(colors) {
+        this.shape.color = colors.color
+        this.shape.leftFace = colors.leftFace
+        this.shape.rightFace = colors.rightFace
+        this.shape.topFace = colors.topFace
+        this.shape.bottomFace = colors.bottomFace
+        this.colors = colors
     }
     create() {
         this.shape = new Zdog.Box({
@@ -20,11 +34,6 @@ class Pillar {
             height: HEIGHT,
             depth: WIDTH,
             stroke: 0,
-            color: '#C25',
-            leftFace: '#EA0',
-            rightFace: '#E62',
-            topFace: '#ED0',
-            bottomFace: '#636',
             scale: this.scale,
             translate: { x: this.position.x,
                          y: this.position.y,
@@ -32,14 +41,12 @@ class Pillar {
         });
     }
     translate(vector) {
-        console.log(vector)
         this.shape.translate = 
         { x: this.position.x + vector.x,
             y: this.position.y + vector.y,
             z: this.position.z + vector.z}
     }
     rotate(vector) {
-        console.log(vector)
         this.shape.rotate = 
         { x: this.angle.x + vector.x,
             y: this.angle.y + vector.y,
