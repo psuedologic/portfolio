@@ -21,13 +21,10 @@ export default {
       dragRotate: true,
     })
     this.canvas = illo
-
     this.anchor = new Zdog.Anchor({ addTo: illo })
-    let pillar = new Pillar(this.anchor, { x: -200, z: -100 }, 1.0)
-    let pillar2 = new Pillar(this.anchor, { x: 200, z: -100 }, 1.0)
-    let pillar3 = new Pillar(this.anchor, { x: 0, z: 200 }, 1.25)
-    this.pillars = [pillar, pillar2, pillar3]
-
+    
+    this.calculateAngularOffset()
+    this.createPillars(3)
 
     illo.updateRenderGraph()
     this.animate()
@@ -38,30 +35,70 @@ export default {
       anchor: Zdog.Anchor,
       angle: 0,
       pillars: [],
-    }
-  },
-  computed: {
-    getCanvas() {
-      return this.canvas
+      angularOffset: [],
     }
   },
   methods: {
     animate: function() {
+      this.calculateAngularOffset()
       this.canvas.updateRenderGraph()
-      this.angle++
-      const ROTATION_AMOUNT = 4
-      if (this.angle == 360 * ROTATION_AMOUNT) this.angle = 0
       
+      const STEPS_PER_DEGREE = 1
+      const STEPS_PER_ROTATION = STEPS_PER_DEGREE * 360
+      this.angle += 1/STEPS_PER_DEGREE
+
+      if (this.angle ==  STEPS_PER_ROTATION * 2) {
+        this.angle = 0
+      }      
       if (this.anchor) {
         this.anchor.rotate = {x: 0, y: -this.angle/90, z: 0}
       }
       
       this.pillars.forEach((pillar) => {
-        pillar.rotate({x: 0, y: this.angle/90 * 1.1, z: 0})
+        pillar.rotate({x: 0, y: this.angle / STEPS_PER_ROTATION, z: 0})
       })
       this.canvas.updateRenderGraph()
       
       requestAnimationFrame( this.animate );
+    },
+    createPillars: function(quantity) {
+      this.pillars = []
+      let i = 0
+
+      let colors = [{
+          color: '#0D5C42',
+          leftFace: '#217358',
+          rightFace: '#00412C',
+          topFace: '#3D8C72',
+          bottomFace: '#00271A'},
+          {
+          color: '#113C58',
+          leftFace: '#24516F',
+          rightFace: '#04273F',
+          topFace: '#3F6A86',
+          bottomFace: '#011725'},
+          {
+          color: '#257410',
+          leftFace: '#3F912A',
+          rightFace: '#12652B',
+          topFace: '#62B14D',
+          bottomFace: '#0A3100'}]
+
+      while (i < quantity) {
+        let pillar = new Pillar(this.anchor, this.angularOffset[i], 1.0)
+        this.pillars.push(pillar)
+        pillar.setColors(colors[i])
+        i++
+      }
+    },
+    calculateAngularOffset: function() {
+      const MAGNITUDE = 200
+      this.angularOffset = []
+      for (let i in [0,1,2]) {
+        let x = Math.cos((this.angle * Zdog.TAU / 360) + (i * Zdog.TAU / 3)) * 200
+        let z = Math.sin((this.angle * Zdog.TAU / 360) + (i * Zdog.TAU / 3)) * 200
+        this.angularOffset.push( {"x":x, "z":z} )
+      }
     }
   },
   watch: {
@@ -70,8 +107,6 @@ export default {
         
         if (newValue == 360)
           newValue = 0
-        else if (newValue % 5 == 0)
-          console.log(newValue)
       },
       immediate: true
     }
