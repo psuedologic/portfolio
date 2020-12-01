@@ -1,7 +1,6 @@
 <template>
 <div>
-  <canvas class="zdog-canvas" width="800" height="600">
-  </canvas>
+  <svg class="zdog-canvas" width="1800" height="1000"></svg>
 </div>
 </template>
 
