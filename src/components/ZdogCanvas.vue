@@ -9,12 +9,12 @@
 import h  from 'vue'
 import Zdog from "zdog"
 import Pillar from "../canvas/pillar.js"
+import Icon from "../canvas/icon.js"
 
 export default {
   name: 'ZdogCanvas',
   mounted() {
     let illo = new Zdog.Illustration({
-      // set canvas with selector
       element: '.zdog-canvas',
       rotate: { x: -Zdog.TAU/8, y: -Zdog.TAU/8 },
       dragRotate: true,
@@ -24,6 +24,9 @@ export default {
     
     this.calculateAngularOffset()
     this.createPillars(3)
+    let icon = new Icon(this.anchor, this.angularOffset[0], 1.0, "bookClosed")
+    let icon2 = new Icon(this.anchor, this.angularOffset[1], 1.0, "bookOpen")
+    let icon3 = new Icon(this.anchor, this.angularOffset[2], 1.0, "bookStacked")
 
     illo.updateRenderGraph()
     this.animate()
