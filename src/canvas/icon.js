@@ -5,7 +5,9 @@ const HEIGHT = 80
 const DEFAULT_HEIGHT = 150
 
 const COLORS = {red: "#C25",
-                white: "#FFF"}
+                white: "#FFF",
+                blue: "#1414D5",
+                green: "#14D218"}
 
 let x=0
 let y=0
@@ -13,23 +15,23 @@ let z=0
 
 const ICON_TEMPLATE = {
     bookClosed: [
-        {color: "red", translate: {x, y, z: -10}, rotation: {}},
+        {color: "blue", translate: {x, y, z: -10}, rotation: {}},
         {color: "white", translate: {x, y, z: -5}, rotation: {}},
         {color: "white", translate: {x, y, z}, rotation: {}},
         {color: "white", translate: {x, y, z: 5}, rotation: {}},
-        {color: "red", translate: {x, y, z: 10}, rotation: {}},
-        {color: "red", width: 20, translate: {x: WIDTH / 2 + 1, y, z}, rotation: {y: Math.PI / 2}},
-        {color: "red", width: 20, translate: {x: WIDTH / 2 -1, y, z}, rotation: {y: Math.PI / 2}}],
+        {color: "blue", translate: {x, y, z: 10}, rotation: {}},
+        {color: "blue", width: 20, translate: {x: WIDTH / 2 + 1, y, z}, rotation: {y: Math.PI / 2}},
+        {color: "blue", width: 20, translate: {x: WIDTH / 2 -1, y, z}, rotation: {y: Math.PI / 2}}],
     bookOpen: [
         {color: "white", translate: {x, y, z: -10}, rotation: {y: Math.PI / 8}},
         {color: "white", translate: {x, y, z: -7}, rotation: {y: Math.PI / 16}},
         {color: "white", translate: {x, y, z}, rotation: {}},
         {color: "white", translate: {x, y, z: 7}, rotation: {y: -Math.PI / 16}},
         {color: "white", translate: {x, y, z: 10}, rotation: {y: -Math.PI / 8}},
-        {color: "red", width: 20, translate: {x: WIDTH / 2 - 1, y, z}, rotation: {y: Math.PI / 2}},
-        {color: "red", width: 20, translate: {x: WIDTH / 2 + 1, y, z}, rotation: {y: Math.PI / 2}},
-        {color: "red", translate: {x, y, z: 20}, rotation: {y: -Math.PI / 8}},
-        {color: "red", translate: {x, y, z: -20}, rotation: {y: Math.PI / 8}},],
+        {color: "green", width: 20, translate: {x: WIDTH / 2 - 1, y, z}, rotation: {y: Math.PI / 2}},
+        {color: "green", width: 20, translate: {x: WIDTH / 2 + 1, y, z}, rotation: {y: Math.PI / 2}},
+        {color: "green", translate: {x, y, z: 20}, rotation: {y: -Math.PI / 8}},
+        {color: "green", translate: {x, y, z: -20}, rotation: {y: Math.PI / 8}},],
     bookStacked: [
         //Top book
         {color: "red", translate: {x, y: -30, z}, rotation: {x:Zdog.TAU/4, z: -Zdog.TAU/16}},
@@ -37,24 +39,24 @@ const ICON_TEMPLATE = {
         {color: "white", translate: {x, y: -20, z}, rotation: {x:Zdog.TAU/4, z:-Zdog.TAU/16}},
         {color: "white", translate: {x, y: -15, z}, rotation: {x:Zdog.TAU/4, z: -Zdog.TAU/16}},
         {color: "red", translate: {x, y: -10, z}, rotation: {x:Zdog.TAU/4, z: -Zdog.TAU/16}},
-        {color: "red", width: 20, translate: {x: WIDTH / 2 + 1, y: -20, z}, rotation: {x: -Zdog.TAU/4, y: Zdog.TAU/4}},
-        {color: "red", width: 20, translate: {x: WIDTH / 2 -1, y: -20, z}, rotation: {x: -Zdog.TAU/4, y: Zdog.TAU/4}},
+        // {color: "red", width: 20, translate: {x: WIDTH / 2 + 1, y: -20, z}, rotation: {x: -Zdog.TAU/4, y: Zdog.TAU/4}},
+        // {color: "red", width: 20, translate: {x: WIDTH / 2 -1, y: -20, z}, rotation: {x: -Zdog.TAU/4, y: Zdog.TAU/4}},
         //Middle Book
         {color: "red", translate: {x, y: -10, z}, rotation: {x:Zdog.TAU/4}},
         {color: "white", translate: {x, y: -5, z}, rotation: {x:Zdog.TAU/4}},
         {color: "white", translate: {x, y, z}, rotation: {x:Zdog.TAU/4}},
         {color: "white", translate: {x, y: 5, z}, rotation: {x:Zdog.TAU/4}},
         {color: "red", translate: {x, y: 10, z}, rotation: {x:Zdog.TAU/4}},
-        {color: "red", width: 20, translate: {x: WIDTH / 2 + 1, y, z}, rotation: {x:Zdog.TAU/4, y: Zdog.TAU/4}},
-        {color: "red", width: 20, translate: {x: WIDTH / 2 -1, y, z}, rotation: {x:Zdog.TAU/4, y: Zdog.TAU/4}},
+        // {color: "red", width: 20, translate: {x: WIDTH / 2 + 1, y, z}, rotation: {x:Zdog.TAU/4, y: Zdog.TAU/4}},
+        // {color: "red", width: 20, translate: {x: WIDTH / 2 -1, y, z}, rotation: {x:Zdog.TAU/4, y: Zdog.TAU/4}},
         //Bottom Book
         {color: "red", translate: {x, y: 10, z}, rotation: {x:Zdog.TAU/4, z: Zdog.TAU/16}},
         {color: "white", translate: {x, y: 15, z}, rotation: {x:Zdog.TAU/4, z: Zdog.TAU/16}},
         {color: "white", translate: {x, y: 20, z}, rotation: {x:Zdog.TAU/4, z: Zdog.TAU/16}},
         {color: "white", translate: {x, y: 25, z}, rotation: {x:Zdog.TAU/4, z: Zdog.TAU/16}},
         {color: "red", translate: {x, y: 30, z}, rotation: {x:Zdog.TAU/4, z: Zdog.TAU/16}},
-        {color: "red", width: 20, translate: {x: WIDTH / 2 + 1, y: 20, z}, rotation: {x:Zdog.TAU/4, y: Zdog.TAU/4}},
-        {color: "red", width: 20, translate: {x: WIDTH / 2 -1, y: 20, z}, rotation: {x:Zdog.TAU/4, y: Zdog.TAU/4}}
+        // {color: "red", width: 20, translate: {x: WIDTH / 2 + 1, y: 20, z}, rotation: {x:Zdog.TAU/4, y: Zdog.TAU/4}},
+        // {color: "red", width: 20, translate: {x: WIDTH / 2 -1, y: 20, z}, rotation: {x:Zdog.TAU/4, y: Zdog.TAU/4}}
     ]
 }
 
