@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="canvas-container">
   <svg class="zdog-canvas" width="1800" height="1000"></svg>
 </div>
 </template>
@@ -118,7 +118,11 @@ export default {
 </script>
 
 <style scoped>
- .zdog-canvas {
-   background-color: lightsteelblue;
- }
+  .canvas-container {
+    width: 100%;
+  }
+  .zdog-canvas {
+    background-color: lightsteelblue;
+    background-size: contain;
+  }
 </style>
