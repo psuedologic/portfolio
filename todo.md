@@ -21,8 +21,15 @@ Todo
 
 
 # Issues
-[ ] Rotation skips after running ~1.5 Revolutions. Something is off with the math of calculating angles and degrees per revolution. After reading how other's animation loops were implemented, I think the issue is due to how I tied angle to be part of the animation loop. I should maintain a seperate count variable, and tie into the count a rotation and sum angle variable.
+
 [ ] Book Bindings don't rotate with pages/covers on StackedBookIcon - This issue is due to the binding existing in a different rotational plane which is offset from the rotation origin. After expirementing with rotating the binding in may different increments of 1/16 TAU, it is appearant that it would be very hard to line them up as I am doing it. What would work much simpler is to add the BookClosed icon as a group, and then make copies that I then offset up and down and rotate. This requires refactoring the templates use to generate the books be aware of groups and how to perform operations on them (Feature: Enhance pillar draw)
+[ ] Performance Issue, Pillar and Icon slow to render - The rotation frame is noticable laggy. If the icons are removed from being drawn, the animation visibly improves. Need to investigate what is causing the slow animation. I performed easy optimations of minimizing the size of the canvas and switching been svg rendering and canvas rendering. This mildly improved performance.
 
 # Other
 [ ] Deploy dev code to server for demo's and sharing.
+
+
+## FINISHED
+
+[X] Rotation skips after running ~1.5 Revolutions. Something is off with the math of calculating angles and degrees per revolution. After reading how other's animation loops were implemented, I think the issue is due to how I tied angle to be part of the animation loop. I should maintain a seperate count variable, and tie into the count a rotation and sum angle variable.
+    -   Revised animation frame to not be directly tied to rotation angle. This solved the imprecise rotation bug, but did not improve performance overall. 

@@ -1,6 +1,6 @@
 <template>
 <div class="canvas-container">
-  <svg class="zdog-canvas" width="1800" height="1000"></svg>
+  <canvas class="zdog-canvas" width="600" height="800"></canvas>
 </div>
 </template>
 
@@ -36,29 +36,36 @@ export default {
       canvas: {},
       anchor: Zdog.Anchor,
       angle: 0,
+      count: 0,
       pillars: [],
       angularOffset: [],
     }
   },
   methods: {
     animate: function() {
+      this.count++
       this.calculateAngularOffset()
       this.canvas.updateRenderGraph()
       
-      const STEPS_PER_DEGREE = 1
-      const STEPS_PER_ROTATION = STEPS_PER_DEGREE * 360
-      this.angle += 1/STEPS_PER_DEGREE
+      const STEPS_PER_DEGREE = 0.02
+      const STEPS_PER_ROTATION = 360
+      const ANIMATION_FREQUENCY = 1
 
-      if (this.angle ==  STEPS_PER_ROTATION * 2) {
+      if (this.count % ANIMATION_FREQUENCY == 0) {
+        this.angle += STEPS_PER_DEGREE * ANIMATION_FREQUENCY
+      }
+      
+
+      if (this.angle >=  STEPS_PER_ROTATION) {
         this.angle = 0
       }      
       if (this.anchor) {
-        this.anchor.rotate = {x: 0, y: -this.angle/90, z: 0}
+        this.anchor.rotate = {x: 0, y: -this.angle, z: 0}
       }
       
-      this.pillars.forEach((pillar) => {
-        pillar.rotate({x: 0, y: this.angle / STEPS_PER_ROTATION, z: 0})
-      })
+      // this.pillars.forEach((pillar) => {
+      //   pillar.rotate({x: 0, y: -this.angle / STEPS_PER_ROTATION, z: 0})
+      // })
       this.canvas.updateRenderGraph()
       
       requestAnimationFrame( this.animate );
@@ -124,5 +131,6 @@ export default {
   .zdog-canvas {
     background-color: lightsteelblue;
     background-size: contain;
+    border: 1px solid black;
   }
 </style>
