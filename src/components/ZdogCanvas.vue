@@ -27,6 +27,8 @@ export default {
     // let icon = new Icon(this.anchor, this.angularOffset[0], 1.0, "bookClosed")
     // let icon2 = new Icon(this.anchor, this.angularOffset[1], 1.0, "bookOpen")
     let icon = new Icon(this.anchor, this.angularOffset[1], 1.0, "bookStacked")
+    // First tests
+    let icon2 = new Icon(this.anchor, this.angularOffset[2], 1.0, "curlyBraces")
 
     illo.updateRenderGraph()
     this.animate()
