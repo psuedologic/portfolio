@@ -26,7 +26,7 @@ Todo
 [ ] Performance Issue, Pillar and Icon slow to render - The rotation frame is noticable laggy. If the icons are removed from being drawn, the animation visibly improves. Need to investigate what is causing the slow animation. I performed easy optimations of minimizing the size of the canvas and switching been svg rendering and canvas rendering. This mildly improved performance.
 
 # Other
-[ ] Deploy dev code to server for demo's and sharing.
+[ ] Deploy dev code to server for demo's and sharing. (netlify)
 
 
 ## FINISHED

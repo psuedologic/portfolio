@@ -24,9 +24,9 @@ export default {
     
     this.calculateAngularOffset()
     this.createPillars(3)
-    let icon = new Icon(this.anchor, this.angularOffset[0], 1.0, "bookClosed")
-    let icon2 = new Icon(this.anchor, this.angularOffset[1], 1.0, "bookOpen")
-    let icon3 = new Icon(this.anchor, this.angularOffset[2], 1.0, "bookStacked")
+    // let icon = new Icon(this.anchor, this.angularOffset[0], 1.0, "bookClosed")
+    // let icon2 = new Icon(this.anchor, this.angularOffset[1], 1.0, "bookOpen")
+    let icon = new Icon(this.anchor, this.angularOffset[1], 1.0, "bookStacked")
 
     illo.updateRenderGraph()
     this.animate()
@@ -62,7 +62,7 @@ export default {
       if (this.anchor) {
         this.anchor.rotate = {x: 0, y: -this.angle, z: 0}
       }
-      
+      // Turned off for performance
       // this.pillars.forEach((pillar) => {
       //   pillar.rotate({x: 0, y: -this.angle / STEPS_PER_ROTATION, z: 0})
       // })
@@ -131,6 +131,6 @@ export default {
   .zdog-canvas {
     background-color: lightsteelblue;
     background-size: contain;
-    border: 1px solid black;
+    /* border: 1px solid black; // For debug*/
   }
 </style>
