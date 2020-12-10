@@ -87,8 +87,7 @@ class Icon {
         this.colors = colors
     }
     create() {
-        console.log("height", this.position.y, DEFAULT_HEIGHT, HEIGHT)
-        this.icon.forEach( piece => new Zdog.Rect({
+        
             addTo: this.shape,
             position: this.position,
             width: piece.width ? piece.width : WIDTH,
