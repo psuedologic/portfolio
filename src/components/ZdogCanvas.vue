@@ -23,12 +23,12 @@ export default {
     this.anchor = new Zdog.Anchor({ addTo: illo })
     
     this.calculateAngularOffset()
-    this.createPillars(3)
-    // let icon = new Icon(this.anchor, this.angularOffset[0], 1.0, "bookClosed")
-    // let icon2 = new Icon(this.anchor, this.angularOffset[1], 1.0, "bookOpen")
-    let icon = new Icon(this.anchor, this.angularOffset[1], 1.0, "bookStacked")
+    this.createPillars(3) 
+    // let icon = new Icon(this.anchor, this.angularOffset[0], "bookClosed", 1.0)
+    // let icon2 = new Icon(this.anchor, this.angularOffset[1], "bookOpen", 1.0)
+    let icon = new Icon(this.anchor, this.angularOffset[1], "bookStacked", 4.0, 1.0)
     // First tests
-    let icon2 = new Icon(this.anchor, this.angularOffset[2], 1.0, "curlyBraces")
+    let icon2 = new Icon(this.anchor, this.angularOffset[2], "curlyBraces", 4, 0)
 
     illo.updateRenderGraph()
     this.animate()

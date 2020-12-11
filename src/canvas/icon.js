@@ -1,8 +1,12 @@
 import Zdog from "zdog"
 
-const WIDTH = 60
-const HEIGHT = 80
+const WIDTH_BOOK = 60
+const HEIGHT_BOOK = 80
+const WIDTH_CURLY_BRACE = 60
+const HEIGHT_CURLY_BRACE = 60
 const DEFAULT_HEIGHT = 150
+
+const DEFAULT_STROKE = 3
 
 const COLORS = {red: "#C25",
                 white: "#FFF",
@@ -34,8 +38,8 @@ const ICON_TEMPLATE = {
             {color: "white", translate: {x, y, z}},
             {color: "white", translate: {x, y, z: 5}},
             {color: "blue", translate: {x, y, z: 10}},
-            {color: "blue", width: 20, translate: {x: WIDTH / 2 + 1, y, z}, rotation: {y: Math.PI / 2}},
-            {color: "blue", width: 20, translate: {x: WIDTH / 2 -1, y, z}, rotation: {y: Math.PI / 2}}]
+            {color: "blue", width: 20, translate: {x: WIDTH_BOOK / 2 + 1, y, z}, rotation: {y: Math.PI / 2}},
+            {color: "blue", width: 20, translate: {x: WIDTH_BOOK / 2 -1, y, z}, rotation: {y: Math.PI / 2}}]
     },
     bookOpen: {
         zdogClass: "Rect",
@@ -45,8 +49,8 @@ const ICON_TEMPLATE = {
             {color: "white", translate: {x, y, z}},
             {color: "white", translate: {x, y, z: 7}, rotation: {y: -Math.PI / 16}},
             {color: "white", translate: {x, y, z: 10}, rotation: {y: -Math.PI / 8}},
-            {color: "green", width: 20, translate: {x: WIDTH / 2 - 1, y, z}, rotation: {y: Math.PI / 2}},
-            {color: "green", width: 20, translate: {x: WIDTH / 2 + 1, y, z}, rotation: {y: Math.PI / 2}},
+            {color: "green", width: 20, translate: {x: WIDTH_BOOK / 2 - 1, y, z}, rotation: {y: Math.PI / 2}},
+            {color: "green", width: 20, translate: {x: WIDTH_BOOK / 2 + 1, y, z}, rotation: {y: Math.PI / 2}},
             {color: "green", translate: {x, y, z: 20}, rotation: {y: -Math.PI / 8}},
             {color: "green", translate: {x, y, z: -20}, rotation: {y: Math.PI / 8}},]
     },
@@ -74,18 +78,17 @@ const ICON_TEMPLATE = {
     ]},
     curlyBraces: {
         zdogClass: "Shape",
-
         pieces: [
-            {color: "silver", translate: {x, y: 10, z}, 
+            {color: "silver", translate: {x, y: 10, z}, closed: false,
              path: [
-                { x: -60, y: -60 },   // start
+                { x: -WIDTH_CURLY_BRACE, y: -HEIGHT_CURLY_BRACE },   // start
                 { arc: [
-                  { x:  20, y: -60 }, // corner
-                  { x:  20, y:  20 }, // end point
+                  { x:  0, y: -HEIGHT_CURLY_BRACE }, // corner
+                  { x:  0, y:  0 }, // end point
                 ]},
                 { arc: [ // start next arc from last end point
-                  { x:  20, y:  60 }, // corner
-                  { x:  60, y:  60 }, // end point
+                  { x:  0, y:  HEIGHT_CURLY_BRACE }, // corner
+                  { x:  WIDTH_CURLY_BRACE, y:  HEIGHT_CURLY_BRACE }, // end point
                 ]},
               ],}
         ]
@@ -100,13 +103,17 @@ Object.values(ICON_TEMPLATE).forEach(icon => {
 })
 
 class Icon {
-    constructor(anchor, position, scale, icon) {
+    constructor(anchor, position, icon, stroke, fill, scale) {
         this.anchor = anchor
-        this.shape = new Zdog.Anchor({addTo: anchor})
         this.position = position
-        this.angle = {x: 0, y: 0, z: 0}
-        this.scale = scale,
         this.icon = ICON_TEMPLATE[icon]
+        this.stroke = (stroke ? stroke : DEFAULT_STROKE)
+        this.fill = fill
+        this.shape = new Zdog.Anchor({addTo: anchor})
+        console.log(this)
+        this.angle = {x: 0, y: 0, z: 0}
+        this.scale = scale ? scale : 1.0,
+        
         this.colors = {
             color: '#C25',
             leftFace: '#EA0',
@@ -127,15 +134,16 @@ class Icon {
         this.icon.pieces.forEach( piece => new Zdog[this.icon.zdogClass]({
             addTo: this.shape,
             position: this.position,
-            width: piece.width ? piece.width : WIDTH,
-            height: HEIGHT,
-            stroke: 3,
-            fill: 1,
+            width: piece.width ? piece.width : WIDTH_BOOK,
+            height: HEIGHT_BOOK,
+            stroke: this.stroke,
+            fill: this.fill,
             color: COLORS[piece.color],
             scale: this.scale,
+            closed: this.closed,
             translate: { 
                 x: piece.translate.x + this.position.x,
-                y: piece.translate.y - DEFAULT_HEIGHT - HEIGHT - 10,
+                y: piece.translate.y - DEFAULT_HEIGHT - HEIGHT_BOOK - 10,
                 z: piece.translate.z + this.position.z},
             rotate: {
                 x: piece.rotation.x,
