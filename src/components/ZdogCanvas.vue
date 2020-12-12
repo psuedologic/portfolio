@@ -24,11 +24,9 @@ export default {
     
     this.calculateAngularOffset()
     this.createPillars(3) 
-    // let icon = new Icon(this.anchor, this.angularOffset[0], "bookClosed", 1.0)
-    // let icon2 = new Icon(this.anchor, this.angularOffset[1], "bookOpen", 1.0)
-    let icon = new Icon(this.anchor, this.angularOffset[1], "bookStacked", 1, 1.0)
-    // First tests
-    let icon2 = new Icon(this.anchor, this.angularOffset[2], "curlyBraces", 12, 0)
+    let icon = new Icon(this.anchor, this.angularOffset[0], "curlyBraces", 12, 0)
+    let icon2 = new Icon(this.anchor, this.angularOffset[1], "bookStacked", 1, 1.0)
+    let icon3 = new Icon(this.anchor, this.angularOffset[2], "triangle", 10, 0)
 
     illo.updateRenderGraph()
     this.animate()
