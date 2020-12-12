@@ -4,6 +4,8 @@ const WIDTH_BOOK = 60
 const HEIGHT_BOOK = 80
 const WIDTH_CURLY_BRACE = 18
 const HEIGHT_CURLY_BRACE = 28
+const WIDTH_TRIANGLE = 40
+const HEIGHT_TRIANGLE = 30
 const DEFAULT_HEIGHT = 150
 
 const DEFAULT_STROKE = 3
@@ -11,6 +13,7 @@ const DEFAULT_STROKE = 3
 const COLORS = {red: "#C25",
                 white: "#FFF",
                 blue: "#1414D5",
+                yellow: "#faf019",
                 green: "#14D218",
                 book: "#215B8F",
                 silver: "#8B8E8F"}
@@ -23,7 +26,7 @@ const DEFAULT_PIECE = {
     color: "red",
     rotation: {},
     translate: {},
-    pattern: [{translate: {x,y,z}, rotation: {x,y,z}}]
+    pattern: [{translate: {x,y,z}, rotation: {x,y,z}, scale: 1}]
 }
 
 function makePeace(peace) {
@@ -80,7 +83,7 @@ const ICON_TEMPLATE = {
     curlyBraces: {
         zdogClass: "Shape",
         pieces: [
-            {color: "silver", rotation: {y: Zdog.TAU/4}, translate: {x, y: -25, z}, closed: false,
+            {color: "silver", rotation: {y: Zdog.TAU/4}, translate: {x, y: -30, z}, closed: false,
              path: [
                 { x: WIDTH_CURLY_BRACE, y: 2 * HEIGHT_CURLY_BRACE },
                 { arc: [
@@ -105,6 +108,25 @@ const ICON_TEMPLATE = {
                     translate: {x, y, z: -2 * WIDTH_CURLY_BRACE}}, 
                 { rotation: {x,y: Zdog.TAU/2,z},
                     translate: {x, y, z: 2 * WIDTH_CURLY_BRACE}}
+                ]
+            }
+        ]
+    },
+    triangle: {
+        zdogClass: "Shape",
+        pieces: [
+            {color: "yellow", rotation: {z: Zdog.TAU/2, y: -Zdog.TAU/4}, translate: {x, y: -25, z}, 
+             path: [
+                { x: -WIDTH_TRIANGLE, y: -HEIGHT_TRIANGLE },
+                { x: WIDTH_TRIANGLE, y: -HEIGHT_TRIANGLE },
+                { x: -WIDTH_TRIANGLE, y: HEIGHT_TRIANGLE },
+                { x: -WIDTH_TRIANGLE, y: -HEIGHT_TRIANGLE },
+              ],
+            pattern: [
+                { scale: 1}, 
+                { scale: 0.85},
+                { scale: 0.7},
+                { scale: 0.6}
                 ]
             }
         ]
@@ -138,18 +160,18 @@ class Icon {
             bottomFace: '#636'}
         this.create()
     }
-    setColors(colors) {
-        this.shape.color = colors.color
-        this.shape.leftFace = colors.leftFace
-        this.shape.rightFace = colors.rightFace
-        this.shape.topFace = colors.topFace
-        this.shape.bottomFace = colors.bottomFace
-        this.colors = colors
-    }
+    // setColors(colors) {
+    //     this.shape.color = colors.color
+    //     this.shape.leftFace = colors.leftFace
+    //     this.shape.rightFace = colors.rightFace
+    //     this.shape.topFace = colors.topFace
+    //     this.shape.bottomFace = colors.bottomFace
+    //     this.colors = colors
+    // }
     create() {
         this.icon.pieces.forEach( piece => {
             piece.pattern.forEach( pattern => {
-                let template = Object.assign({translate: {x: 0, y: 0, z: 0}, rotate: {x: 0, y: 0, z: 0}}, pattern)
+                let template = Object.assign({translate: {x: 0, y: 0, z: 0}, rotation: {x: 0, y: 0, z: 0}, scale: 1}, pattern)
 
                 new Zdog[this.icon.zdogClass] ({
                     addTo: this.shape,
@@ -159,7 +181,7 @@ class Icon {
                     stroke: this.stroke,
                     fill: this.fill,
                     color: COLORS[piece.color],
-                    scale: this.scale,
+                    scale: this.scale * template.scale,
                     closed: this.closed,
                     translate: { 
                         x: piece.translate.x + this.position.x + template.translate.x,
