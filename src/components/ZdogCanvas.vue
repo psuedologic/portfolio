@@ -1,6 +1,6 @@
 <template>
 <div class="canvas-container">
-  <canvas class="zdog-canvas" width="600" height="800"></canvas>
+  <svg class="zdog-canvas" width="600" height="800"></svg>
 </div>
 </template>
 
@@ -21,7 +21,9 @@ export default {
     })
     this.canvas = illo
     this.anchor = new Zdog.Anchor({ addTo: illo })
-    
+    let canvasElement = document.getElementsByClassName("zdog-canvas")[0]
+    canvasElement.addEventListener("mouseover", this.onHover)
+        
     this.calculateAngularOffset()
     this.createPillars(3) 
     let icon = new Icon(this.anchor, this.angularOffset[0], "curlyBraces", 12, 0)
@@ -30,6 +32,7 @@ export default {
 
     illo.updateRenderGraph()
     this.animate()
+    this.addClasses()
   },
   data() {
     return {
@@ -37,11 +40,15 @@ export default {
       anchor: Zdog.Anchor,
       angle: 0,
       count: 0,
-      pillars: [],
+      // pillars: [],
       angularOffset: [],
     }
   },
   methods: {
+    onHover: function(event) {
+      // console.log(event)
+      // console.log(event.target.getContext('2d').getImageData(event.x, event.y, 1, 1))
+    },
     animate: function() {
       this.count++
       this.calculateAngularOffset()
@@ -74,7 +81,7 @@ export default {
       this.pillars = []
       let i = 0
 
-      let colors = [{
+      this.colors = [{
           color: '#0D5C42',
           leftFace: '#217358',
           rightFace: '#00412C',
@@ -96,9 +103,23 @@ export default {
       while (i < quantity) {
         let pillar = new Pillar(this.anchor, this.angularOffset[i], 1.0)
         this.pillars.push(pillar)
-        pillar.setColors(colors[i])
+        pillar.setColors(this.colors[i])
         i++
       }
+    },
+    addClasses: function() {
+      let canvasElement = document.getElementsByClassName("zdog-canvas")[0]
+      
+      this.colors.forEach(colorGroup =>
+        Object.values(colorGroup).forEach( color => {
+          // Find SVG paths that match the same color as pillars
+          Array.from(canvasElement.children).filter(svgPath => {
+            return color == svgPath.attributes["fill"].value
+          }).forEach(svgPath => {
+            return svgPath.className.baseVal="pillar"
+          })
+        }
+      ))
     },
     calculateAngularOffset: function() {
       const MAGNITUDE = 200
@@ -113,8 +134,9 @@ export default {
   watch: {
     angle: {
       handler(newValue, oldValue) {
-        
+        // Need to investigate is handler is operational, and if not if this should be removed
         if (newValue == 360)
+        console.log("THIS TRIGGERED")
           newValue = 0
       },
       immediate: true
@@ -124,7 +146,7 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
   .canvas-container {
     width: 100%;
   }
@@ -132,5 +154,12 @@ export default {
     background-color: lightsteelblue;
     background-size: contain;
     /* border: 1px solid black; // For debug*/
+  }
+  .pillar {
+    opacity: 0.5;
+    stroke-opacity: 0;
+  }
+  .pillar:hover {
+    fill: rgb(176, 196, 222);
   }
 </style>

@@ -4,8 +4,8 @@ const WIDTH_BOOK = 60
 const HEIGHT_BOOK = 80
 const WIDTH_CURLY_BRACE = 18
 const HEIGHT_CURLY_BRACE = 28
-const WIDTH_TRIANGLE = 40
-const HEIGHT_TRIANGLE = 30
+const WIDTH_TRIANGLE = 50
+const HEIGHT_TRIANGLE = 40
 const DEFAULT_HEIGHT = 150
 
 const DEFAULT_STROKE = 3
@@ -148,7 +148,6 @@ class Icon {
         this.stroke = (stroke ? stroke : DEFAULT_STROKE)
         this.fill = fill
         this.shape = new Zdog.Anchor({addTo: anchor})
-        console.log(this)
         this.angle = {x: 0, y: 0, z: 0}
         this.scale = scale ? scale : 1.0,
         
