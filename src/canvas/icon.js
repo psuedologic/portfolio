@@ -2,8 +2,8 @@ import Zdog from "zdog"
 
 const WIDTH_BOOK = 60
 const HEIGHT_BOOK = 80
-const WIDTH_CURLY_BRACE = 60
-const HEIGHT_CURLY_BRACE = 60
+const WIDTH_CURLY_BRACE = 20
+const HEIGHT_CURLY_BRACE = 30
 const DEFAULT_HEIGHT = 150
 
 const DEFAULT_STROKE = 3
@@ -79,17 +79,25 @@ const ICON_TEMPLATE = {
     curlyBraces: {
         zdogClass: "Shape",
         pieces: [
-            {color: "silver", translate: {x, y: 10, z}, closed: false,
+            {color: "silver", rotation: {y: Zdog.TAU/4}, translate: {x, y: -50, z}, closed: false,
              path: [
-                { x: -WIDTH_CURLY_BRACE, y: -HEIGHT_CURLY_BRACE },   // start
+                { x: WIDTH_CURLY_BRACE, y: 2 * HEIGHT_CURLY_BRACE },
                 { arc: [
-                  { x:  0, y: -HEIGHT_CURLY_BRACE }, // corner
-                  { x:  0, y:  0 }, // end point
+                    { x: 0, y: 2 * HEIGHT_CURLY_BRACE },
+                    { x: 0, y: HEIGHT_CURLY_BRACE },
                 ]},
-                { arc: [ // start next arc from last end point
-                  { x:  0, y:  HEIGHT_CURLY_BRACE }, // corner
-                  { x:  WIDTH_CURLY_BRACE, y:  HEIGHT_CURLY_BRACE }, // end point
+                { arc: [
+                    { x:  0, y:  0 },
+                    { x: -WIDTH_CURLY_BRACE, y: 0 },
                 ]},
+                { arc: [
+                    { x:  -0, y: 0 },
+                    { x:  0, y: -HEIGHT_CURLY_BRACE },
+                ]},
+                { arc: [
+                    { x: 0, y: -2 * HEIGHT_CURLY_BRACE },
+                    { x: WIDTH_CURLY_BRACE, y: -2 * HEIGHT_CURLY_BRACE },
+                ]}
               ],}
         ]
     }
