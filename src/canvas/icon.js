@@ -60,26 +60,28 @@ const ICON_TEMPLATE = {
     },
     bookStacked: {
         zdogClass: "Rect",
-        pieces: [        
-            //Top book
-            {color: "book", translate: {x, y: -30, z}, rotation: {x:Zdog.TAU/4, z: -Zdog.TAU/16}},
-            {color: "white", translate: {x, y: -25, z}, rotation: {x:Zdog.TAU/4, z: -Zdog.TAU/16}},
-            {color: "white", translate: {x, y: -20, z}, rotation: {x:Zdog.TAU/4, z:-Zdog.TAU/16}},
-            {color: "white", translate: {x, y: -15, z}, rotation: {x:Zdog.TAU/4, z: -Zdog.TAU/16}},
-            {color: "book", translate: {x, y: -10, z}, rotation: {x:Zdog.TAU/4, z: -Zdog.TAU/16}},
+        pieces: [
+            {group:[
             //Middle Book
-            {color: "book", translate: {x, y: -10, z}, rotation: {x:Zdog.TAU/4}},
-            {color: "white", translate: {x, y: -5, z}, rotation: {x:Zdog.TAU/4}},
-            {color: "white", translate: {x, y, z}, rotation: {x:Zdog.TAU/4}},
-            {color: "white", translate: {x, y: 5, z}, rotation: {x:Zdog.TAU/4}},
-            {color: "book", translate: {x, y: 10, z}, rotation: {x:Zdog.TAU/4}},
-            //Bottom Book
-            {color: "book", translate: {x, y: 10, z}, rotation: {x:Zdog.TAU/4, z: Zdog.TAU/16}},
-            {color: "white", translate: {x, y: 15, z}, rotation: {x:Zdog.TAU/4, z: Zdog.TAU/16}},
-            {color: "white", translate: {x, y: 20, z}, rotation: {x:Zdog.TAU/4, z: Zdog.TAU/16}},
-            {color: "white", translate: {x, y: 25, z}, rotation: {x:Zdog.TAU/4, z: Zdog.TAU/16}},
-            {color: "book", translate: {x, y: 30, z}, rotation: {x:Zdog.TAU/4, z: Zdog.TAU/16}},
-    ]},
+                {color: "book", translate: {x, y: -10, z}, rotation: {x:Zdog.TAU/4}},
+                {color: "white", translate: {x, y: -5, z}, rotation: {x:Zdog.TAU/4}},
+                {color: "white", translate: {x, y, z}, rotation: {x:Zdog.TAU/4}},
+                {color: "white", translate: {x, y: 5, z}, rotation: {x:Zdog.TAU/4}},
+                {color: "book", translate: {x, y: 10, z}, rotation: {x:Zdog.TAU/4}},
+            ], 
+            pattern: [
+                {
+                    translate: {x, y: -20, z},
+                    rotation: {x, y, z: -Zdog.TAU/16}},
+                {},
+                {
+                    translate: {x, y: 20, z},
+                    rotation: {x, y, z: Zdog.TAU/16}
+                }
+            ]
+        }
+    ],
+        },
     curlyBraces: {
         zdogClass: "Shape",
         pieces: [
@@ -104,10 +106,11 @@ const ICON_TEMPLATE = {
                 ]}
               ],
             pattern: [
-                { rotation: {x, y, z},
-                    translate: {x, y, z: -2 * WIDTH_CURLY_BRACE}}, 
-                { rotation: {x,y: Zdog.TAU/2,z},
-                    translate: {x, y, z: 2 * WIDTH_CURLY_BRACE}}
+                {   translate: {x, y, z: -2 * WIDTH_CURLY_BRACE}}, 
+                {   
+                    rotation: {x,y: Zdog.TAU/2,z},
+                    translate: {x, y, z: 2 * WIDTH_CURLY_BRACE}
+                }
                 ]
             }
         ]
@@ -124,9 +127,9 @@ const ICON_TEMPLATE = {
               ],
             pattern: [
                 { scale: 1}, 
-                { scale: 0.85},
-                { scale: 0.7},
-                { scale: 0.6}
+                { scale: 0.8},
+                { scale: 0.65,
+                    translate: {x, y, z: -WIDTH_TRIANGLE/4}},
                 ]
             }
         ]
@@ -159,42 +162,69 @@ class Icon {
             bottomFace: '#636'}
         this.create()
     }
-    // setColors(colors) {
-    //     this.shape.color = colors.color
-    //     this.shape.leftFace = colors.leftFace
-    //     this.shape.rightFace = colors.rightFace
-    //     this.shape.topFace = colors.topFace
-    //     this.shape.bottomFace = colors.bottomFace
-    //     this.colors = colors
-    // }
+    createAnchor() {
+        return new Zdog.Anchor ({
+            addTo: this.shape,
+            position: this.position,
+        })
+    }
+    createShape(parent, piece, pattern) {
+        let template = Object.assign({translate: {x: 0, y: 0, z: 0}, rotation: {x: 0, y: 0, z: 0}, scale: 1}, pattern)
+        console.log("pattern", pattern)
+        return new Zdog[this.icon.zdogClass] ({
+            addTo: parent,
+            position: this.position,
+            width: piece.width ? piece.width : WIDTH_BOOK,
+            height: HEIGHT_BOOK,
+            stroke: this.stroke,
+            fill: this.fill,
+            color: COLORS[piece.color],
+            scale: this.scale * template.scale,
+            closed: this.closed,
+            translate: { 
+                x: piece.translate.x + this.position.x + template.translate.x,
+                y: piece.translate.y - DEFAULT_HEIGHT - HEIGHT_BOOK - 10 + template.translate.y,
+                z: piece.translate.z + this.position.z + template.translate.z
+            },
+            rotate: {
+                x: piece.rotation.x + template.rotation.x,
+                y: piece.rotation.y + template.rotation.y,
+                z: piece.rotation.z + template.rotation.z,
+            },
+            path: piece.path
+        })
+    }
     create() {
-        this.icon.pieces.forEach( piece => {
-            piece.pattern.forEach( pattern => {
-                let template = Object.assign({translate: {x: 0, y: 0, z: 0}, rotation: {x: 0, y: 0, z: 0}, scale: 1}, pattern)
+        this.icon.pieces.forEach( template => {
+            if (template.group) {
+                template.group.forEach(subTemplate => {
+                    let group = this.createAnchor()
+                    
+                    let shape
+                    template.pattern.forEach((patternInstance) => {
+                        let pattern = Object.assign({translate: {x: 0, y: 0, z: 0}, rotation: {x: 0, y: 0, z: 0}, scale: 1}, patternInstance)
 
-                new Zdog[this.icon.zdogClass] ({
-                    addTo: this.shape,
-                    position: this.position,
-                    width: piece.width ? piece.width : WIDTH_BOOK,
-                    height: HEIGHT_BOOK,
-                    stroke: this.stroke,
-                    fill: this.fill,
-                    color: COLORS[piece.color],
-                    scale: this.scale * template.scale,
-                    closed: this.closed,
-                    translate: { 
-                        x: piece.translate.x + this.position.x + template.translate.x,
-                        y: piece.translate.y - DEFAULT_HEIGHT - HEIGHT_BOOK - 10 + template.translate.y,
-                        z: piece.translate.z + this.position.z + template.translate.z
-                    },
-                    rotate: {
-                        x: piece.rotation.x + template.rotation.x,
-                        y: piece.rotation.y + template.rotation.y,
-                        z: piece.rotation.z + template.rotation.z,
-                    },
-                    path: piece.path
+                        if (shape == undefined) {
+                            shape = this.createShape(group, subTemplate, {})
+                        }
+                       let copy = shape.copy()
+
+                       copy.scale = template.scale
+                       copy.translate.x = copy.translate.x + pattern.translate.x
+                       copy.translate.y = copy.translate.y + pattern.translate.y
+                       copy.translate.z = copy.translate.z + pattern.translate.z
+
+                       copy.rotate.x = copy.rotate.x + pattern.rotation.x
+                       copy.rotate.y = copy.rotate.y + pattern.rotation.y
+                       copy.rotate.z = copy.rotate.z + pattern.rotation.z
+                    })
+
                 })
-            })
+            } else {
+                template.pattern.forEach( pattern => {
+                    this.createShape(this.shape, template, pattern)                
+                })
+            }
         })
     }
     translate(vector) {
