@@ -1,23 +1,16 @@
 <template>
   <div class="mainPage">
+    <floating-header></floating-header>
     <div>
       <ZdogCanvas></ZdogCanvas>
     </div>
     <h1>{{ msg }}</h1>
-    <header>
-      <div id="header-container">
-        <div id="header-top-triangle"></div>
-        <h1>Talon Gonyeau
-          <br /><span id="header-subtitle">Software Developer</span>
-        </h1>
-        <div id="header-bottom-triangle"></div>
-      </div>
-    </header>
   </div>
 </template>
 
 <script>
 import ZdogCanvas from './ZdogCanvas.vue'
+import FloatingHeader from './FloatingHeader.vue'
 
 export default {
   name: 'MainPage',
@@ -25,7 +18,8 @@ export default {
     msg: String,
   },
   components: {
-    ZdogCanvas
+    ZdogCanvas,
+    FloatingHeader
   },
   
 }
@@ -34,75 +28,4 @@ export default {
   body, #app, .zdog-canvas {
     background-color: rgb(77, 98, 124);
   }
-</style>
-
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-
-
-body {
-    background-image: url("../assets/JapaneseGarden.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: rgb(0, 126, 0);
-    
-}
-/* header {
-    display: flex;
-    list-style: none;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    size: 2em;
-} */
-div#header-container > * {
-    background: rgba(100, 200, 100, 0.8);
-}
-#header-top-triangle {
-    clip-path: polygon(50% 0, 0 100%, 100% 100%);
-    /* clip-path: polygon(0 0, 0 100%, 100% 100%); */
-    margin-top: 5em;
-    padding: 2.5em 1em;
-}
-#header-bottom-triangle {
-    /* clip-path: polygon(0 0, 50% 100%, 100% 0); */
-    clip-path: polygon(100% 0, 100% 100%, 50% 50%, 0 100%, 0 0);
-    padding: 2.5em 1em;
-}
-header > div {
-    width: 45%;
-    font-size: 1.5em;
-}
-
-header > div > h1 {
-    padding-top: 2em;
-    
-}
-
-header div h1, header div div {
-    text-align: center;
-    
-    margin: 0em;
-    /* margin-top: 5em; */
-    padding: 1.5em 1em 1em 1em;
-    font-family: sans-serif;
-}
-
-#header-subtitle {
-    font-size: 0.8em;
-}
 </style>
