@@ -16,7 +16,7 @@ const COLORS = {red: "#C25",
                 yellow: "#faf019",
                 green: "#14D218",
                 book: "#215B8F",
-                silver: "#8B8E8F"}
+                curlyBraces: "#07243a"} //rgb("#051b2c")
 
 let x=0
 let y=0
@@ -85,7 +85,7 @@ const ICON_TEMPLATE = {
     curlyBraces: {
         zdogClass: "Shape",
         pieces: [
-            {color: "silver", rotation: {y: Zdog.TAU/4}, translate: {x, y: -30, z}, closed: false,
+            {color: "curlyBraces", rotation: {y: Zdog.TAU/4}, translate: {x, y: -30, z}, closed: false,
              path: [
                 { x: WIDTH_CURLY_BRACE, y: 2 * HEIGHT_CURLY_BRACE },
                 { arc: [
