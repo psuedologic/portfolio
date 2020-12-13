@@ -152,6 +152,7 @@ export default {
   }
   .zdog-canvas {
     background-size: contain;
+    margin-top: 3em;
     /* border: 1px solid black; // For debug*/
   }
   .pillar {
@@ -161,7 +162,5 @@ export default {
   .pillar:hover {
     fill: rgb(176, 196, 222);
   }
-  #app, .zdog-canvas {
-    background-color: rgb(77, 98, 124);
-  }
+
 </style>
