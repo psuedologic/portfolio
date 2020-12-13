@@ -151,7 +151,6 @@ export default {
     width: 100%;
   }
   .zdog-canvas {
-    background-color: lightsteelblue;
     background-size: contain;
     /* border: 1px solid black; // For debug*/
   }
@@ -161,5 +160,8 @@ export default {
   }
   .pillar:hover {
     fill: rgb(176, 196, 222);
+  }
+  #app, .zdog-canvas {
+    background-color: rgb(77, 98, 124);
   }
 </style>
