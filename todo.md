@@ -12,15 +12,14 @@ Todo
 
 [ ] Feature: Enhance pillar draw - Need to support groups and groups transistions for closed book stack icon, as well as other functionality for the other icons, notably curves.
 
-[ ] Animation Pillar on Hover: Need to detect hover of pillar and play animation while hovering. One thing that could work would be the pillar floating up 
-
+[ ] Animation Pillar on Hover: play animation while hovering over icons/pillars. One thing that could work would be the pillar floating up. 
 
 # Refactor
 [ ] Make canvas/svg globally accessible
 [ ] make zdog library globally accessible
 [ ] Convert pillar.js into vue syntax - could be implemented as empty div's without css. This should be researched if some sub-svg / sub-canvas element can be used or if there is another commonly used vue syntax for vue components without a clear html representation.
 [ ] Convert icon.js into vue syntax.
-[ ] Refactor draw code for icon templates to copy and transform instead of create new shapes from scratch.
+[ ] Refactor colors to globally stored. This should ease assigning classes to svg paths, if we store color and class all in one place.
 
 
 # Issues
@@ -29,7 +28,7 @@ Todo
 [ ] Fix Engineering Triangle Icon - scaling of inner tiangles is relative to coordinate (0,0) which results in the inner triangle looking unnaturally close to the angeled edge. Should scale the inner triangle froms the weighted center of the triangle instead.
 
 # Other
-[ ] Deploy dev code to server for demo's and sharing. (netlify)
+
 
 
 ## FINISHED
@@ -37,3 +36,6 @@ Todo
 [X] Rotation skips after running ~1.5 Revolutions. Something is off with the math of calculating angles and degrees per revolution. After reading how other's animation loops were implemented, I think the issue is due to how I tied angle to be part of the animation loop. I should maintain a seperate count variable, and tie into the count a rotation and sum angle variable.
     -   Revised animation frame to not be directly tied to rotation angle. This solved the imprecise rotation bug, but did not improve performance overall. 
 [X] Performance Issue, Pillar and Icon slow to render - The rotation frame is noticable laggy. If the icons are removed from being drawn, the animation visibly improves. Need to investigate what is causing the slow animation. I performed easy optimations of minimizing the size of the canvas and switching been svg rendering and canvas rendering. This mildly improved performance.
+[X] Refactor draw code for icon templates to copy and transform instead of create new shapes from scratch.
+[X] Deploy dev code to server for demo's and sharing. (netlify)
+[X] Animation Pillar on Hover: Need to detect hover of pillar

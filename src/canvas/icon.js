@@ -170,7 +170,6 @@ class Icon {
     }
     createShape(parent, piece, pattern) {
         let template = Object.assign({translate: {x: 0, y: 0, z: 0}, rotation: {x: 0, y: 0, z: 0}, scale: 1}, pattern)
-        console.log("pattern", pattern)
         return new Zdog[this.icon.zdogClass] ({
             addTo: parent,
             position: this.position,

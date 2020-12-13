@@ -30,8 +30,12 @@ export default {
   
 }
 </script>
+<style>
+  body, #app, .zdog-canvas {
+    background-color: rgb(77, 98, 124);
+  }
+</style>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;
@@ -56,15 +60,15 @@ body {
     background-color: rgb(0, 126, 0);
     
 }
-header {
+/* header {
     display: flex;
     list-style: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    /*size: 2em;*/
-}
+    size: 2em;
+} */
 div#header-container > * {
     background: rgba(100, 200, 100, 0.8);
 }
