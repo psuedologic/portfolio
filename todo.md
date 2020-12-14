@@ -14,6 +14,14 @@ Todo
 
 [ ] Animation Pillar on Hover: play animation while hovering over icons/pillars. One thing that could work would be the pillar floating up. 
 
+[ ] Different skins for the website, as a way of demonstrating off design / front-end skills. Each pillar when active could change the page to a different theme such as:
+
+    Theme               Text Decor             Pillar Style
+
+    Developer           Code Syntax            Dark Mode
+    Designer            Block Lettering        Sketchy
+    Academic            College Paper          Wireframe
+
 # Refactor
 [ ] Make canvas/svg globally accessible
 [ ] make zdog library globally accessible

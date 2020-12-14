@@ -153,6 +153,7 @@ export default {
   .zdog-canvas {
     background-size: contain;
     margin-top: 3em;
+    margin-left: 280px;
     /* border: 1px solid black; // For debug*/
   }
   .pillar {
