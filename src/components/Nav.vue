@@ -1,6 +1,6 @@
 <template>
   <aside class="nav">
-    <h3>Portfolio</h3>
+    <h3>Experience</h3>
     <p>
     <!-- <span class="navSubOpen">/* </span> -->
         <span id="navSoftware" class="navSubtitle">Software </span>
