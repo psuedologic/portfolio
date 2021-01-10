@@ -29,6 +29,6 @@ export default {
 </script>
 <style>
   body, #app, .zdog-canvas {
-    background-color: rgb(77, 98, 124);
+    background-color: rgb(130, 157, 192);
   }
 </style>

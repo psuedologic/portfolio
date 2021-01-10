@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <h2 id="name">Talon Gonyeau</h2>
+    <h2 id="name">Talon Gonyeau - Software Engineer</h2>
   </header>
 </template>
 
@@ -22,18 +22,19 @@ export default {
 
 .header {
     position: absolute;
-    margin: 2em;
-    color:rgb(23, 45, 68);
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+    width: 100%;
+    background-color:rgb(23, 45, 68);
+    color: rgb(188, 203, 223);
     font-weight: bold;
     font-family: 'Roboto';
-    /* font-family: SourceSansPro-Black, Helvetica, Arial; */
-    font-size: 30px;
-    font-style: normal;
-    font-weight: normal;
+    font-family: SourceSansPro-Black, Helvetica, Arial;
+    font-size: 12px;
     letter-spacing: 2px;
-    line-height: 70px;
+    line-height: 30px;
     text-transform: none;
-    margin-top: 20px;
     text-align: left;
     /* color: #3A4046; */
 }
