@@ -1,5 +1,12 @@
 Todo
 ---
+# Goals for 1.0 
+1) Pillar Animation for showing detailed / content view
+2) Write and add CV content
+3) Add Contact Info 
+4) Finish header design to look good
+5) Ensure minimum functionality for mobile
+
 # Features
 [ ] Create and Add Pillar Icons - I found limitations in svg and canvas ability to display text, which was the original idea. There are third parties that exist [zfont](https://jaames.github.io/zfont/). There are workaround such as (https://github.com/metafizzy/zdog/issues/16) [paper.JS to import svg] or even using pixels such as in this pen (https://codepen.io/eerk/pen/PvMqej). 
 

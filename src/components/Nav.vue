@@ -1,20 +1,20 @@
 <template>
-  <header class="floatingHeader">
-    <h2 id="name">Talon Gonyeau;</h2>
-    <h3>Portfolio</h3>
-    <p><span class="headerSubOpen">/* </span>
-        <span id="headerSoftware" class="headerSubtitle">Software </span>
-        <span id="headerEngineering" class="headerSubtitle">Engineering </span>
-        <span id="headerAcademia" class="headerSubtitle">Education </span>
-        <span class="headerSubClose">*/</span>
+  <aside class="nav">
+    <h3>Experience</h3>
+    <p>
+    <!-- <span class="navSubOpen">/* </span> -->
+        <span id="navSoftware" class="navSubtitle">Software </span>
+        <span id="navEngineering" class="navSubtitle">Engineering </span>
+        <span id="navAcademia" class="navSubtitle">Education </span>
+        <!-- <span class="navSubClose">*/</span> -->
     </p>
-  </header>
+  </aside>
 </template>
 
 <script>
 
 export default {
-  name: 'FloatingHeader',
+  name: 'Nav',
   props: {
   },
   components: {
@@ -27,7 +27,7 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
-.floatingHeader {
+.nav {
     position: absolute;
     margin: 2em;
     color:rgb(23, 45, 68);
@@ -40,18 +40,18 @@ export default {
     letter-spacing: 2px;
     line-height: 70px;
     text-transform: none;
-    margin-top: 20px;
+    margin-top: calc(20px + 20%);
     text-align: left;
     /* color: #3A4046; */
 }
-.floatingHeader h2 {
+.nav h2 {
     text-align: left;
     font-size: 2.5em;
 }
-.headerSubtitle {
+.navSubtitle {
     margin-left: 40px;
 }
-.headerSubtitle, .headerSubOpen, .headerSubClose {
+.navSubtitle, .navSubOpen, .navSubClose {
     display: flex;
     align-content: flex-start;
     font-size: 1.5em;

@@ -1,6 +1,7 @@
 <template>
   <div class="mainPage">
-    <floating-header></floating-header>
+    <Header></Header>
+    <Nav></Nav>
     <div>
       <ZdogCanvas></ZdogCanvas>
     </div>
@@ -10,7 +11,8 @@
 
 <script>
 import ZdogCanvas from './ZdogCanvas.vue'
-import FloatingHeader from './FloatingHeader.vue'
+import Header from './Header.vue'
+import Nav from './Nav.vue'
 
 export default {
   name: 'MainPage',
@@ -19,13 +21,14 @@ export default {
   },
   components: {
     ZdogCanvas,
-    FloatingHeader
+    Header,
+    Nav
   },
   
 }
 </script>
 <style>
   body, #app, .zdog-canvas {
-    background-color: rgb(77, 98, 124);
+    background-color: rgb(130, 157, 192);
   }
 </style>
