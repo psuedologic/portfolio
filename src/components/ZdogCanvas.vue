@@ -38,7 +38,7 @@ export default {
     return {
       canvas: {},
       anchor: Zdog.Anchor,
-      angle: 0,
+      angle: 0, //135
       count: 0,
       // pillars: [],
       angularOffset: [],
@@ -152,8 +152,7 @@ export default {
   }
   .zdog-canvas {
     background-size: contain;
-    margin-top: 80px;
-    margin-left: 280px;
+    margin-top: 100px;
     /* border: 1px solid black; // For debug*/
   }
   .pillar {
@@ -161,7 +160,7 @@ export default {
     stroke-opacity: 0;
   }
   .pillar:hover {
-    fill: rgb(176, 196, 222);
+    fill: rgb(136, 166, 192);
   }
 
 </style>

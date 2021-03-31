@@ -1,7 +1,7 @@
 <template>
   <div class="mainPage">
-    <Header></Header>
-    <Nav></Nav>
+    <Header @clicked="onSelected"></Header>
+    <!-- <Nav></Nav> -->
     <div>
       <ZdogCanvas></ZdogCanvas>
     </div>
@@ -12,7 +12,7 @@
 <script>
 import ZdogCanvas from './ZdogCanvas.vue'
 import Header from './Header.vue'
-import Nav from './Nav.vue'
+// import Nav from './Nav.vue'
 
 export default {
   name: 'MainPage',
@@ -21,10 +21,19 @@ export default {
   },
   components: {
     ZdogCanvas,
-    Header,
-    Nav
+    Header
+    // Nav
   },
-  
+  // data() {
+  //   return {
+
+  //   }
+  // },
+  // methods: {
+  //   onSelected(value) {
+  //     console.log(value)
+  //   }
+  // }  
 }
 </script>
 <style>
