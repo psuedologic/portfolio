@@ -3,9 +3,8 @@
     <Header @clicked="onSelected"></Header>
     <!-- <Nav></Nav> -->
     <div>
-      <ZdogCanvas></ZdogCanvas>
+      <ZdogCanvas :selection="selectedTab"></ZdogCanvas>
     </div>
-    <h1>{{ msg }}</h1>
   </div>
 </template>
 
@@ -16,6 +15,11 @@ import Header from './Header.vue'
 
 export default {
   name: 'MainPage',
+  data () {
+    return {
+      selectedTab: ""
+    }
+  },
   props: {
     msg: String,
   },
@@ -29,11 +33,11 @@ export default {
 
   //   }
   // },
-  // methods: {
-  //   onSelected(value) {
-  //     console.log(value)
-  //   }
-  // }  
+  methods: {
+    onSelected(value) {
+      this.selectedTab = value
+    }
+  }  
 }
 </script>
 <style>
