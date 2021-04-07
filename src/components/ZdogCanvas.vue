@@ -13,6 +13,9 @@ import Icon from "../canvas/icon.js"
 
 export default {
   name: 'ZdogCanvas',
+  props: {
+    selection: String,
+  },
   mounted() {
     let illo = new Zdog.Illustration({
       element: '.zdog-canvas',
@@ -40,6 +43,9 @@ export default {
       anchor: Zdog.Anchor,
       angle: 0, //135
       count: 0,
+      POSITIONS: [0, 120, 240],
+      STEPS_PER_DEGREE: 0.02,
+      ANIMATION_FREQUENCY: 1,
       // pillars: [],
       angularOffset: [],
     }
@@ -54,16 +60,11 @@ export default {
       this.calculateAngularOffset()
       this.canvas.updateRenderGraph()
       
-      const STEPS_PER_DEGREE = 0.02
-      const STEPS_PER_ROTATION = 360
-      const ANIMATION_FREQUENCY = 1
-
-      if (this.count % ANIMATION_FREQUENCY == 0) {
-        this.angle += STEPS_PER_DEGREE * ANIMATION_FREQUENCY
+      if (this.count % this.ANIMATION_FREQUENCY == 0) {
+        this.rotate()
       }
       
-
-      if (this.angle >=  STEPS_PER_ROTATION) {
+      if (this.angle >= 360) {
         this.angle = 0
       }      
       if (this.anchor) {
@@ -127,19 +128,39 @@ export default {
       for (let i in [0,1,2]) {
         let x = Math.cos((this.angle * Zdog.TAU / 360) + (i * Zdog.TAU / 3)) * 200
         let z = Math.sin((this.angle * Zdog.TAU / 360) + (i * Zdog.TAU / 3)) * 200
-        this.angularOffset.push( {"x":x, "z":z} )
+        this.angularOffset.push( {"x": x, "z": z} )
       }
+    },
+    rotate: function() {
+      this.angle += this.STEPS_PER_DEGREE * this.ANIMATION_FREQUENCY
     }
   },
   watch: {
     angle: {
       handler(newValue, oldValue) {
-        // Need to investigate is handler is operational, and if not if this should be removed
-        if (newValue == 360)
-        console.log("THIS TRIGGERED")
-          newValue = 0
+        let angleDegrees = newValue * 360 / Zdog.TAU
+
+        if (angleDegrees > this.POSITIONS[0]) {
+          console
+        }
+
+        // Reset Loop
+        if (angleDegrees >= 360) {
+          console.log("Full Rotation")
+          this.angle -= Zdog.TAU
+        }
       },
       immediate: true
+    },
+    selection: {
+      handler(newValue) {
+        console.log("ZdogCanvas - watch method - selection =", newValue)
+        if (newValue != "")
+          this.isSpinning = false
+        else {
+          this.isSpinning = true
+        }
+      }
     }
   }
 }

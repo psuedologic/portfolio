@@ -78,6 +78,7 @@ export default {
   top: 1px;
   padding-top: 1px;
   cursor: pointer;
-  color: rgb(136, 166, 192);
+  color: rgba(96, 126, 152, 0.5);
 }
+
 </style>
