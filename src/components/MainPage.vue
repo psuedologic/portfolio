@@ -1,5 +1,6 @@
 <template>
-  <div class="mainPage">
+  <div class="mainPage"
+    @click="checkDeselect">
     <Header @clicked="onSelected"></Header>
     <!-- <Nav></Nav> -->
     <div>
@@ -36,6 +37,11 @@ export default {
   methods: {
     onSelected(value) {
       this.selectedTab = value
+    },
+    checkDeselect(value) {
+      if (value.target.className != "clickable") {
+        this.selectedTab = ""
+      }
     }
   }  
 }
