@@ -2,14 +2,14 @@
   <header class="header">
     <h2 id="name">Talon Gonyeau</h2>
     <h3 id="roles">
-      <span
-        v-on:click="$emit('clicked', 'Software')"
+      <span class="clickable"
+        @click.stop="$emit('clicked', 'Software')"
         >Software</span> | 
-      <span
-        v-on:click="$emit('clicked', 'Design')"
+      <span class="clickable"
+        @click.stop="$emit('clicked', 'Design')"
         >Design</span> | 
-      <span
-        v-on:click="$emit('clicked', 'Education')"
+      <span class="clickable"
+        @click.stop="$emit('clicked', 'Education')"
         >Education</span></h3>
   </header>
 </template>

@@ -39,15 +39,23 @@ export default {
   },
   data() {
     return {
+      // Canvas Draw Classes
       canvas: {},
       anchor: Zdog.Anchor,
-      angle: 0, //135
+      // Draw State
+      angle: 0,
       count: 0,
-      POSITIONS: [0, 120, 240],
-      STEPS_PER_DEGREE: 0.02,
-      ANIMATION_FREQUENCY: 1,
-      // pillars: [],
       angularOffset: [],
+      action: "Spinning",
+      // Drawing Constants
+      MAGNITUDE: 200,
+      POSITIONS: {
+        "Software": 225,
+        "Design": 105,
+        "Education": 345
+      },
+      STEPS_PER_DEGREE: Zdog.TAU / 360,
+      ANIMATION_FREQUENCY: 1,
     }
   },
   methods: {
@@ -60,15 +68,22 @@ export default {
       this.calculateAngularOffset()
       this.canvas.updateRenderGraph()
       
-      if (this.count % this.ANIMATION_FREQUENCY == 0) {
-        this.rotate()
-      }
-      
-      if (this.angle >= 360) {
-        this.angle = 0
-      }      
-      if (this.anchor) {
+      if (!this.anchor) return
+      if (this.action == "Spinning") {
+        if (this.count % this.ANIMATION_FREQUENCY == 0) {
+          // console.log("active")
+          this.rotate()
+        }
         this.anchor.rotate = {x: 0, y: -this.angle, z: 0}
+      }
+      let targetAngle = this.POSITIONS[this.selection]
+      console.log(targetAngle)
+
+      let angleDegrees = this.angle * 360 / Zdog.TAU
+      if (angleDegrees > targetAngle - 0.1 && 
+          angleDegrees < targetAngle + 0.1) {
+            console.log("HIT")
+        this.action = ""
       }
       // Turned off for performance
       // this.pillars.forEach((pillar) => {
@@ -123,11 +138,10 @@ export default {
       ))
     },
     calculateAngularOffset: function() {
-      const MAGNITUDE = 200
       this.angularOffset = []
       for (let i in [0,1,2]) {
-        let x = Math.cos((this.angle * Zdog.TAU / 360) + (i * Zdog.TAU / 3)) * 200
-        let z = Math.sin((this.angle * Zdog.TAU / 360) + (i * Zdog.TAU / 3)) * 200
+        let x = Math.cos((this.angle * Zdog.TAU / 360) + (i * Zdog.TAU / 3)) * this.MAGNITUDE
+        let z = Math.sin((this.angle * Zdog.TAU / 360) + (i * Zdog.TAU / 3)) * this.MAGNITUDE
         this.angularOffset.push( {"x": x, "z": z} )
       }
     },
@@ -139,10 +153,7 @@ export default {
     angle: {
       handler(newValue, oldValue) {
         let angleDegrees = newValue * 360 / Zdog.TAU
-
-        if (angleDegrees > this.POSITIONS[0]) {
-          console
-        }
+        // console.log("angle", angleDegrees)
 
         // Reset Loop
         if (angleDegrees >= 360) {
@@ -155,11 +166,12 @@ export default {
     selection: {
       handler(newValue) {
         console.log("ZdogCanvas - watch method - selection =", newValue)
-        if (newValue != "")
-          this.isSpinning = false
-        else {
-          this.isSpinning = true
+        if (newValue == "") {
+          this.action = "Spinning"
         }
+        // else {
+        //   this.action = newValue
+        // }
       }
     }
   }
