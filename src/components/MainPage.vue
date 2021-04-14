@@ -1,30 +1,49 @@
 <template>
-  <div class="mainPage">
-    <Header></Header>
-    <Nav></Nav>
+  <div class="mainPage"
+    @click="checkDeselect">
+    <Header @clicked="onSelected"></Header>
+    <!-- <Nav></Nav> -->
     <div>
-      <ZdogCanvas></ZdogCanvas>
+      <ZdogCanvas :selection="selectedTab"></ZdogCanvas>
     </div>
-    <h1>{{ msg }}</h1>
   </div>
 </template>
 
 <script>
 import ZdogCanvas from './ZdogCanvas.vue'
 import Header from './Header.vue'
-import Nav from './Nav.vue'
+// import Nav from './Nav.vue'
 
 export default {
   name: 'MainPage',
+  data () {
+    return {
+      selectedTab: ""
+    }
+  },
   props: {
     msg: String,
   },
   components: {
     ZdogCanvas,
-    Header,
-    Nav
+    Header
+    // Nav
   },
-  
+  // data() {
+  //   return {
+
+  //   }
+  // },
+  methods: {
+    onSelected(value) {
+      this.selectedTab = value
+    },
+    checkDeselect(value) {
+      if (value.target.className != "clickable") {
+        this.selectedTab = ""
+      }
+    }
+  }  
 }
 </script>
 <style>

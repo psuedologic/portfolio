@@ -1,6 +1,16 @@
 <template>
   <header class="header">
-    <h2 id="name">Talon Gonyeau - Software Engineer</h2>
+    <h2 id="name">Talon Gonyeau</h2>
+    <h3 id="roles">
+      <span class="clickable"
+        @click.stop="$emit('clicked', 'Software')"
+        >Software</span> | 
+      <span class="clickable"
+        @click.stop="$emit('clicked', 'Design')"
+        >Design</span> | 
+      <span class="clickable"
+        @click.stop="$emit('clicked', 'Education')"
+        >Education</span></h3>
   </header>
 </template>
 
@@ -9,6 +19,12 @@
 export default {
   name: 'Header',
   props: {
+    
+  },
+  data() {
+    return {
+      selectedTab: ""
+    }
   },
   components: {
 
@@ -20,6 +36,11 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
+@font-face {
+  font-family: 'HalloSans';
+  src: url('../assets/Hallo sans.otf') format("opentype");
+}
+
 .header {
     position: absolute;
     margin: 0;
@@ -27,20 +48,21 @@ export default {
     padding-left: 20px;
     width: 100%;
     background-color:rgb(23, 45, 68);
-    color: rgb(188, 203, 223);
-    font-weight: bold;
-    font-family: 'Roboto';
-    font-family: SourceSansPro-Black, Helvetica, Arial;
-    font-size: 12px;
+    color: rgb(212, 226, 245);
+    font-family: HalloSans, 'Roboto', SourceSansPro-Black, Helvetica, Arial;
+    font-size: 18px;
     letter-spacing: 2px;
-    line-height: 30px;
+    line-height: 0.95em;
+    text-align: center;
     text-transform: none;
-    text-align: left;
-    /* color: #3A4046; */
+    cursor: default;
 }
 .header h2 {
-    text-align: left;
-    font-size: 2.5em;
+  font-size: 24px;
+}
+.header h3 {
+    word-spacing: 8px;
+    font-weight: 70;
 }
 .headerSubtitle {
     margin-left: 40px;
@@ -51,4 +73,12 @@ export default {
     font-size: 1.5em;
     cursor: default;
 }
+.header #roles span:hover {
+  position: relative; 
+  top: 1px;
+  padding-top: 1px;
+  cursor: pointer;
+  color: rgba(96, 126, 152, 0.5);
+}
+
 </style>

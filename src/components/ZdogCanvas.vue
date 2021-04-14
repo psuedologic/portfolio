@@ -13,6 +13,9 @@ import Icon from "../canvas/icon.js"
 
 export default {
   name: 'ZdogCanvas',
+  props: {
+    selection: String,
+  },
   mounted() {
     let illo = new Zdog.Illustration({
       element: '.zdog-canvas',
@@ -36,12 +39,23 @@ export default {
   },
   data() {
     return {
+      // Canvas Draw Classes
       canvas: {},
       anchor: Zdog.Anchor,
+      // Draw State
       angle: 0,
       count: 0,
-      // pillars: [],
       angularOffset: [],
+      action: "Spinning",
+      // Drawing Constants
+      MAGNITUDE: 200,
+      POSITIONS: {
+        "Software": 225,
+        "Design": 105,
+        "Education": 345
+      },
+      STEPS_PER_DEGREE: Zdog.TAU / 360,
+      ANIMATION_FREQUENCY: 1,
     }
   },
   methods: {
@@ -54,20 +68,22 @@ export default {
       this.calculateAngularOffset()
       this.canvas.updateRenderGraph()
       
-      const STEPS_PER_DEGREE = 0.02
-      const STEPS_PER_ROTATION = 360
-      const ANIMATION_FREQUENCY = 1
-
-      if (this.count % ANIMATION_FREQUENCY == 0) {
-        this.angle += STEPS_PER_DEGREE * ANIMATION_FREQUENCY
-      }
-      
-
-      if (this.angle >=  STEPS_PER_ROTATION) {
-        this.angle = 0
-      }      
-      if (this.anchor) {
+      if (!this.anchor) return
+      if (this.action == "Spinning") {
+        if (this.count % this.ANIMATION_FREQUENCY == 0) {
+          // console.log("active")
+          this.rotate()
+        }
         this.anchor.rotate = {x: 0, y: -this.angle, z: 0}
+      }
+      let targetAngle = this.POSITIONS[this.selection]
+      console.log(targetAngle)
+
+      let angleDegrees = this.angle * 360 / Zdog.TAU
+      if (angleDegrees > targetAngle - 0.1 && 
+          angleDegrees < targetAngle + 0.1) {
+            console.log("HIT")
+        this.action = ""
       }
       // Turned off for performance
       // this.pillars.forEach((pillar) => {
@@ -122,24 +138,41 @@ export default {
       ))
     },
     calculateAngularOffset: function() {
-      const MAGNITUDE = 200
       this.angularOffset = []
       for (let i in [0,1,2]) {
-        let x = Math.cos((this.angle * Zdog.TAU / 360) + (i * Zdog.TAU / 3)) * 200
-        let z = Math.sin((this.angle * Zdog.TAU / 360) + (i * Zdog.TAU / 3)) * 200
-        this.angularOffset.push( {"x":x, "z":z} )
+        let x = Math.cos((this.angle * Zdog.TAU / 360) + (i * Zdog.TAU / 3)) * this.MAGNITUDE
+        let z = Math.sin((this.angle * Zdog.TAU / 360) + (i * Zdog.TAU / 3)) * this.MAGNITUDE
+        this.angularOffset.push( {"x": x, "z": z} )
       }
+    },
+    rotate: function() {
+      this.angle += this.STEPS_PER_DEGREE * this.ANIMATION_FREQUENCY
     }
   },
   watch: {
     angle: {
       handler(newValue, oldValue) {
-        // Need to investigate is handler is operational, and if not if this should be removed
-        if (newValue == 360)
-        console.log("THIS TRIGGERED")
-          newValue = 0
+        let angleDegrees = newValue * 360 / Zdog.TAU
+        // console.log("angle", angleDegrees)
+
+        // Reset Loop
+        if (angleDegrees >= 360) {
+          console.log("Full Rotation")
+          this.angle -= Zdog.TAU
+        }
       },
       immediate: true
+    },
+    selection: {
+      handler(newValue) {
+        console.log("ZdogCanvas - watch method - selection =", newValue)
+        if (newValue == "") {
+          this.action = "Spinning"
+        }
+        // else {
+        //   this.action = newValue
+        // }
+      }
     }
   }
 }
@@ -152,8 +185,7 @@ export default {
   }
   .zdog-canvas {
     background-size: contain;
-    margin-top: 80px;
-    margin-left: 280px;
+    margin-top: 100px;
     /* border: 1px solid black; // For debug*/
   }
   .pillar {
@@ -161,7 +193,7 @@ export default {
     stroke-opacity: 0;
   }
   .pillar:hover {
-    fill: rgb(176, 196, 222);
+    fill: rgb(136, 166, 192);
   }
 
 </style>
