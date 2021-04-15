@@ -19,8 +19,7 @@ export default {
   mounted() {
     let illo = new Zdog.Illustration({
       element: '.zdog-canvas',
-      rotate: { x: -Zdog.TAU/8, y: -Zdog.TAU/8 },
-      dragRotate: true,
+      rotate: { x: -Zdog.TAU/8, y: -Zdog.TAU/8 }
     })
     this.canvas = illo
     this.anchor = new Zdog.Anchor({ addTo: illo })
@@ -46,7 +45,7 @@ export default {
       angle: 0,
       count: 0,
       angularOffset: [],
-      action: "Spinning",
+      action: "IdleSpin",
       // Drawing Constants
       MAGNITUDE: 200,
       POSITIONS: {
@@ -55,7 +54,9 @@ export default {
         "Education": 345
       },
       STEPS_PER_DEGREE: Zdog.TAU / 360,
-      ANIMATION_FREQUENCY: 1,
+      //ANIMATION_FREQUENCY: 1,
+      IDLE_SPEED: 1,
+      TARGETED_SPEED: 3
     }
   },
   methods: {
@@ -66,25 +67,40 @@ export default {
     animate: function() {
       this.count++
       this.calculateAngularOffset()
-      this.canvas.updateRenderGraph()
       
       if (!this.anchor) return
-      if (this.action == "Spinning") {
-        if (this.count % this.ANIMATION_FREQUENCY == 0) {
-          // console.log("active")
-          this.rotate()
-        }
-        this.anchor.rotate = {x: 0, y: -this.angle, z: 0}
-      }
-      let targetAngle = this.POSITIONS[this.selection]
-      console.log(targetAngle)
 
-      let angleDegrees = this.angle * 360 / Zdog.TAU
-      if (angleDegrees > targetAngle - 0.1 && 
-          angleDegrees < targetAngle + 0.1) {
-            console.log("HIT")
-        this.action = ""
+      // if (this.count % this.ANIMATION_FREQUENCY == 0) {
+      if (this.action != "Stopped") {
+        if (this.action == "IdleSpin") {
+          this.rotate(this.IDLE_SPEED)
+        } else {
+          let targetAngle = this.POSITIONS[this.selection]
+          let currentAngle = this.angle * 360 / Zdog.TAU
+          let turningPoint = targetAngle - 180
+
+          // If the pillar is aligned, stop movement
+          if (currentAngle > targetAngle - 0.1 &&
+              currentAngle < targetAngle + 0.1) {
+            this.action = "Stopped"
+          }
+          else  {
+           // If the pillar is close, make it rotate to the right spot
+            if (targetAngle - this.TARGETED_SPEED <= currentAngle && 
+                currentAngle <= targetAngle + this.TARGETED_SPEED) {
+              this.rotate(targetAngle - currentAngle)
+            }
+            // Otherwise spin in the direction that most quickly reaches target
+            else if (targetAngle > currentAngle && currentAngle > turningPoint ||
+              currentAngle > turningPoint && currentAngle-180 > targetAngle) {
+              this.rotate(this.TARGETED_SPEED)
+            } else {
+              this.rotate(-this.TARGETED_SPEED)
+            }
+          }
+        }
       }
+
       // Turned off for performance
       // this.pillars.forEach((pillar) => {
       //   pillar.rotate({x: 0, y: -this.angle / STEPS_PER_ROTATION, z: 0})
@@ -145,8 +161,9 @@ export default {
         this.angularOffset.push( {"x": x, "z": z} )
       }
     },
-    rotate: function() {
-      this.angle += this.STEPS_PER_DEGREE * this.ANIMATION_FREQUENCY
+    rotate: function(direction) {
+      this.angle += this.STEPS_PER_DEGREE * direction // * this.ANIMATION_FREQUENCY
+      this.anchor.rotate = {x: 0, y: -this.angle, z: 0}
     }
   },
   watch: {
@@ -157,21 +174,20 @@ export default {
 
         // Reset Loop
         if (angleDegrees >= 360) {
-          console.log("Full Rotation")
           this.angle -= Zdog.TAU
+        } else if (angleDegrees < 0) {
+          this.angle += Zdog.TAU
         }
       },
       immediate: true
     },
     selection: {
       handler(newValue) {
-        console.log("ZdogCanvas - watch method - selection =", newValue)
         if (newValue == "") {
-          this.action = "Spinning"
+          this.action = "IdleSpin"
+        } else {
+          this.action = "TargetedSpin"
         }
-        // else {
-        //   this.action = newValue
-        // }
       }
     }
   }
