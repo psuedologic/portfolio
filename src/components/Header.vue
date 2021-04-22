@@ -80,13 +80,13 @@ export default {
   cursor: pointer;
 }
 #softwareTab:hover {
-  color: #3D8C72;
+  color: #8812fc;
 }
 #designTab:hover {
-  color: #62B14D;
+  color: #fcd32b;
 }
 #educationTab:hover {
-  color: #3F6A86;
+  color: #d40047;
 }
 
 </style>
