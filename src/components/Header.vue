@@ -2,13 +2,13 @@
   <header class="header">
     <h2 id="name">Talon Gonyeau</h2>
     <h3 id="roles">
-      <span class="clickable"
+      <span id="softwareTab" class="clickable"
         @click.stop="$emit('clicked', 'Software')"
         >Software</span> | 
-      <span class="clickable"
+      <span id="designTab" class="clickable"
         @click.stop="$emit('clicked', 'Design')"
         >Design</span> | 
-      <span class="clickable"
+      <span id="educationTab" class="clickable"
         @click.stop="$emit('clicked', 'Education')"
         >Education</span></h3>
   </header>
@@ -78,7 +78,15 @@ export default {
   top: 1px;
   padding-top: 1px;
   cursor: pointer;
-  color: rgba(96, 126, 152, 0.5);
+}
+#softwareTab:hover {
+  color: #3D8C72;
+}
+#designTab:hover {
+  color: #62B14D;
+}
+#educationTab:hover {
+  color: #3F6A86;
 }
 
 </style>
