@@ -46,6 +46,7 @@ export default {
       count: 0,
       angularOffset: [],
       action: "IdleSpin",
+      velocity: 1,
       // Drawing Constants
       MAGNITUDE: 200,
       POSITIONS: {
@@ -56,7 +57,8 @@ export default {
       STEPS_PER_DEGREE: Zdog.TAU / 360,
       //ANIMATION_FREQUENCY: 1,
       IDLE_SPEED: 1,
-      TARGETED_SPEED: 3
+      TARGET_VELOCITY: 8,
+      TARGETED_ACCELERATION: 0.5,
     }
   },
   methods: {
@@ -86,16 +88,21 @@ export default {
           }
           else  {
            // If the pillar is close, make it rotate to the right spot
-            if (targetAngle - this.TARGETED_SPEED <= currentAngle && 
-                currentAngle <= targetAngle + this.TARGETED_SPEED) {
+            if (targetAngle - this.TARGET_VELOCITY <= currentAngle && 
+                currentAngle <= targetAngle + this.TARGET_VELOCITY) {
               this.rotate(targetAngle - currentAngle)
+              this.velocity = 0
             }
             // Otherwise spin in the direction that most quickly reaches target
             else if (targetAngle > currentAngle && currentAngle > turningPoint ||
               currentAngle > turningPoint && currentAngle-180 > targetAngle) {
-              this.rotate(this.TARGETED_SPEED)
+              let targetVelocity = this.velocity + this.TARGETED_ACCELERATION
+              this.velocity = Math.min(targetVelocity, this.TARGET_VELOCITY)
+              this.rotate(this.velocity)
             } else {
-              this.rotate(-this.TARGETED_SPEED)
+              let targetVelocity = this.velocity - this.TARGETED_ACCELERATION
+              this.velocity = Math.max(targetVelocity, -this.TARGET_VELOCITY)
+              this.rotate(this.velocity)
             }
           }
         }
