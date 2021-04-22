@@ -121,12 +121,6 @@ export default {
       let i = 0
 
       this.colors = [{
-          color: '#0D5C42',
-          leftFace: '#217358',
-          rightFace: '#00412C',
-          topFace: '#3D8C72',
-          bottomFace: '#00271A'},
-          {
           color: '#113C58',
           leftFace: '#24516F',
           rightFace: '#04273F',
@@ -137,7 +131,14 @@ export default {
           leftFace: '#3F912A',
           rightFace: '#12652B',
           topFace: '#62B14D',
-          bottomFace: '#0A3100'}]
+          bottomFace: '#0A3100'},
+          {
+          color: '#0D5C42',
+          leftFace: '#217358',
+          rightFace: '#00412C',
+          topFace: '#3D8C72',
+          bottomFace: '#00271A'
+      },]
 
       while (i < quantity) {
         let pillar = new Pillar(this.anchor, this.angularOffset[i], 1.0)

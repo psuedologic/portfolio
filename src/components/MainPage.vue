@@ -50,4 +50,7 @@ export default {
   body, #app, .zdog-canvas {
     background-color: rgb(130, 157, 192);
   }
+  body {
+    overflow-x: hidden;
+  }
 </style>

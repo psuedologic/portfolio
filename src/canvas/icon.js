@@ -13,10 +13,10 @@ const DEFAULT_STROKE = 3
 const COLORS = {red: "#C25",
                 white: "#FFF",
                 blue: "#1414D5",
-                yellow: "#faf019",
+                yellow: "#fcd32b",
                 green: "#14D218",
-                book: "#215B8F",
-                curlyBraces: "#07243a"} //rgb("#051b2c")
+                book: "#8a002e",
+                curlyBraces: "#380070"}
 
 let x=0
 let y=0
