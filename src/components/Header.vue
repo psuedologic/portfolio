@@ -1,17 +1,19 @@
 <template>
   <header class="header">
     <Nav></Nav>
-    <h2 id="name">Talon Gonyeau</h2>
-    <h3 id="roles">
-      <span id="softwareTab" class="clickable"
-        @click.stop="$emit('clicked', 'Software')"
-        >Software</span> | 
-      <span id="designTab" class="clickable"
-        @click.stop="$emit('clicked', 'Design')"
-        >Design</span> | 
-      <span id="educationTab" class="clickable"
-        @click.stop="$emit('clicked', 'Education')"
-        >Education</span></h3>
+    <div id="headerMain">
+      <h2 id="name">Talon Gonyeau</h2>
+      <h3 id="roles">
+        <span id="softwareTab" class="clickable"
+          @click.stop="$emit('clicked', 'Software')"
+          >Software</span> | 
+        <span id="designTab" class="clickable"
+          @click.stop="$emit('clicked', 'Design')"
+          >Design</span> | 
+        <span id="educationTab" class="clickable"
+          @click.stop="$emit('clicked', 'Education')"
+          >Education</span></h3>
+    </div>
   </header>
 </template>
 
