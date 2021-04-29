@@ -1,20 +1,24 @@
 <template>
   <header class="header">
-    <h2 id="name">Talon Gonyeau</h2>
-    <h3 id="roles">
-      <span id="softwareTab" class="clickable"
-        @click.stop="$emit('clicked', 'Software')"
-        >Software</span> | 
-      <span id="designTab" class="clickable"
-        @click.stop="$emit('clicked', 'Design')"
-        >Design</span> | 
-      <span id="educationTab" class="clickable"
-        @click.stop="$emit('clicked', 'Education')"
-        >Education</span></h3>
+    <Nav></Nav>
+    <div id="headerMain">
+      <h2 id="name">Talon Gonyeau</h2>
+      <h3 id="roles">
+        <span id="softwareTab" class="clickable"
+          @click.stop="$emit('clicked', 'Software')"
+          >Software</span> | 
+        <span id="designTab" class="clickable"
+          @click.stop="$emit('clicked', 'Design')"
+          >Design</span> | 
+        <span id="educationTab" class="clickable"
+          @click.stop="$emit('clicked', 'Education')"
+          >Education</span></h3>
+    </div>
   </header>
 </template>
 
 <script>
+import Nav from './Nav.vue'
 
 export default {
   name: 'Header',
@@ -27,7 +31,7 @@ export default {
     }
   },
   components: {
-
+    Nav
   },
   
 }
@@ -40,12 +44,13 @@ export default {
   font-family: 'HalloSans';
   src: url('../assets/Hallo sans.otf') format("opentype");
 }
-
+#headerMain {
+  margin-right: 30%;
+}
 .header {
     position: absolute;
     margin: 0;
     padding: 0;
-    padding-left: 20px;
     width: 100%;
     background-color:rgb(23, 45, 68);
     color: rgb(212, 226, 245);

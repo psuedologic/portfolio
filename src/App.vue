@@ -17,6 +17,7 @@ export default {
 </script>
 
 <style>
+@import "../node_modules/material-icons/iconfont/material-icons.css";
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
