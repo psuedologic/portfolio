@@ -1,14 +1,21 @@
 <template>
-  <aside class="nav">
-    <h3>Experience</h3>
-    <p>
-    <!-- <span class="navSubOpen">/* </span> -->
-        <span id="navSoftware" class="navSubtitle">Software </span>
-        <span id="navEngineering" class="navSubtitle">Engineering </span>
-        <span id="navAcademia" class="navSubtitle">Education </span>
-        <!-- <span class="navSubClose">*/</span> -->
-    </p>
-  </aside>
+  <div class="nav">
+    <span class="outer-circle">
+      <span class="inner-circle">
+        <span class="material-icons">account_circle</span>
+      </span>
+    </span>
+    <span class="outer-circle">
+      <span class="inner-circle">
+        <span class="material-icons">email</span>
+      </span>
+    </span>
+    <span class="outer-circle">
+      <span class="inner-circle">
+        <span class="material-icons">code</span>
+      </span>
+    </span>
+  </div>
 </template>
 
 <script>
@@ -28,33 +35,31 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 .nav {
-    position: absolute;
-    margin: 2em;
-    color:rgb(23, 45, 68);
-    font-weight: bold;
-    font-family: 'Roboto';
-    /* font-family: SourceSansPro-Black, Helvetica, Arial; */
-    font-size: 30px;
-    font-style: normal;
-    font-weight: normal;
-    letter-spacing: 2px;
-    line-height: 70px;
-    text-transform: none;
-    margin-top: calc(20px + 20%);
-    text-align: left;
-    /* color: #3A4046; */
+  padding-top: 12px;
+  width: 30%;
+  float: left;
 }
-.nav h2 {
-    text-align: left;
-    font-size: 2.5em;
+.nav > span:hover {
+  cursor: pointer;
 }
-.navSubtitle {
-    margin-left: 40px;
+.outer-circle, .inner-circle {
+  border-radius: 50%;
+  display: inline-block;
 }
-.navSubtitle, .navSubOpen, .navSubClose {
-    display: flex;
-    align-content: flex-start;
-    font-size: 1.5em;
-    cursor: default;
+.outer-circle {
+  background-color: rgb(212, 226, 245);
+  height: 50px;
+  width: 50px;
+  margin: 12px;
+}
+.inner-circle {
+  background-color:rgb(23, 45, 68);
+  height: 40px;
+  width: 40px;
+  margin-top: 5px;
+}
+.inner-circle > span {
+  display: inline-block;
+  margin-top: 8px;
 }
 </style>
