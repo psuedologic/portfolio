@@ -1,20 +1,26 @@
 <template>
   <div class="nav">
-    <span class="outer-circle">
-      <span class="inner-circle">
-        <span class="material-icons">account_circle</span>
+    <a>
+      <span class="outer-circle">
+        <span class="inner-circle">
+          <span class="material-icons">account_circle</span>
+        </span>
       </span>
-    </span>
-    <span class="outer-circle">
-      <span class="inner-circle">
-        <span class="material-icons">email</span>
+    </a>
+    <a>
+      <span class="outer-circle">
+        <span class="inner-circle">
+          <span class="material-icons">email</span>
+        </span>
       </span>
-    </span>
-    <span class="outer-circle">
-      <span class="inner-circle">
-        <span class="material-icons">code</span>
+    </a>
+    <a href="https://github.com/psuedologic/portfolio"  target="_blank">
+      <span class="outer-circle">
+        <span class="inner-circle">
+          <span class="material-icons">code</span>
+        </span>
       </span>
-    </span>
+    </a>
   </div>
 </template>
 
@@ -41,6 +47,9 @@ export default {
 }
 .nav > span:hover {
   cursor: pointer;
+}
+a {
+  color: inherit;
 }
 .outer-circle, .inner-circle {
   border-radius: 50%;

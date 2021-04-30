@@ -44,10 +44,28 @@ export default {
 }
 </script>
 <style>
-  body, #app, .zdog-canvas {
-    background-color: rgb(130, 157, 192);
+html {
+    --scrollbarBG: transparent;
+    --thumbBG: #90A4AE;
   }
   body {
     overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
   }
+  body, #app, .zdog-canvas {
+    background-color: rgb(130, 157, 192);
+  }
+  /* #app::-webkit-scrollbar {
+    width: 11px;
+
+  }
+  #app::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+  }
+  #app::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG) ;
+    border-radius: 6px;
+    border: 1px solid var(--scrollbarBG);
+  } */
 </style>
