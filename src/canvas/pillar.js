@@ -1,6 +1,6 @@
 import Zdog from "zdog"
 
-const WIDTH = 130
+const WIDTH = 120
 const HEIGHT = 400
 
 class Pillar {

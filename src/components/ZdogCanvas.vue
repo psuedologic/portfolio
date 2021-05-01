@@ -1,6 +1,6 @@
 <template>
 <div class="canvas-container">
-  <svg class="zdog-canvas" width="600" height="1000"></svg>
+  <svg class="zdog-canvas" width="600" height="1080"></svg>
 </div>
 </template>
 
@@ -63,7 +63,7 @@ export default {
       TARGET_VELOCITY: 5,
       TARGETED_ACCELERATION: 0.5,
       MAX_SCALE: 2.5,
-      Y_OFFSET: -150,
+      Y_OFFSET: -185,
     }
   },
   methods: {
