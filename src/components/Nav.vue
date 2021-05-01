@@ -1,20 +1,26 @@
 <template>
   <div class="nav">
-    <span class="outer-circle">
-      <span class="inner-circle">
-        <span class="material-icons">account_circle</span>
+    <a>
+      <span class="outer-circle">
+        <span class="inner-circle">
+          <span class="material-icons">account_circle</span>
+        </span>
       </span>
-    </span>
-    <span class="outer-circle">
-      <span class="inner-circle">
-        <span class="material-icons">email</span>
+    </a>
+    <a>
+      <span class="outer-circle">
+        <span class="inner-circle">
+          <span class="material-icons">email</span>
+        </span>
       </span>
-    </span>
-    <span class="outer-circle">
-      <span class="inner-circle">
-        <span class="material-icons">code</span>
+    </a>
+    <a href="https://github.com/psuedologic/portfolio"  target="_blank">
+      <span class="outer-circle">
+        <span class="inner-circle">
+          <span class="material-icons">code</span>
+        </span>
       </span>
-    </span>
+    </a>
   </div>
 </template>
 
@@ -42,21 +48,24 @@ export default {
 .nav > span:hover {
   cursor: pointer;
 }
+a {
+  color: inherit;
+}
 .outer-circle, .inner-circle {
   border-radius: 50%;
   display: inline-block;
 }
 .outer-circle {
   background-color: rgb(212, 226, 245);
-  height: 50px;
-  width: 50px;
-  margin: 12px;
+  height: 48px;
+  width: 48px;
+  margin: 14px;
 }
 .inner-circle {
   background-color:rgb(23, 45, 68);
   height: 40px;
   width: 40px;
-  margin-top: 5px;
+  margin-top: 4px;
 }
 .inner-circle > span {
   display: inline-block;

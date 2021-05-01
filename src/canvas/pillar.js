@@ -1,15 +1,15 @@
 import Zdog from "zdog"
 
-const WIDTH = 130
+const WIDTH = 120
 const HEIGHT = 400
 
 class Pillar {
-    constructor(anchor, position, scale) {
+    constructor(anchor, position) {
         this.shape
         this.anchor = anchor
         this.position = position
         this.angle = {x: 0, y: 0, z: 0}
-        this.scale = scale
+        this.scale = {x: 1, y: 1, z: 1}
         this.colors = {
             color: '#C25',
             leftFace: '#EA0',
@@ -52,6 +52,16 @@ class Pillar {
         { x: this.angle.x + vector.x,
             y: this.angle.y + vector.y,
             z: this.angle.z + vector.z}
+    }
+    addScale(scaler) {
+        this.scale.x = this.scale.x + scaler
+        this.scale.y = this.scale.y + scaler
+        this.scale.z = this.scale.z + scaler
+        this.shape.scale = this.scale
+    }
+    resetScale() {
+        this.scale = {x: 1, y: 1, z: 1}
+        this.shape.scale = this.shape
     }
 }
 

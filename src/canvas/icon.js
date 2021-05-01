@@ -6,7 +6,7 @@ const WIDTH_CURLY_BRACE = 18
 const HEIGHT_CURLY_BRACE = 28
 const WIDTH_TRIANGLE = 50
 const HEIGHT_TRIANGLE = 40
-const DEFAULT_HEIGHT = 150
+const DEFAULT_HEIGHT = 360
 
 const DEFAULT_STROKE = 3
 
@@ -118,7 +118,7 @@ const ICON_TEMPLATE = {
     triangle: {
         zdogClass: "Shape",
         pieces: [
-            {color: "yellow", rotation: {z: Zdog.TAU/2, y: -Zdog.TAU/4}, translate: {x, y: -25, z}, 
+            {color: "yellow", rotation: {z: Zdog.TAU/2, y: -3*Zdog.TAU/4}, translate: {x, y: -25, z}, 
              path: [
                 { x: -WIDTH_TRIANGLE, y: -HEIGHT_TRIANGLE },
                 { x: WIDTH_TRIANGLE, y: -HEIGHT_TRIANGLE },
@@ -127,9 +127,11 @@ const ICON_TEMPLATE = {
               ],
             pattern: [
                 { scale: 1}, 
+                { scale: 0.7,
+                    translate: {x, y, z: WIDTH_TRIANGLE/12}},
                 { scale: 0.8},
                 { scale: 0.65,
-                    translate: {x, y, z: -WIDTH_TRIANGLE/4}},
+                    translate: {x, y, z: WIDTH_TRIANGLE/8}},
                 ]
             }
         ]
@@ -237,6 +239,14 @@ class Icon {
         { x: this.angle.x + vector.x,
             y: this.angle.y + vector.y,
             z: this.angle.z + vector.z}
+    }
+    setScale(scaler) {
+        this.scale = {x: scaler, y: scaler, z: scaler}
+        this.shape.scale = this.scale
+    }
+    resetScale() {
+        this.scale = {x: 1, y: 1, z: 1}
+        this.shape.scale = this.shape
     }
 }
 
