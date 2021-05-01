@@ -57,15 +57,15 @@ a {
 }
 .outer-circle {
   background-color: rgb(212, 226, 245);
-  height: 50px;
-  width: 50px;
-  margin: 12px;
+  height: 48px;
+  width: 48px;
+  margin: 14px;
 }
 .inner-circle {
   background-color:rgb(23, 45, 68);
   height: 40px;
   width: 40px;
-  margin-top: 5px;
+  margin-top: 4px;
 }
 .inner-circle > span {
   display: inline-block;

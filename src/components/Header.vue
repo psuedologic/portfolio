@@ -67,7 +67,7 @@ export default {
 }
 .header h3 {
     word-spacing: 8px;
-    font-weight: 70;
+    font-weight: 75;
 }
 .headerSubtitle {
     margin-left: 40px;
