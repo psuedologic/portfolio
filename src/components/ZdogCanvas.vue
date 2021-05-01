@@ -83,7 +83,12 @@ export default {
           this.currentAcceleration += .01
           this.pillars[this.selection].addScale(this.currentAcceleration)
           if (this.pillars[this.selection].scale.x >= this.MAX_SCALE) {
-            this.action = "Content"
+            this.action = "Display"
+            this.icons[this.selection].setScale(2)
+            if (this.selection == "Software") {
+              this.icons[this.selection].shape.children.forEach(
+                shape => shape.stroke = 24)
+            }
           }
       }
       else if (this.action == "IdleSpin") {
@@ -203,12 +208,15 @@ export default {
     selection: {
       handler(newValue, oldValue) {
         if (newValue == "") {
-          if (oldValue)
-            this.pillars[oldValue].resetScale()
           this.action = "IdleSpin"
         } else {
           this.action = "TargetedSpin"
-          Object.values(this.pillars).forEach(pillar => pillar.resetScale())
+        }
+        if (oldValue) {
+            this.pillars[oldValue].resetScale()
+            this.icons[oldValue].resetScale()
+            this.icons[oldValue].shape.children.forEach(
+              shape => shape.stroke = 12)
         }
       }
     }
