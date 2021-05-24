@@ -244,8 +244,12 @@ class Icon {
         this.scale = {x: scaler, y: scaler, z: scaler}
         this.shape.scale = this.scale
     }
+    addScale(scaler) {
+        this.scale += scaler
+        this.shape.scale = Math.min(this.scale, 2)
+    }
     resetScale() {
-        this.scale = {x: 1, y: 1, z: 1}
+        this.scale = 1
         this.shape.scale = this.shape
     }
 }
