@@ -41,6 +41,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 .nav {
+  z-index: 100;
   padding-top: 12px;
   width: 30%;
   float: left;
