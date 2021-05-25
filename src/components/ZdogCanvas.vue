@@ -1,6 +1,25 @@
 <template>
 <div class="canvas-container">
-  <svg class="zdog-canvas" width="600" height="1080"></svg>
+  <div id="inner-container">
+    <svg class="zdog-canvas" width="600" height="1080"></svg>
+    <div id="content-view-container"
+       :class="{contentActive: selection}">
+      <div id="content-view">
+        <p
+        :class="{contentActive: selection=='Software'}">
+          My experience in Software
+        </p>
+        <p
+        :class="{contentActive: selection=='Design'}">
+          My experience in Design
+        </p>
+        <p
+        :class="{contentActive: selection=='Education'}">
+          My experience in Education
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 </template>
 
@@ -82,9 +101,13 @@ export default {
         if (this.selection)
           this.currentAcceleration += .01
           this.pillars[this.selection].addScale(this.currentAcceleration)
-          this.icons[this.selection].addScale(this.currentAcceleration)
           if (this.pillars[this.selection].scale.x >= this.MAX_SCALE) {
             this.action = "Display"
+            this.icons[this.selection].setScale(2)
+            if (this.selection == "Software") {
+              this.icons[this.selection].shape.children.forEach(
+                shape => shape.stroke = 24)
+            }
           }
       }
       else if (this.action == "IdleSpin") {
@@ -119,14 +142,6 @@ export default {
             this.rotate(this.velocity)
           }
         }
-      }
-      else if (this.action == "Display") {
-        this.icons[this.selection].setScale(2)
-        if (this.selection == "Software") {
-          this.icons[this.selection].shape.children.forEach(
-            shape => shape.stroke = 24)
-        }
-        // this.action == "Wait"
       }
 
       // Turned off for performance
@@ -233,9 +248,16 @@ export default {
   .canvas-container {
     width: 100%;
   }
+  #inner-container {
+    position: relative;
+    top: 100px;
+    width: 600px;
+    height: 1080px;
+    margin: 0 auto;
+  }
+
   .zdog-canvas {
     background-size: contain;
-    margin-top: 100px;
     /* border: 1px solid black; // For debug*/
   }
   .pillar {
@@ -245,5 +267,26 @@ export default {
   .pillar:hover {
     fill: rgb(136, 166, 192);
   }
+  #content-view-container {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 400px;
+    left: 0;
+    z-index: 10;
+  }
+  #content-view p {
+    display: none;
+  }
+ 
+  #content-view {
+    background: pink;
+    width: 350px;
+    margin: 0 auto;
+  }
+  #content-view-container.contentActive, #content-view p.contentActive {
+    display: block;
+  }
+  
 
 </style>
