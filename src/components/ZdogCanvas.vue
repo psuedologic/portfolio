@@ -101,6 +101,7 @@ export default {
         if (this.selection)
           this.currentAcceleration += .01
           this.pillars[this.selection].addScale(this.currentAcceleration)
+          this.icons[this.selection].addScale(this.currentAcceleration)
           if (this.pillars[this.selection].scale.x >= this.MAX_SCALE) {
             this.action = "Display"
             this.icons[this.selection].setScale(2)
