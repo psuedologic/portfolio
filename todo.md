@@ -8,15 +8,6 @@ Todo
 5) Ensure minimum functionality for mobile
 
 # Features
-[ ] Create and Add Pillar Icons - I found limitations in svg and canvas ability to display text, which was the original idea. There are third parties that exist [zfont](https://jaames.github.io/zfont/). There are workaround such as (https://github.com/metafizzy/zdog/issues/16) [paper.JS to import svg] or even using pixels such as in this pen (https://codepen.io/eerk/pen/PvMqej). 
-
-    While it seems possible to render with text like my initial plan, I think the text wouldn't blend very well with the fluid animation. I think an attempt at creating an icon should be done either way. I am thinking the three symbols could be:
-        {} or 💻 - Software
-        📚 or 📕 - Academic
-        Compass or 📐 - Engineering
-    
-    Good links for inspiration: [Zdog-demos](https://codepen.io/collection/nZrQqe/?cursor=ZD0wJm89MCZwPTEmdj00)
-
 [ ] Feature: Enhance pillar draw - Need to support groups and groups transistions for closed book stack icon, as well as other functionality for the other icons, notably curves.
 
 [ ] Animation Pillar on Hover: play animation while hovering over icons/pillars. One thing that could work would be the pillar floating up. 
@@ -40,7 +31,6 @@ Todo
 # Issues
 [ ] Book Bindings don't rotate with pages/covers on StackedBookIcon - This issue is due to the binding existing in a different rotational plane which is offset from the rotation origin. After expirementing with rotating the binding in may different increments of 1/16 TAU, it is appearant that it would be very hard to line them up as I am doing it. What would work much simpler is to add the BookClosed icon as a group, and then make copies that I then offset up and down and rotate. This requires refactoring the templates use to generate the books be aware of groups and how to perform operations on them (Feature: Enhance pillar draw) 
     Update: I just removed the spine and the art looks a lot cleaner. They instead look more like manuscripts and this seems an acceptable compromise. I still want to refactor the books to just being copies instead of copy and pasted code for performance.
-[ ] Fix Engineering Triangle Icon - scaling of inner tiangles is relative to coordinate (0,0) which results in the inner triangle looking unnaturally close to the angeled edge. Should scale the inner triangle froms the weighted center of the triangle instead.
 
 # Other
 
@@ -54,3 +44,12 @@ Todo
 [X] Refactor draw code for icon templates to copy and transform instead of create new shapes from scratch.
 [X] Deploy dev code to server for demo's and sharing. (netlify)
 [X] Animation Pillar on Hover: Need to detect hover of pillar
+[X] Fix Engineering Triangle Icon - scaling of inner tiangles is relative to coordinate (0,0) which results in the inner triangle looking unnaturally close to the angeled edge. Should scale the inner triangle froms the weighted center of the triangle instead.
+[X] Create and Add Pillar Icons - I found limitations in svg and canvas ability to display text, which was the original idea. There are third parties that exist [zfont](https://jaames.github.io/zfont/). There are workaround such as (https://github.com/metafizzy/zdog/issues/16) [paper.JS to import svg] or even using pixels such as in this pen (https://codepen.io/eerk/pen/PvMqej). 
+
+    While it seems possible to render with text like my initial plan, I think the text wouldn't blend very well with the fluid animation. I think an attempt at creating an icon should be done either way. I am thinking the three symbols could be:
+        {} or 💻 - Software
+        📚 or 📕 - Academic
+        Compass or 📐 - Engineering
+    
+    Good links for inspiration: [Zdog-demos](https://codepen.io/collection/nZrQqe/?cursor=ZD0wJm89MCZwPTEmdj00)
