@@ -1,7 +1,13 @@
 <template>
   <div class="contactForm" id="contactFormContainer" 
     :class="{ hideForm: isHidden}">
-    <form id="contactForm" name="contact" method="POST" data-netlify="true">
+    <!-- 
+      If you modify <form>, update the public/index.html file and include a skeleton of the
+      form as per https://www.netlify.com/blog/2018/09/07/how-to-integrate-netlify-forms-in-a-vue-app/#stand-in-static-forms
+      due to netlify's dependency on the form being present statically.
+    --> 
+    <form id="contactForm" name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact" />
       <h2>
         Contact Me
       </h2>
@@ -15,7 +21,7 @@
         <label class="messageLabel">Message: <textarea name="message"></textarea></label>
       </p>
       <p>
-        <input id="submitButton" type="submit" value="Submit" />
+        <button id="submitButton" type="submit">Submit</button>
       </p>
     </form>
   </div>
@@ -51,7 +57,7 @@ export default {
   border-radius: 12px;
 }
 
-#contactForm input:not([type=submit]) {
+#contactForm input {
   width: 13em;
   border-radius: 6px;
 }
