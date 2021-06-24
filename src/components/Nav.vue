@@ -7,7 +7,7 @@
         </span>
       </span>
     </a>
-    <a>
+    <a href="" v-on:click.prevent="isFormHidden = !isFormHidden">
       <span class="outer-circle">
         <span class="inner-circle">
           <span class="material-icons">email</span>
@@ -21,19 +21,25 @@
         </span>
       </span>
     </a>
+    <ContactForm :isHidden="isFormHidden"></ContactForm>
   </div>
 </template>
 
 <script>
+import ContactForm from './ContactForm.vue'
 
 export default {
   name: 'Nav',
   props: {
   },
   components: {
-
+    ContactForm
   },
-  
+  data() {
+    return {
+      isFormHidden: true
+    }
+  }  
 }
 </script>
 
