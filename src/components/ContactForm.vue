@@ -40,7 +40,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 .hideForm {
-  opacity: 0;
+  visibility: hidden;
 }
 
 #contactFormContainer {
