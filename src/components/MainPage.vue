@@ -1,6 +1,7 @@
 <template>
   <div class="mainPage"
     @click="checkDeselect">
+    <Nav></Nav>
     <Header @clicked="onSelected"></Header>
     <div>
       <ZdogCanvas :selection="selectedTab"></ZdogCanvas>
@@ -11,6 +12,7 @@
 <script>
 import ZdogCanvas from './ZdogCanvas.vue'
 import Header from './Header.vue'
+import Nav from './Nav.vue'
 
 export default {
   name: 'MainPage',
@@ -24,13 +26,9 @@ export default {
   },
   components: {
     ZdogCanvas,
-    Header
+    Header,
+    Nav
   },
-  // data() {
-  //   return {
-
-  //   }
-  // },
   methods: {
     onSelected(value) {
       this.selectedTab = value

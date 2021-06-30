@@ -48,6 +48,8 @@ export default {
   z-index: 10;
   margin: 3em;
   width: 20em;
+  /* margin-top: 3em;
+  align-items: left; */
 }
 
 #contactForm {
@@ -60,6 +62,9 @@ export default {
 #contactForm input {
   width: 13em;
   border-radius: 6px;
+}
+#contactForm input, #contactForm textarea {
+  background-color: #e0faf2;
 }
 
 .messageLabel textarea {

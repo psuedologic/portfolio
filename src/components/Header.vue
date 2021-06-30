@@ -1,6 +1,5 @@
 <template>
   <header class="header">
-    <Nav></Nav>
     <div id="headerMain">
       <h2 id="name">Talon Gonyeau</h2>
       <h3 id="roles">
@@ -18,7 +17,6 @@
 </template>
 
 <script>
-import Nav from './Nav.vue'
 
 export default {
   name: 'Header',
@@ -31,7 +29,7 @@ export default {
     }
   },
   components: {
-    Nav
+
   },
   
 }
@@ -44,15 +42,12 @@ export default {
   font-family: 'HalloSans';
   src: url('../assets/Hallo sans.otf') format("opentype");
 }
-#headerMain {
-  margin-right: 30%;
-}
 .header {
     position: absolute;
     margin: 0;
     padding: 0;
     width: 100%;
-    background-color:rgb(23, 45, 68);
+    background-color: rgb(23, 45, 68);
     color: rgb(212, 226, 245);
     font-family: HalloSans, 'Roboto', SourceSansPro-Black, Helvetica, Arial;
     font-size: 18px;
@@ -68,9 +63,6 @@ export default {
 .header h3 {
     word-spacing: 8px;
     font-weight: 75;
-}
-.headerSubtitle {
-    margin-left: 40px;
 }
 .headerSubtitle, .headerSubOpen, .headerSubClose {
     display: flex;
