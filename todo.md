@@ -1,11 +1,14 @@
 Todo
 ---
 # Goals for 1.0 
-1) Pillar Animation for showing detailed / content view
+    1) Pillar animation - content should only appear when pillar is done animating
 2) Write and add CV content
-3) Add Contact Info 
-4) Finish header design to look good
-5) Ensure minimum functionality for mobile
+3) Resume Link
+4) Make Contact form into an overlay, dim the rest and make clicks outside close the form.
+5) Slowly spin icon when pillar is selected
+
+# More Goals 
+1) Make only the canvas interactive and allow manipulation of the pillars
 
 # Features
 [ ] Feature: Enhance pillar draw - Need to support groups and groups transistions for closed book stack icon, as well as other functionality for the other icons, notably curves.

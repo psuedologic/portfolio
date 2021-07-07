@@ -2,21 +2,23 @@
 <div class="canvas-container">
   <div id="inner-container">
     <svg class="zdog-canvas" width="600" height="1080"></svg>
-    <div id="content-view-container"
-       :class="{contentActive: selection}">
+    <div id="content-view-container">
       <div id="content-view">
-        <p
-        :class="{contentActive: selection=='Software'}">
-          My experience in Software
-        </p>
-        <p
-        :class="{contentActive: selection=='Design'}">
-          My experience in Design
-        </p>
-        <p
-        :class="{contentActive: selection=='Education'}">
-          My experience in Education
-        </p>
+        <div :class="{contentActive: selection=='Software'}">
+          <p>
+            My experience in Software
+          </p>
+        </div>
+        <div :class="{contentActive: selection=='Design'}">
+          <p>
+            My experience in Design
+          </p>
+        </div>
+        <div :class="{contentActive: selection=='Education'}">
+          <p>
+            My experience in Education
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -105,6 +107,9 @@ export default {
           if (this.pillars[this.selection].scale.x >= this.MAX_SCALE) {
             this.action = "Display"
             this.icons[this.selection].setScale(2)
+            document.getElementById("content-view-container")
+            .classList.add("contentActive")
+
             if (this.selection == "Software") {
               this.icons[this.selection].shape.children.forEach(
                 shape => shape.stroke = 24)
@@ -114,6 +119,8 @@ export default {
       else if (this.action == "IdleSpin") {
         this.rotate(this.IDLE_SPEED)
       } else if (this.action == "TargetedSpin") {
+        document.getElementById("content-view-container")
+        .classList.remove("contentActive")
         let targetAngle = this.POSITIONS[this.selection]
         let currentAngle = this.angle * 360 / Zdog.TAU
         let turningPoint = targetAngle - 180
@@ -276,7 +283,7 @@ export default {
     left: 0;
     z-index: 10;
   }
-  #content-view p {
+  #content-view > div {
     display: none;
   }
  
@@ -285,7 +292,7 @@ export default {
     width: 350px;
     margin: 0 auto;
   }
-  #content-view-container.contentActive, #content-view p.contentActive {
+  #content-view-container.contentActive, #content-view > div.contentActive {
     display: block;
   }
   
