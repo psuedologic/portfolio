@@ -3,7 +3,7 @@ Todo
 # Goals for 1.0 
     1) Pillar animation - content should only appear when pillar is done animating
 2) Write and add CV content
-3) Resume Link
+    3) Resume Link
 4) Make Contact form into an overlay, dim the rest and make clicks outside close the form.
 5) Slowly spin icon when pillar is selected
 
