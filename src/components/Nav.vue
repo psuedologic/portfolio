@@ -1,6 +1,6 @@
 <template>
   <div class="nav">
-    <a>
+    <a href="GonyeauResume.pdf" target="_blank">
       <span class="outer-circle">
         <span class="inner-circle">
           <span class="material-icons">account_circle</span>
@@ -14,7 +14,7 @@
         </span>
       </span>
     </a>
-    <a href="https://github.com/psuedologic/portfolio"  target="_blank">
+    <a href="https://github.com/psuedologic/portfolio" target="_blank">
       <span class="outer-circle">
         <span class="inner-circle">
           <span class="material-icons">code</span>
