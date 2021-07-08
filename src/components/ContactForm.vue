@@ -1,6 +1,6 @@
 <template>
-  <div class="contactForm" id="contactFormContainer" 
-    :class="{ hideForm: isHidden}">
+  <div class="contactForm hideForm" id="contactFormContainer" 
+   ref="contactForm" @focusout="checkClickOut" tabindex="0" >
     <!-- 
       If you modify <form>, update the public/index.html file and include a skeleton of the
       form as per https://www.netlify.com/blog/2018/09/07/how-to-integrate-netlify-forms-in-a-vue-app/#stand-in-static-forms
@@ -31,6 +31,35 @@ export default {
   props: {
     isHidden: Boolean
   },
+  methods: {
+    checkClickOut(event) {
+      let contactForm = this.$refs.contactForm
+      let emailLink = document.querySelector("a#emailLink")
+      /* Check if the intended click is either the contactForm (or child), the email link (or child) or
+         if the target is outside the browser window. If none of these are true, then close form
+      */
+      if (!contactForm.contains(event.relatedTarget) &&
+          !emailLink.contains(event.relatedTarget) &&
+          document.hasFocus()) {
+        this.$emit('click-out')
+        this.$refs.contactForm.classList.add("hideForm")
+      }
+    },
+    focusForm() {
+      this.$refs.contactForm.classList.remove("hideForm")
+      document.querySelector("input[name=name]").focus()
+      document.body.style.backgroundColor = "rgba(225, 0, 0, .3)"
+    },
+    blurForm() {
+      this.$refs.contactForm.classList.add("hideForm")
+      document.body.style.background = "default"
+    }
+  },
+  watch: {
+    isHidden: function (isHidden) {
+      (isHidden) ? this.blurForm() : this.focusForm()
+    }
+  }
 }
 </script>
 
