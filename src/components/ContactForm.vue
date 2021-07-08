@@ -8,9 +8,7 @@
     --> 
     <form id="contactForm" name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="contact" />
-      <h2>
-        Contact Me
-      </h2>
+      <h2>Contact Me</h2>
       <p>
         <label>Name: <input type="text" name="name" /></label>
       </p>
@@ -40,16 +38,14 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 .hideForm {
-  visibility: hidden;
+  display: none;
 }
 
 #contactFormContainer {
   position: absolute;
   z-index: 10;
   margin: 3em;
-  width: 20em;
-  /* margin-top: 3em;
-  align-items: left; */
+  min-width: 20em;
 }
 
 #contactForm {
@@ -69,8 +65,12 @@ export default {
 
 .messageLabel textarea {
   height: 12em;
+  min-height: 12em;
+  max-height: 40em;
   width: 20em;
-  border-radius: 12px;
+  min-width: 20em;
+  max-width: 30em;
+  border-radius: 10px;
   margin-top: 6px;
 }
 
