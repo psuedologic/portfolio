@@ -7,7 +7,7 @@
         </span>
       </span>
     </a>
-    <a href="" v-on:click.prevent="isFormHidden = !isFormHidden">
+    <a id="emailLink" href="" @click.prevent="this.isFormHidden = !this.isFormHidden">
       <span class="outer-circle">
         <span class="inner-circle">
           <span class="material-icons">email</span>
@@ -21,7 +21,8 @@
         </span>
       </span>
     </a>
-    <ContactForm :isHidden="isFormHidden"></ContactForm>
+    <ContactForm :isHidden="isFormHidden"
+      @click-out="isFormHidden = true"></ContactForm>
   </div>
 </template>
 
