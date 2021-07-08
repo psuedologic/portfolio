@@ -3,9 +3,7 @@
     @click="checkDeselect">
     <Nav></Nav>
     <Header @clicked="onSelected"></Header>
-    <div>
-      <ZdogCanvas :selection="selectedTab"></ZdogCanvas>
-    </div>
+    <ZdogCanvas :selection="selectedTab"></ZdogCanvas>
   </div>
 </template>
 
@@ -42,7 +40,7 @@ export default {
 }
 </script>
 <style>
-html {
+  html {
     --scrollbarBG: transparent;
     --thumbBG: #90A4AE;
   }
