@@ -47,8 +47,8 @@ export default {
     margin: 0;
     padding: 0;
     width: 100%;
-    background-color: rgb(23, 45, 68);
-    color: rgb(212, 226, 245);
+    background-color: var(--headerDark);
+    color: var(--headerLight);
     font-family: HalloSans, 'Roboto', SourceSansPro-Black, Helvetica, Arial;
     font-size: 18px;
     letter-spacing: 2px;

@@ -42,6 +42,10 @@ export default {
 }
 </script>
 <style>
+:root {
+  --headerDark: #113C58;
+  --headerLight: white;
+}
   html {
     --scrollbarBG: transparent;
     --thumbBG: #90A4AE;
@@ -52,7 +56,7 @@ export default {
     scrollbar-color: var(--thumbBG) var(--scrollbarBG);
   }
   body, #app, .zdog-canvas {
-    background-color: rgb(130, 157, 192);
+    background-color: #ADF;
   }
   div#formDimmer {
     display: none;
