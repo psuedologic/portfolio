@@ -6,14 +6,14 @@
         "topFace": "#3D8C72",
         "bottomFace": "#00271A"
     },
-    "pillarLightGreen": {
+    "pillarBlue": {
         "color": "#113C58",
         "leftFace": "#24516F",
         "rightFace": "#04273F",
         "topFace": "#3F6A86",
         "bottomFace": "#011725"
     },
-    "pillarBlue": {
+    "pillarLightGreen": {
         "color": "#257410",
         "leftFace": "#3F912A",
         "rightFace": "#12652B",
