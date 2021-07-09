@@ -4,8 +4,9 @@ Todo
     1) Pillar animation - content should only appear when pillar is done animating
 2) Write and add CV content
     3) Resume Link
-4) Make Contact form into an overlay, dim the rest and make clicks outside close the form.
+    4) Make Contact form into an overlay, and make clicks outside close the form, Dim the rest when form active
 5) Slowly spin icon when pillar is selected
+6) fix bug with form click shows pink at bottom of screen (check stash)
 
 # More Goals 
 1) Make only the canvas interactive and allow manipulation of the pillars

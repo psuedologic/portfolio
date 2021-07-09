@@ -1,27 +1,29 @@
 <template>
-  <div class="contactForm hideForm" id="contactFormContainer" 
-   ref="contactForm" @focusout="checkClickOut" tabindex="0" >
-    <!-- 
-      If you modify <form>, update the public/index.html file and include a skeleton of the
-      form as per https://www.netlify.com/blog/2018/09/07/how-to-integrate-netlify-forms-in-a-vue-app/#stand-in-static-forms
-      due to netlify's dependency on the form being present statically.
-    --> 
-    <form id="contactForm" name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="contact" />
-      <h2>Contact Me</h2>
-      <p>
-        <label>Name: <input type="text" name="name" /></label>
-      </p>
-      <p>
-        <label>Email: <input type="email" name="email" /></label>
-      </p>
-      <p>
-        <label class="messageLabel">Message: <textarea name="message"></textarea></label>
-      </p>
-      <p>
-        <button id="submitButton" type="submit">Submit</button>
-      </p>
-    </form>
+  <div id="contactFormWrapper">
+    <div class="hideForm" id="contactFormContainer" 
+    ref="contactForm" @focusout="checkClickOut" tabindex="0" >
+      <!-- 
+        If you modify <form>, update the public/index.html file and include a skeleton of the
+        form as per https://www.netlify.com/blog/2018/09/07/how-to-integrate-netlify-forms-in-a-vue-app/#stand-in-static-forms
+        due to netlify's dependency on the form being present statically.
+      --> 
+      <form id="contactForm" name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact" />
+        <h2>Contact Me</h2>
+        <p>
+          <label>Name: <input type="text" name="name" /></label>
+        </p>
+        <p>
+          <label>Email: <input type="email" name="email" /></label>
+        </p>
+        <p>
+          <label class="messageLabel">Message: <textarea name="message"></textarea></label>
+        </p>
+        <p>
+          <button id="submitButton" type="submit">Submit</button>
+        </p>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -70,17 +72,18 @@ export default {
   display: none;
 }
 
-#contactFormContainer {
+#contactFormWrapper, #contactFormWrapper > div {
   position: absolute;
   z-index: 10;
-  margin: 3em;
+  margin: 4em 2em;
   min-width: 20em;
 }
 
 #contactForm {
+  font-size: 18px;
   background-color: #3D8C72;
   color: #e0faf2;
-  padding: 0.8em;
+  padding: 0.8em 2em;
   border-radius: 12px;
 }
 

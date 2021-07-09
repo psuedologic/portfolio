@@ -1,10 +1,12 @@
 <template>
   <div class="mainPage"
     @click="checkDeselect">
-    <Nav></Nav>
+    <Nav @close-form="$refs.formDimmer.classList.remove('formActive')"
+         @toggle-form="$refs.formDimmer.classList.toggle('formActive')"></Nav>
     <Header @clicked="onSelected"></Header>
     <ZdogCanvas :selection="selectedTab"></ZdogCanvas>
-  </div>
+    <div ref="formDimmer" id="formDimmer"></div>
+  </div>  
 </template>
 
 <script>
@@ -51,6 +53,19 @@ export default {
   }
   body, #app, .zdog-canvas {
     background-color: rgb(130, 157, 192);
+  }
+  div#formDimmer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: rgba(0,0,0,0.5);
+  }
+  div#formDimmer.formActive {
+    display: initial;
   }
   /* #app::-webkit-scrollbar {
     width: 11px;

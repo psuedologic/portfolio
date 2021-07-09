@@ -1,28 +1,30 @@
 <template>
   <div class="nav">
-    <a href="GonyeauResume.pdf" target="_blank">
-      <span class="outer-circle">
-        <span class="inner-circle">
-          <span class="material-icons">account_circle</span>
+    <div id="navBar">
+      <a href="GonyeauResume.pdf" target="_blank">
+        <span class="outer-circle">
+          <span class="inner-circle">
+            <span class="material-icons">account_circle</span>
+          </span>
         </span>
-      </span>
-    </a>
-    <a id="emailLink" href="" @click.prevent="this.isFormHidden = !this.isFormHidden">
-      <span class="outer-circle">
-        <span class="inner-circle">
-          <span class="material-icons">email</span>
+      </a>
+      <a id="emailLink" href="" @click.prevent="toggleEmail">
+        <span class="outer-circle">
+          <span class="inner-circle">
+            <span class="material-icons">email</span>
+          </span>
         </span>
-      </span>
-    </a>
-    <a href="https://github.com/psuedologic/portfolio" target="_blank">
-      <span class="outer-circle">
-        <span class="inner-circle">
-          <span class="material-icons">code</span>
+      </a>
+      <a href="https://github.com/psuedologic/portfolio" target="_blank">
+        <span class="outer-circle">
+          <span class="inner-circle">
+            <span class="material-icons">code</span>
+          </span>
         </span>
-      </span>
-    </a>
-    <ContactForm :isHidden="isFormHidden"
-      @click-out="isFormHidden = true"></ContactForm>
+      </a>
+    </div>  
+  <ContactForm :isHidden="isFormHidden"
+      @click-out="handleClickOut"></ContactForm>
   </div>
 </template>
 
@@ -31,10 +33,18 @@ import ContactForm from './ContactForm.vue'
 
 export default {
   name: 'Nav',
-  props: {
-  },
   components: {
     ContactForm
+  },
+  methods: {
+    toggleEmail() {
+      this.isFormHidden = !this.isFormHidden
+      this.$emit("toggle-form")
+    },
+    handleClickOut() {
+      this.isFormHidden = true
+      this.$emit('close-form')
+    }
   },
   data() {
     return {
@@ -48,25 +58,25 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 @media screen and (max-width: 770px) {
-  div.nav {
-    width: 70px;
+  div#navBar {
+    width: 65px;
     border-bottom-right-radius: 40px;
     background-color: rgb(23, 45, 68);
     padding-bottom: 10px;
   }
 }
-.nav {
+#navBar {
   font-size: 18px;
   position: absolute;
   background-color: rgb(23, 45, 68);
   color: rgb(212, 226, 245);
-  z-index: 1000;
+  z-index: 5;
   padding: 12px 12px 0 12px;
   margin: 0;
   width: 26%;
   float: left;
 }
-.nav > span:hover {
+#navBar > span:hover {
   cursor: pointer;
 }
 a {
