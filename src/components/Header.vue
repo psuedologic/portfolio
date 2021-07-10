@@ -20,18 +20,11 @@
 
 export default {
   name: 'Header',
-  props: {
-    
-  },
   data() {
     return {
       selectedTab: ""
     }
   },
-  components: {
-
-  },
-  
 }
 </script>
 
@@ -43,19 +36,19 @@ export default {
   src: url('../assets/Hallo sans.otf') format("opentype");
 }
 .header {
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    background-color: var(--headerDark);
-    color: var(--headerLight);
-    font-family: HalloSans, 'Roboto', SourceSansPro-Black, Helvetica, Arial;
-    font-size: 18px;
-    letter-spacing: 2px;
-    line-height: 0.95em;
-    text-align: center;
-    text-transform: none;
-    cursor: default;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: var(--headerDark);
+  color: var(--headerLight);
+  font-family: HalloSans, 'Roboto', SourceSansPro-Black, Helvetica, Arial;
+  font-size: 18px;
+  letter-spacing: 2px;
+  line-height: 0.95em;
+  text-align: center;
+  text-transform: none;
+  cursor: default;
 }
 .header h2 {
   font-size: 24px;
@@ -65,10 +58,10 @@ export default {
     font-weight: 75;
 }
 .headerSubtitle, .headerSubOpen, .headerSubClose {
-    display: flex;
-    align-content: flex-start;
-    font-size: 1.5em;
-    cursor: default;
+  display: flex;
+  align-content: flex-start;
+  font-size: 1.5em;
+  cursor: default;
 }
 .header #roles span:hover {
   position: relative; 
