@@ -42,10 +42,14 @@ export default {
 }
 </script>
 <style>
-:root {
-  --headerDark: #113C58;
-  --headerLight: white;
-}
+  :root {
+    --headerDark: #113C58;
+    --headerLight: white;
+    --formExtraDark: #052;
+    --formDark: #0A5;
+    --formMedium: #AFD;
+    --formLight: rgba(224, 250, 242, 1);
+  }
   html {
     --scrollbarBG: transparent;
     --thumbBG: #90A4AE;

@@ -81,10 +81,14 @@ export default {
 
 #contactForm {
   font-size: 18px;
-  background-color: #3D8C72;
-  color: #e0faf2;
-  padding: 0.8em 2em;
+  background-color: var(--formMedium);
+  color: var(--formLight);
   border-radius: 12px;
+  font-weight: 700;
+}
+
+#contactForm label {
+  color: var(--formExtraDark);
 }
 
 #contactForm input {
@@ -92,7 +96,14 @@ export default {
   border-radius: 6px;
 }
 #contactForm input, #contactForm textarea {
-  background-color: #e0faf2;
+  background-color: var(--formLight);
+}
+
+h2 {
+  padding: 0.6em;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: var(--formDark);
 }
 
 .messageLabel textarea {
@@ -109,8 +120,11 @@ export default {
 #submitButton {
   padding: 0.6em;
   border-radius: 6px;
-  background-color: #0D5C42;
-  color: #e0faf2;
+  background-color: var(--formLight);
+  color: var(--formExtraDark);
+  border-top-left-radius: 10px;
+  margin-bottom: 1em;
+  font-weight: 800;
 }
 
 </style>
