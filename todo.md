@@ -6,7 +6,7 @@ Todo
     3) Resume Link
     4) Make Contact form into an overlay, and make clicks outside close the form, Dim the rest when form active
 5) Slowly spin icon when pillar is selected
-6) fix bug with form click shows pink at bottom of screen (check stash)
+    6) fix bug with form click shows pink at bottom of screen (check stash)
 
 # More Goals 
 1) Make only the canvas interactive and allow manipulation of the pillars
