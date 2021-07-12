@@ -50,7 +50,6 @@ export default {
     focusForm() {
       this.$refs.contactForm.classList.remove("hideForm")
       document.querySelector("input[name=name]").focus()
-      document.body.style.backgroundColor = "rgba(225, 0, 0, .3)"
     },
     blurForm() {
       this.$refs.contactForm.classList.add("hideForm")
