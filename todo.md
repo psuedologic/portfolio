@@ -5,11 +5,12 @@ Todo
 2) Write and add CV content
     3) Resume Link
     4) Make Contact form into an overlay, and make clicks outside close the form, Dim the rest when form active
-5) Slowly spin icon when pillar is selected
+
     6) fix bug with form click shows pink at bottom of screen (check stash)
 
 # More Goals 
 1) Make only the canvas interactive and allow manipulation of the pillars
+1) Slowly spin icon when pillar is selected (Drawing method for icons would need to be reworked. Rotating the shapes in the icon causing random behavior, they probably need a central anchor.)
 
 # Features
 [ ] Feature: Enhance pillar draw - Need to support groups and groups transistions for closed book stack icon, as well as other functionality for the other icons, notably curves.
