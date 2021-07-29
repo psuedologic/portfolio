@@ -2,31 +2,15 @@
 <div class="canvas-container">
   <div id="inner-container">
     <svg class="zdog-canvas" width="600" height="1080"></svg>
-    <div id="content-view-container">
-      <div id="content-view">
-        <div :class="{contentActive: selection=='Software'}">
-          <p>
-            My experience in Software
-          </p>
-        </div>
-        <div :class="{contentActive: selection=='Design'}">
-          <p>
-            My experience in Design
-          </p>
-        </div>
-        <div :class="{contentActive: selection=='Education'}">
-          <p>
-            My experience in Education
-          </p>
-        </div>
-      </div>
-    </div>
+    <ContentView :selection="selection"
+                 :action="action == 'Display' ? 'Display': ''"></ContentView>
   </div>
 </div>
 </template>
 
 <script>
 /* eslint-disable no-unused-vars */
+import ContentView from './ContentView.vue'
 import h  from 'vue'
 import Zdog from "zdog"
 import Pillar from "../canvas/pillar.js"
@@ -34,6 +18,9 @@ import Icon from "../canvas/icon.js"
 
 export default {
   name: 'ZdogCanvas',
+  components: {
+    ContentView
+  },
   props: {
     selection: String,
   },
@@ -58,6 +45,7 @@ export default {
     illo.updateRenderGraph()
     this.animate()
     this.addClasses()
+    this.setWireframe(false)
   },
   data() {
     return {
@@ -107,20 +95,19 @@ export default {
           if (this.pillars[this.selection].scale.x >= this.MAX_SCALE) {
             this.action = "Display"
             this.icons[this.selection].setScale(2)
-            document.getElementById("content-view-container")
-            .classList.add("contentActive")
-
+            this.$emit("content-view-active")
             if (this.selection == "Software") {
+              this.setWireframe(true)
               this.icons[this.selection].shape.children.forEach(
                 shape => shape.stroke = 24)
+            } else {
+              this.setWireframe(false)
             }
           }
       }
       else if (this.action == "IdleSpin") {
         this.rotate(this.IDLE_SPEED)
       } else if (this.action == "TargetedSpin") {
-        document.getElementById("content-view-container")
-        .classList.remove("contentActive")
         let targetAngle = this.POSITIONS[this.selection]
         let currentAngle = this.angle * 360 / Zdog.TAU
         let turningPoint = targetAngle - 180
@@ -215,6 +202,13 @@ export default {
     rotate: function(direction) {
       this.angle += this.STEPS_PER_DEGREE * direction // * this.ANIMATION_FREQUENCY
       this.anchor.rotate = {x: 0, y: -this.angle, z: 0}
+    },
+    setWireframe: function(isHidden) {
+      Object.values(this.pillars).forEach(pillar => {
+        pillar.shape.children.forEach((face) => {
+          face.fill = !isHidden
+        })
+      })
     }
   },
   watch: {
@@ -275,26 +269,5 @@ export default {
   .pillar:hover {
     fill: rgb(136, 166, 192);
   }
-  #content-view-container {
-    display: none;
-    position: absolute;
-    width: 100%;
-    top: 400px;
-    left: 0;
-    z-index: 10;
-  }
-  #content-view > div {
-    display: none;
-  }
- 
-  #content-view {
-    background: pink;
-    width: 350px;
-    margin: 0 auto;
-  }
-  #content-view-container.contentActive, #content-view > div.contentActive {
-    display: block;
-  }
-  
 
 </style>
