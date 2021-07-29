@@ -1,10 +1,14 @@
 <template>
-  <div class="mainPage"
-    @click="checkDeselect">
+  <div class="mainPage" @click="checkDeselect"
+      :class="{ Software: activeTab=='Software',
+        Design: activeTab=='Design',
+        Education: activeTab=='Education'}">
     <Nav @close-form="$refs.formDimmer.classList.remove('formActive')"
          @toggle-form="$refs.formDimmer.classList.toggle('formActive')"></Nav>
     <Header @clicked="onSelected"></Header>
-    <ZdogCanvas :selection="selectedTab"></ZdogCanvas>
+    <ZdogCanvas :selection="selectedTab" 
+      @content-view-active="activeTab = selectedTab; changeTheme()">
+    </ZdogCanvas>
     <div ref="formDimmer" id="formDimmer"></div>
   </div>  
 </template>
@@ -13,12 +17,14 @@
 import ZdogCanvas from './ZdogCanvas.vue'
 import Header from './Header.vue'
 import Nav from './Nav.vue'
+import colors from '../data/colors.json'
 
 export default {
   name: 'MainPage',
   data () {
     return {
-      selectedTab: ""
+      selectedTab: "",
+      activeTab: ""
     }
   },
   props: {
@@ -37,14 +43,21 @@ export default {
       if (value.target.className != "clickable") {
         this.selectedTab = ""
       }
+    },
+    changeTheme() {
+      Object.entries( colors[this.selectedTab])
+      .forEach(color => {
+        document.documentElement.style.setProperty(color[0], color[1])
+      })
     }
   }  
 }
 </script>
 <style>
   :root {
-    --headerDark: #113C58;
-    --headerLight: white;
+    --background: #ADF;
+    --headerPrimary: #113C58;
+    --headerBackground: white;
     --formExtraDark: #052;
     --formDark: #0A5;
     --formMedium: #AFD;
@@ -60,7 +73,7 @@ export default {
     scrollbar-color: var(--thumbBG) var(--scrollbarBG);
   }
   body, #app, .zdog-canvas {
-    background-color: #ADF;
+    background-color: var(--background);
   }
   div#formDimmer {
     display: none;

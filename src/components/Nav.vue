@@ -61,15 +61,15 @@ export default {
   div#navBar {
     width: 65px;
     border-bottom-right-radius: 40px;
-    background-color: var(--headerDark);
+    background-color: var(--headerPrimary);
     padding-bottom: 10px;
   }
 }
 #navBar {
   font-size: 18px;
   position: absolute;
-  background-color: var(--headerDark);
-  color: var(--headerLight);
+  background-color: var(--headerPrimary);
+  color: var(--headerBackground);
   z-index: 5;
   padding: 12px 12px 0 12px;
   margin: 0;
@@ -87,13 +87,13 @@ a {
   display: inline-block;
 }
 .outer-circle {
-  background-color: var(--headerLight);
+  background-color: var(--headerBackground);
   height: 48px;
   width: 48px;
   margin: 12px 8px;
 }
 .inner-circle {
-  background-color: var(--headerDark);
+  background-color: var(--headerPrimary);
   height: 40px;
   width: 40px;
   margin-top: 4px;

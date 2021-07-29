@@ -45,6 +45,7 @@ export default {
     illo.updateRenderGraph()
     this.animate()
     this.addClasses()
+    this.setWireframe(false)
   },
   data() {
     return {
@@ -94,10 +95,13 @@ export default {
           if (this.pillars[this.selection].scale.x >= this.MAX_SCALE) {
             this.action = "Display"
             this.icons[this.selection].setScale(2)
-
+            this.$emit("content-view-active")
             if (this.selection == "Software") {
+              this.setWireframe(true)
               this.icons[this.selection].shape.children.forEach(
                 shape => shape.stroke = 24)
+            } else {
+              this.setWireframe(false)
             }
           }
       }
@@ -198,6 +202,13 @@ export default {
     rotate: function(direction) {
       this.angle += this.STEPS_PER_DEGREE * direction // * this.ANIMATION_FREQUENCY
       this.anchor.rotate = {x: 0, y: -this.angle, z: 0}
+    },
+    setWireframe: function(isHidden) {
+      Object.values(this.pillars).forEach(pillar => {
+        pillar.shape.children.forEach((face) => {
+          face.fill = !isHidden
+        })
+      })
     }
   },
   watch: {

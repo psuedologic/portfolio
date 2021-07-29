@@ -33,7 +33,7 @@ class Pillar {
             width: WIDTH,
             height: HEIGHT,
             depth: WIDTH,
-            // fill: false, // for debug
+            fill: false,
             stroke: 3,
             scale: this.scale,
             translate: { x: this.position.x,

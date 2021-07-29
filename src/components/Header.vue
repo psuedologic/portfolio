@@ -3,15 +3,16 @@
     <div id="headerMain">
       <h2 id="name">Talon Gonyeau</h2>
       <h3 id="roles">
-        <span id="softwareTab" class="clickable"
-          @click.stop="$emit('clicked', 'Software')"
-          >Software</span> | 
-        <span id="designTab" class="clickable"
-          @click.stop="$emit('clicked', 'Design')"
-          >Design</span> | 
         <span id="educationTab" class="clickable"
           @click.stop="$emit('clicked', 'Education')"
-          >Education</span></h3>
+          >Education</span> |
+        <span id="softwareTab" class="clickable"
+          @click.stop="$emit('clicked', 'Software')"
+          >Software</span> |
+        <span id="designTab" class="clickable"
+          @click.stop="$emit('clicked', 'Design')"
+          >Design</span> 
+        </h3>
     </div>
   </header>
 </template>
@@ -40,8 +41,8 @@ export default {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: var(--headerDark);
-  color: var(--headerLight);
+  background-color: var(--headerPrimary);
+  color: var(--headerBackground);
   font-family: HalloSans, 'Roboto', SourceSansPro-Black, Helvetica, Arial;
   font-size: 18px;
   letter-spacing: 2px;
