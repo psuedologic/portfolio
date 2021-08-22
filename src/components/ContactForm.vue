@@ -9,19 +9,19 @@
       --> 
       <form id="contactForm" name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contact" />
-        <h2>Contact Me</h2>
-        <p>
+        <div id="contactFormLabel">Contact Me</div>
+        <div>
           <label>Name: <input type="text" name="name" /></label>
-        </p>
-        <p>
+        </div>
+        <div>
           <label>Email: <input type="email" name="email" /></label>
-        </p>
-        <p>
+        </div>
+        <div>
           <label class="messageLabel">Message: <textarea name="message"></textarea></label>
-        </p>
-        <p>
+        </div>
+        <div>
           <button id="submitButton" type="submit">Submit</button>
-        </p>
+        </div>
       </form>
     </div>
   </div>
@@ -85,35 +85,42 @@ export default {
   border-radius: 12px;
   font-weight: 700;
 }
+#contactForm div {
+  margin: 18px 0px;
+}
 
 #contactForm label {
   color: var(--formExtraDark);
+  font-size: 16px;
 }
 
 #contactForm input {
   width: 13em;
+  height: 1.5em;
   border-radius: 6px;
 }
 #contactForm input, #contactForm textarea {
   background-color: var(--formLight);
 }
 
-h2 {
+#contactFormLabel {
   padding: 0.6em;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: var(--formDark);
+  font-size: 31px;
 }
 
 .messageLabel textarea {
-  height: 12em;
-  min-height: 12em;
-  max-height: 40em;
-  width: 20em;
-  min-width: 20em;
-  max-width: 30em;
+  height: 10em;
+  min-height: 10em;
+  max-height: 30em;
+  width: 18em;
+  min-width: 15em;
+  max-width: 25em;
   border-radius: 10px;
-  margin-top: 6px;
+  margin: 8px 32px 0px 32px;
+
 }
 
 #submitButton {
@@ -124,6 +131,7 @@ h2 {
   border-top-left-radius: 10px;
   margin-bottom: 1em;
   font-weight: 800;
+  font-size: 16px;
 }
 
 </style>
