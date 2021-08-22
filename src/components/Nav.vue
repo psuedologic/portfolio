@@ -4,21 +4,21 @@
       <a href="GonyeauResume.pdf" target="_blank">
         <span class="outer-circle">
           <span class="inner-circle">
-            <span class="material-icons">account_circle</span>
+            <q-icon name="account_circle" />
           </span>
         </span>
       </a>
       <a id="emailLink" href="" @click.prevent="toggleEmail">
         <span class="outer-circle">
           <span class="inner-circle">
-            <span class="material-icons">email</span>
+            <q-icon name="email" />
           </span>
         </span>
       </a>
       <a href="https://github.com/psuedologic/portfolio" target="_blank">
         <span class="outer-circle">
           <span class="inner-circle">
-            <span class="material-icons">code</span>
+            <q-icon name="code" />
           </span>
         </span>
       </a>
@@ -98,8 +98,9 @@ a {
   width: 40px;
   margin-top: 4px;
 }
-.inner-circle > span {
+.material-icons {
   display: inline-block;
   margin-top: 8px;
+  font-size: 22px;
 }
 </style>
