@@ -139,11 +139,11 @@ header > * > * {
 }
 #name {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
 }
 #roles {
-    word-spacing: 8px;
-    font-weight: 75;
+  word-spacing: 8px;
+  font-weight: 600;
 }
 .headerSubtitle, .headerSubOpen, .headerSubClose {
   display: flex;
