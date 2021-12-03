@@ -252,9 +252,7 @@ export default {
   }
   #inner-container {
     position: relative;
-    top: 100px;
     max-width: 900px;
-    height: 1080px;
     margin: 0 auto;
   }
 

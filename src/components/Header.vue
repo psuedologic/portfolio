@@ -120,14 +120,10 @@ export default {
   src: url('../assets/Hallo sans.otf') format("opentype");
 }
 .header {
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  width: 100%;
   background-color: var(--headerPrimary);
   color: var(--headerBackground);
   font-family: HalloSans, 'Roboto', SourceSansPro-Black, Helvetica, Arial;
-  font-size: 18px;
+  font-size: max(18px, 1vw);
   letter-spacing: 2px;
   line-height: 0.95em;
   text-align: center;
@@ -138,7 +134,7 @@ header > * > * {
   margin: 20px 0px;
 }
 #name {
-  font-size: 24px;
+  font-size: max(24px, 1.5vw);
   font-weight: 600;
 }
 #roles {

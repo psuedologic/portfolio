@@ -66,15 +66,15 @@ export default {
   }
 }
 #navBar {
-  font-size: 18px;
   position: absolute;
+  float: left;
+  z-index: 5;
+  width: 26%;
+  margin: 0;
+  padding: max(12px,1vw) max(12px,1vw) 0 max(12px,1vw);
+  font-size: 22px;
   background-color: var(--headerPrimary);
   color: var(--headerBackground);
-  z-index: 5;
-  padding: 12px 12px 0 12px;
-  margin: 0;
-  width: 26%;
-  float: left;
 }
 #navBar > span:hover {
   cursor: pointer;

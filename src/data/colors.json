@@ -29,9 +29,9 @@
         "bottomFace": "#0A3100"
     },
     "Software": {
-        "--background": "#011725",
+        "--background": "rgb(0, 26, 26)",
         "--headerPrimary": "#000",
-        "--headerBackground": "#fff",
+        "--headerBackground": "rgb(148, 247, 247)",
         "--formExtraDark": "#113C58",
         "--formDark": "#rgba(224, 250, 242, 1)",
         "--formMedium": "0A5",

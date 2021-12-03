@@ -75,6 +75,9 @@ export default {
   body, #app, .zdog-canvas {
     background-color: var(--background);
   }
+  .mainPage {
+    display: grid;
+  }
   div#formDimmer {
     display: none;
     position: fixed;
