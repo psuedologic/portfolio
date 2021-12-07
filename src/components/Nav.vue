@@ -57,9 +57,9 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 850px) {
   div#navBar {
-    width: 65px;
+    width: 80px;
     border-bottom-right-radius: 40px;
     background-color: var(--headerPrimary);
     padding-bottom: 10px;
