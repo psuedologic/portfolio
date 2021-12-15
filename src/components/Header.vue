@@ -3,15 +3,15 @@
     <div id="headerMain">
       <div id="name">Talon Gonyeau</div>
       <div id="roles">
-        <span id="educationTab" class="clickable"
-          @click.stop="$emit('clicked', 'Education')"
-          >Education</span> |
         <span id="softwareTab" class="clickable"
           @click.stop="$emit('clicked', 'Software')"
-          >Software</span> |
+          >Software</span> | 
         <span id="designTab" class="clickable"
           @click.stop="$emit('clicked', 'Design')"
-          >Design</span> 
+          >Design</span> |
+        <span id="educationTab" class="clickable"
+          @click.stop="$emit('clicked', 'Education')"
+          >Education</span>        
         </div>
 <!--         
   <q-layout view="hHh Lpr lFf">
