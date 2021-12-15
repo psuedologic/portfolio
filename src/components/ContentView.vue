@@ -17,17 +17,24 @@
         arrows
         class="software shadow-1 rounded-borders"
       >
-        <q-carousel-slide name="webApp" class="column no-wrap flex-center">
+        <q-carousel-slide name="backEnd" class="column no-wrap flex-center">
           <q-icon name="web" size="56px" />
           <div class="q-mt-md text-center">
-            <div class="q-mb-md text-h5">Web Application</div>
-            <span>{{ lorem }}</span>
+            <div class="q-mb-md text-h5">Back-end Development - SWARM App</div>
+            <article>
+              <img src="@/assets/SWARM.png" alt="" width="700"/>
+              <p>Due to the many hills and unique geography of Bremerton, WA, snow and ice can be especially dangerous to drive on. The city has a mixture of snow plows, sand spreaders, and anti-ice fluid equipped vehicles to deploy, but there was no way for citizens to know when the roads had been treated. I was tasked with designing and implementing a software solution to provide realtime information on the condition of the roads.</p>
+              <h5>Solution:</h5>
+              <p>To address this issue, I built SWARM (Snowy Weather Assessment and Response Map) a predominately back-end application in Node.JS. We equipped the vehicles with GPS units that are wired to the vehicles operating equipment. These units broadcast the current location and sensor state every 15 seconds. My system collates the sensor data, draws vehicle paths based on the individual location, and then sends the finalized results to a geospatial server. Lastly the server graphically serves the sensor paths, based on treatment type and duration elapsed from treatment to a webmap front-end.</p>
+              <h5>Challenge:</h5>
+              <p>The company that provided the sensor/gps units had reliability issues. As many as 40% of data requests were being dropped or returning 500 errors. Because the service was unreliable, my system was setup to make requests with an exponential back-off so that as much data could be displayed as possible. Missing data would be added as it became available. This proved to be a robust approach and the system was successful in overcoming limitations in source data availability.</p>
+            </article>
           </div>
         </q-carousel-slide>
-        <q-carousel-slide name="data" class="column no-wrap flex-center">
-          <q-icon name="mdi-database-marker" size="56px" />
+        <q-carousel-slide name="frontEnd" class="column no-wrap flex-center">
+          <q-icon name="dns" size="56px" />
           <div class="q-mt-md text-center">
-            <div class="q-mb-md text-h5">Data - Geospatial</div>
+            <div class="q-mb-md text-h5">Front-end Development</div>
             <span>{{ lorem }}</span>
           </div>
         </q-carousel-slide>
@@ -38,10 +45,10 @@
             <span>{{ lorem }}</span>
           </div>
         </q-carousel-slide>
-        <q-carousel-slide name="desktopApp" class="column no-wrap flex-center">
-          <q-icon name="dns" size="56px" />
+        <q-carousel-slide name="data" class="column no-wrap flex-center">
+          <q-icon name="mdi-database-marker" size="56px" />
           <div class="q-mt-md text-center">
-            <div class="q-mb-md text-h5">Deskop Application</div>
+            <div class="q-mb-md text-h5">Data Analysis</div>
             <span>{{ lorem }}</span>
           </div>
         </q-carousel-slide>
@@ -70,7 +77,7 @@ export default {
   },
   setup () {
     return {
-      slide: ref('webApp'),
+      slide: ref('backEnd'),
       lorem: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
     }
   },
@@ -128,10 +135,14 @@ export default {
 
 #content-view-main .software {
   /* background: rgba(216, 216, 216, 0.2); */
-  background: rgba(62, 251, 251, 0.05);
+  background: rgba(37, 97, 97, 0.8);
   backdrop-filter: blur(4px) grayscale(30%) brightness(40%);
   color: white;
   
+}
+
+div.q-carousel {
+  height: initial;
 }
 
 </style>
