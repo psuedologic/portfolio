@@ -40,7 +40,8 @@ export default {
       this.selectedTab = value
     },
     checkDeselect(value) {
-      if (value.target.className != "clickable") {
+      let deSelect =  ! document.querySelectorAll('#content-view-container').contains(value.target)
+      if ( deSelect ) { 
         this.selectedTab = ""
       }
     },
