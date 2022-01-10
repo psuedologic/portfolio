@@ -40,7 +40,7 @@ export default {
       this.selectedTab = value
     },
     checkDeselect(value) {
-      let deSelect =  ! document.querySelectorAll('#content-view-container').contains(value.target)
+      let deSelect =  ! document.querySelector('#content-view-container').contains(value.target)
       if ( deSelect ) { 
         this.selectedTab = ""
       }
