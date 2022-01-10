@@ -22,11 +22,7 @@
           <div class="q-mt-md text-center">
             <div class="q-mb-md text-h5">Back-end Development - SWARM App</div>
             <article>
-              <div class="imageContainer">
-                <img src="@/assets/SWARM.png" alt="" width="700"/>
-                <a href="#" class="close"></a>
-                <q-icon class="expand" name="fullscreen" style="color: #333" size="48px" />
-              </div>
+              <img id="swarmImage" src="@/assets/SWARM.png" @click="showImageBox" alt="" width="700"/>
               <p>Due to the many hills and unique geography of Bremerton, WA, snow and ice can be especially dangerous to drive on. The city has a mixture of snow plows, sand spreaders, and anti-ice fluid equipped vehicles to deploy, but there was no way for citizens to know when the roads had been treated. I was tasked with designing and implementing a software solution to provide realtime information on the condition of the roads.</p>
               <h5>Solution:</h5>
               <p>To address this issue, I built SWARM (Snowy Weather Assessment and Response Map) a predominately back-end application in Node.JS. We equipped the vehicles with GPS units that are wired to the vehicles operating equipment. These units broadcast the current location and sensor state every 15 seconds. My system collates the sensor data, draws vehicle paths based on the individual location, and then sends the finalized results to a geospatial server. Lastly the server graphically serves the sensor paths, based on treatment type and duration elapsed from treatment to a webmap front-end.</p>
@@ -70,6 +66,7 @@
 
 <script>
 import { ref } from 'vue'
+import image_box from '../libraries/img_box' 
 
 export default {
   name: 'ContentView',
@@ -92,7 +89,9 @@ export default {
     }
   },
   methods: {
-
+    showImageBox(value) {
+      image_box(value.target)
+    },
   },
   watch: {
  
@@ -142,19 +141,14 @@ export default {
   background: rgba(37, 97, 97, 0.8);
   backdrop-filter: blur(4px) grayscale(30%) brightness(40%);
   color: white;
-  
 }
 
 div.q-carousel {
   height: initial;
 }
 
-.imageContainer {
-  position: relative;
+#swarmImage {
+  cursor: pointer;
 }
-i.expand {
-  position: absolute;
-  top: 6px;
-  right: 52px;
-}
+
 </style>
