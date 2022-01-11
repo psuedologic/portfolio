@@ -23,7 +23,11 @@
             <div class="q-mb-md text-h5">Back-end Development - SWARM App</div>
             <article>
               <img id="swarmImage" src="@/assets/SWARM.png" @click="showImageBox" alt="" width="700"/>
-              <p>Due to the many hills and unique geography of Bremerton, WA, snow and ice can be especially dangerous to drive on. The city has a mixture of snow plows, sand spreaders, and anti-ice fluid equipped vehicles to deploy, but there was no way for citizens to know when the roads had been treated. I was tasked with designing and implementing a software solution to provide realtime information on the condition of the roads.</p>
+              <p>Due to the many hills and geography of Bremerton, snow and ice can make for especially dangerous 
+                driving conditions. The city has a mixture of snow plows, sand spreaders, and anti-ice fluid 
+                equipped vehicles. However citizens had no way of determining actual road conditions. I was tasked 
+                with designing and implementing a software solution to provide realtime information on the 
+                condition of the roads.</p>
               <h5>Solution:</h5>
               <p>To address this issue, I built SWARM (Snowy Weather Assessment and Response Map) a predominately back-end application in Node.JS. We equipped the vehicles with GPS units that are wired to the vehicles operating equipment. These units broadcast the current location and sensor state every 15 seconds. My system collates the sensor data, draws vehicle paths based on the individual location, and then sends the finalized results to a geospatial server. Lastly the server graphically serves the sensor paths, based on treatment type and duration elapsed from treatment to a webmap front-end.</p>
               <h5>Challenge:</h5>
@@ -143,12 +147,20 @@ export default {
   color: white;
 }
 
+h5 {
+  font-size: 1rem;
+}
+
 div.q-carousel {
   height: initial;
 }
 
 #swarmImage {
   cursor: pointer;
+  margin-bottom: 4vh;
+}
+#img_box img {
+  margin-top: 5vh;
 }
 
 </style>
