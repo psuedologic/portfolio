@@ -1,5 +1,5 @@
 <template>
-  <div class="mainPage" @click="checkDeselect"
+  <div class="mainPage" @clicked="checkDeselect"
       :class="{ Software: activeTab=='Software',
         Design: activeTab=='Design',
         Education: activeTab=='Education'}">
@@ -61,8 +61,8 @@ export default {
     --headerBackground: white;
     --formExtraDark: #052;
     --formDark: #0A5;
-    --formMedium: #AFD;
-    --formLight: rgba(224, 250, 242, 1);
+    --formMedium: rgb(224, 250, 242);
+    --formLight: rgb(255, 255, 255);
   }
   html {
     --scrollbarBG: transparent;
