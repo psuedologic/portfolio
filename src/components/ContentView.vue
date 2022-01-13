@@ -20,7 +20,7 @@
         <q-carousel-slide name="backEnd" class="column no-wrap flex-center">
           <q-icon name="web" size="56px" />
           <div class="q-mt-md text-center">
-            <div class="q-mb-md text-h5">Back-end Development - SWARM App</div>
+            <div class="q-mb-md text-h4">Node.JS - SWARM App</div>
             <article>
               <img id="swarmImage" src="@/assets/SWARM.png" @click="showImageBox" alt="" width="700"/>
               <p>Due to the many hills and geography of Bremerton, snow and ice can make for especially dangerous 
@@ -29,7 +29,13 @@
                 with designing and implementing a software solution to provide realtime information on the 
                 condition of the roads.</p>
               <h5>Solution:</h5>
-              <p>To address this issue, I built SWARM (Snowy Weather Assessment and Response Map) a predominately back-end application in Node.JS. We equipped the vehicles with GPS units that are wired to the vehicles operating equipment. These units broadcast the current location and sensor state every 15 seconds. My system collates the sensor data, draws vehicle paths based on the individual location, and then sends the finalized results to a geospatial server. Lastly the server graphically serves the sensor paths, based on treatment type and duration elapsed from treatment to a webmap front-end.</p>
+              <p>To address this issue, I built SWARM (Snowy Weather Assessment and Response Map) a predominately 
+                back-end application in Node.JS. We equipped the vehicles with GPS units that are wired to the 
+                vehicles operating equipment. These units broadcast the current location and sensor state every
+                15 seconds. My system collates the sensor data, draws vehicle paths based on the individual
+                location, and then sends the finalized results to a geospatial server. Lastly the server
+                graphically serves the sensor paths, based on treatment type and duration elapsed from
+                treatment to a webmap front-end.</p>
               <h5>Challenge:</h5>
               <p>The company that provided the sensor/gps units had reliability issues. As many as 40% of data requests were being dropped or returning 500 errors. Because the service was unreliable, my system was setup to make requests with an exponential back-off so that as much data could be displayed as possible. Missing data would be added as it became available. This proved to be a robust approach and the system was successful in overcoming limitations in source data availability.</p>
             </article>
@@ -148,6 +154,10 @@ export default {
 }
 
 h5 {
+  font-size: 1.5rem;
+}
+p {
+  text-align: left;
   font-size: 1rem;
 }
 

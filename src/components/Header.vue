@@ -123,7 +123,7 @@ export default {
   background-color: var(--headerPrimary);
   color: var(--headerBackground);
   font-family: HalloSans, 'Roboto', SourceSansPro-Black, Helvetica, Arial;
-  font-size: max(18px, 1vw);
+  font-size: max(24px, 1.3vw);
   letter-spacing: 2px;
   line-height: 0.95em;
   text-align: center;
@@ -134,7 +134,7 @@ header > * > * {
   margin: 20px 0px;
 }
 #name {
-  font-size: max(24px, 1.5vw);
+  font-size: max(36px, 1.8vw);
   font-weight: 600;
 }
 #roles {

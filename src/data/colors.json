@@ -29,11 +29,11 @@
         "bottomFace": "#0A3100"
     },
     "Software": {
-        "--background": "rgb(0, 26, 26)",
-        "--headerPrimary": "#000",
-        "--headerBackground": "rgb(148, 247, 247)",
+        "--background": "rgb(7, 34, 34)",
+        "--headerPrimary": "rgb(0, 0, 0)",
+        "--headerBackground": "rgb(156, 255, 255)",
         "--formExtraDark": "#113C58",
-        "--formDark": "#rgba(224, 250, 242, 1)",
+        "--formDark": "rgb(224, 250, 242)",
         "--formMedium": "0A5",
         "--formLight": "#AFD"
     },
