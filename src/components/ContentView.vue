@@ -37,7 +37,12 @@
                 graphically serves the sensor paths, based on treatment type and duration elapsed from
                 treatment to a webmap front-end.</p>
               <h5>Challenge:</h5>
-              <p>The company that provided the sensor/gps units had reliability issues. As many as 40% of data requests were being dropped or returning 500 errors. Because the service was unreliable, my system was setup to make requests with an exponential back-off so that as much data could be displayed as possible. Missing data would be added as it became available. This proved to be a robust approach and the system was successful in overcoming limitations in source data availability.</p>
+              <p>The company that provided the sensor/gps units had reliability issues. As many as 40% of data
+                requests were being dropped or returning 500 errors. Because the service was unreliable, my
+                system was setup to make requests with an exponential back-off so that as much data could
+                be displayed as possible. Missing data would be added as it became available. This proved
+                to be a robust approach and the system was successful in overcoming limitations in source
+                data availability.</p>
             </article>
           </div>
         </q-carousel-slide>
