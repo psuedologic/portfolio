@@ -1,16 +1,14 @@
 Todo
 ---
 # Goals for 1.0 
-    1) Pillar animation - content should only appear when pillar is done animating
-2) Write and add CV content
-    3) Resume Link
-    4) Make Contact form into an overlay, and make clicks outside close the form, Dim the rest when form active
-
-    6) fix bug with form click shows pink at bottom of screen (check stash)
+[ ] Write and add CV content
+[ ] Style content for SWARM App
+[ ] Contact form styles for all skins
 
 # More Goals 
-1) Make only the canvas interactive and allow manipulation of the pillars
-1) Slowly spin icon when pillar is selected (Drawing method for icons would need to be reworked. Rotating the shapes in the icon causing random behavior, they probably need a central anchor.)
+[ ] Make only the canvas interactive and allow manipulation of the pillars
+[ ] Slowly spin icon when pillar is selected (Drawing method for icons would need to be reworked. Rotating the shapes in the icon causing random behavior, they probably need a central anchor.)
+[ ] Take historical data and make a demo version of SWARM during a snow event.
 
 # Features
 [ ] Feature: Enhance pillar draw - Need to support groups and groups transistions for closed book stack icon, as well as other functionality for the other icons, notably curves.
@@ -58,3 +56,7 @@ Todo
         Compass or 📐 - Engineering
     
     Good links for inspiration: [Zdog-demos](https://codepen.io/collection/nZrQqe/?cursor=ZD0wJm89MCZwPTEmdj00)
+[X] Resume Link
+[X] Make Contact form into an overlay, and make clicks outside close the form, Dim the rest when form active
+[X] fix bug with form click shows pink at bottom of screen (check stash)
+[X] Pillar animation - content should only appear when pillar is done animating
