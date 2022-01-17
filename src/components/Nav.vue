@@ -59,7 +59,7 @@ export default {
 
 @media screen and (max-width: 850px) {
   div#navBar {
-    width: 80px;
+    width: 90px;
     border-bottom-right-radius: 40px;
     background-color: var(--headerPrimary);
     padding-bottom: 10px;
@@ -69,7 +69,7 @@ export default {
   position: absolute;
   float: left;
   z-index: 5;
-  width: 26%;
+
   margin: 0;
   padding: max(12px,1vw) max(12px,1vw) 0 max(12px,1vw);
   font-size: 22px;
