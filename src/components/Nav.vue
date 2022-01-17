@@ -82,25 +82,27 @@ export default {
 a {
   color: inherit;
 }
+.outer-circle, .inner-circle, .material-icons {
+  display: inline-flex !important;
+  justify-content: center;
+  align-items: center;
+}
 .outer-circle, .inner-circle {
   border-radius: 50%;
   display: inline-block;
 }
 .outer-circle {
   background-color: var(--headerBackground);
-  height: 48px;
-  width: 48px;
-  margin: 12px 8px;
+  height: max(2.5vw, 48px);
+  width: max(2.5vw, 48px);
+  margin: max(.5vw, 12px);
 }
 .inner-circle {
   background-color: var(--headerPrimary);
-  height: 40px;
-  width: 40px;
-  margin-top: 4px;
+  height: max(2vw, 40px);
+  width: max(2vw, 40px);
 }
 .material-icons {
-  display: inline-block;
-  margin-top: 8px;
-  font-size: 22px;
+  font-size: max(1.33vw, 24px);
 }
 </style>
