@@ -69,7 +69,6 @@ export default {
   position: absolute;
   float: left;
   z-index: 5;
-
   margin: 0;
   padding: max(12px,1vw) max(12px,1vw) 0 max(12px,1vw);
   font-size: 22px;
