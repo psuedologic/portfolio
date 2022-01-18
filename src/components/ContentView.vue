@@ -18,7 +18,7 @@
         class="software shadow-1 rounded-borders"
       >
         <q-carousel-slide name="backEnd" class="column no-wrap flex-center">
-          <q-icon name="web" size="56px" />
+          <q-icon name="wysiwyg" size="56px" />
           <div class="q-mt-md text-center">
             <div class="q-mb-md text-h4">Node.JS - SWARM App</div>
             <article>
@@ -47,9 +47,12 @@
           </div>
         </q-carousel-slide>
         <q-carousel-slide name="frontEnd" class="column no-wrap flex-center">
-          <q-icon name="dns" size="56px" />
+          <q-icon name="web" size="56px" />
           <div class="q-mt-md text-center">
-            <div class="q-mb-md text-h5">Front-end Development</div>
+            <div class="q-mb-md text-h4">JavaScript - Meter Work Orders</div>
+            <article>
+              <img id="meterImage" src="@/assets/MeterWorkOrders.png" @click="showImageBox" alt="" width="700"/>
+            </article>
             <span>{{ lorem }}</span>
           </div>
         </q-carousel-slide>
