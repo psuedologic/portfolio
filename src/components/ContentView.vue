@@ -13,6 +13,9 @@
         animated
         control-color="white"
         navigation
+        navigation-position="top"
+        prev-icon="keyboard_double_arrow_left"
+        next-icon="keyboard_double_arrow_right"
         padding
         arrows
         class="software shadow-1 rounded-borders"
@@ -59,21 +62,24 @@
         <q-carousel-slide name="arch" class="column no-wrap flex-center">
           <q-icon name="dns" size="56px" />
           <div class="q-mt-md text-center">
-            <div class="q-mb-md text-h5">Architecture</div>
+            <div class="q-mb-md text-h4">Architecture</div>
             <span>{{ lorem }}</span>
           </div>
         </q-carousel-slide>
+        <q-carousel-slide name="dev-ops" class="column no-wrap flex-center">
+          <q-icon name="terrain" size="56px" />
+          <div class="q-mt-md text-center">
+            <div class="q-mb-md text-h4">Dev-Ops</div>
+            <span>{{ lorem }}</span>
+          </div>
+        </q-carousel-slide>      
         <q-carousel-slide name="data" class="column no-wrap flex-center">
           <q-icon name="mdi-database-marker" size="56px" />
           <div class="q-mt-md text-center">
-            <div class="q-mb-md text-h5">Data Analysis</div>
-            <span>{{ lorem }}</span>
-          </div>
-        </q-carousel-slide>
-        <q-carousel-slide name="devOps" class="column no-wrap flex-center">
-          <q-icon name="terrain" size="56px" />
-          <div class="q-mt-md text-center">
-            <div class="q-mb-md text-h5">DevOps</div>
+            <div class="q-mb-md text-h4">Data</div>
+            <article>
+              <h5></h5>
+            </article>
             <span>{{ lorem }}</span>
           </div>
         </q-carousel-slide>
@@ -159,6 +165,10 @@ export default {
   background: rgba(37, 97, 97, 0.8);
   backdrop-filter: blur(4px) grayscale(30%) brightness(40%);
   color: white;
+}
+
+.q-carousel__slide > div {
+  max-width: 900px;
 }
 
 h5 {
