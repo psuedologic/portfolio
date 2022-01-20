@@ -62,7 +62,9 @@
         <q-carousel-slide name="arch" class="column no-wrap flex-center">
           <q-icon name="dns" size="56px" />
           <div class="q-mt-md text-center">
-            <div class="q-mb-md text-h4">Architecture</div>
+            <div class="q-mb-md text-h4">Customer Response Upgrade</div>
+            <img id="customerResponseImage1" src="@/assets/CustomerResponseMap.png" @click="showImageBox" alt="" width="600"/>
+            <img id="customerResponseImage2" src="@/assets/CustomerResponseDetails.png" @click="showImageBox" alt="" width="600"/>
             <span>{{ lorem }}</span>
           </div>
         </q-carousel-slide>
@@ -169,6 +171,9 @@ export default {
 
 .q-carousel__slide > div {
   max-width: 900px;
+}
+.q-btn__content > i {
+  font-size: 3rem;
 }
 
 h5 {
