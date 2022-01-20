@@ -55,6 +55,7 @@
             <div class="q-mb-md text-h4">JavaScript - Meter Work Orders</div>
             <article>
               <img id="meterImage" src="@/assets/MeterWorkOrders.png" @click="showImageBox" alt="" width="700"/>
+              <img style="display:none;" src="@/assets/MeterWorkOrders_lg.png"  alt="" width="1200"/>
             </article>
             <span>{{ lorem }}</span>
           </div>
@@ -63,8 +64,10 @@
           <q-icon name="dns" size="56px" />
           <div class="q-mt-md text-center">
             <div class="q-mb-md text-h4">Customer Response Upgrade</div>
-            <img id="customerResponseImage1" src="@/assets/CustomerResponseMap.png" @click="showImageBox" alt="" width="600"/>
-            <img id="customerResponseImage2" src="@/assets/CustomerResponseDetails.png" @click="showImageBox" alt="" width="600"/>
+            <img src="@/assets/CustomerResponseMap.png" @click="showImageBox" alt="" width="600"/>
+            <img style="display:none;" src="@/assets/CustomerResponseMap_lg.png"  alt="" width="1200"/>
+            <img src="@/assets/CustomerResponseDetails.png" @click="showImageBox" alt="" width="600"/>
+            <img style="display:none;" src="@/assets/CustomerResponseDetails_lg.png"  alt="" width="1200"/>
             <span>{{ lorem }}</span>
           </div>
         </q-carousel-slide>
@@ -116,7 +119,11 @@ export default {
   },
   methods: {
     showImageBox(value) {
-      image_box(value.target)
+        if (value.target.nextSibling && value.target.nextSibling.localName == "img") {
+          image_box(value.target.nextSibling)
+        } else {
+          image_box(value.target)
+        }
     },
   },
   watch: {
@@ -188,8 +195,11 @@ div.q-carousel {
   height: initial;
 }
 
-#swarmImage {
+.q-carousel__slide img {
   cursor: pointer;
+}
+
+#swarmImage {
   margin-bottom: 4vh;
 }
 #img_box img {
