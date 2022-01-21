@@ -80,8 +80,8 @@ export default {
 
 #contactForm {
   font-size: 18px;
-  background-color: var(--formMedium);
-  color: var(--formLight);
+  background-color: var(--formBody);
+  color: var(--formField);
   border-radius: 12px;
   font-weight: 700;
 }
@@ -90,7 +90,7 @@ export default {
 }
 
 #contactForm label {
-  color: var(--formExtraDark);
+  color: var(--formText);
   font-size: 16px;
 }
 
@@ -100,14 +100,14 @@ export default {
   border-radius: 6px;
 }
 #contactForm input, #contactForm textarea {
-  background-color: var(--formLight);
+  background-color: var(--formField);
 }
 
 #contactFormLabel {
   padding: 0.6em;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  background-color: var(--formDark);
+  background-color: var(--formHeader);
   font-size: 31px;
 }
 
@@ -126,8 +126,8 @@ export default {
 #submitButton {
   padding: 0.6em;
   border-radius: 6px;
-  background-color: var(--formLight);
-  color: var(--formExtraDark);
+  background-color: var(--formField);
+  color: var(--formText);
   border-top-left-radius: 10px;
   margin-bottom: 1em;
   font-weight: 800;

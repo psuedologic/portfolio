@@ -59,10 +59,10 @@ export default {
     --background: #ADF;
     --headerPrimary: #113C58;
     --headerBackground: white;
-    --formExtraDark: #052;
-    --formDark: #0A5;
-    --formMedium: rgb(224, 250, 242);
-    --formLight: rgb(255, 255, 255);
+    --formText: #052;
+    --formHeader: #0A5;
+    --formBody: rgb(224, 250, 242);
+    --formField: rgb(255, 255, 255);
   }
   html {
     --scrollbarBG: transparent;

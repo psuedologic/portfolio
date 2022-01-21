@@ -2,10 +2,10 @@
     "default": {
         "--headerPrimary": "#113C58",
         "--headerBackground": "white",
-        "--formExtraDark": "#052",
-        "--formDark": "#0A5",
-        "--formMedium": "#AFD",
-        "--formLight": "rgba(224, 250, 242, 1)"
+        "--formText": "#052",
+        "--formHeader": "#406279",
+        "--formBody": "#AFD",
+        "--formField": "rgba(224, 250, 242, 1)"
     },
     "pillarGreen": {
         "color": "#0D5C42",
@@ -32,27 +32,27 @@
         "--background": "rgb(7, 34, 34)",
         "--headerPrimary": "rgb(0, 0, 0)",
         "--headerBackground": "rgb(156, 255, 255)",
-        "--formExtraDark": "#113C58",
-        "--formDark": "rgb(224, 250, 242)",
-        "--formMedium": "0A5",
-        "--formLight": "#AFD"
+        "--formText": "rgb(156, 255, 255)",
+        "--formHeader": "#0b2a3d",
+        "--formBody": "#000",
+        "--formField": "#bfc5ca"
     },
     "Design": {
         "--background": "rgb(138, 168, 158)",
         "--headerPrimary": "#052",
         "--headerBackground": "#fcd32b",
-        "--formExtraDark": "#052",
-        "--formDark": "#0A5",
-        "--formMedium": "#AFD",
-        "--formLight": "rgba(224, 250, 242, 1)"
+        "--formText": "#052",
+        "--formHeader": "#0A5",
+        "--formBody": "#AFD",
+        "--formField": "rgba(224, 250, 242, 1)"
     },
     "Education": {
         "--background": "#CCC",
         "--headerPrimary": "white",
         "--headerBackground": "#d40047",
-        "--formExtraDark": "#052",
-        "--formDark": "#0A5",
-        "--formMedium": "#AFD",
-        "--formLight": "rgba(224, 250, 242, 1)"
+        "--formText": "#052",
+        "--formHeader": "#0A5",
+        "--formBody": "#AFD",
+        "--formField": "rgba(224, 250, 242, 1)"
     }
 }
