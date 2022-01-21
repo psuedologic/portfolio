@@ -108,6 +108,7 @@ export default {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: var(--formHeader);
+  color: var(--formHeaderText);
   font-size: 31px;
 }
 
@@ -127,7 +128,7 @@ export default {
   padding: 0.6em;
   border-radius: 6px;
   background-color: var(--formField);
-  color: var(--formText);
+  color: var(--formButtonText);
   border-top-left-radius: 10px;
   margin-bottom: 1em;
   font-weight: 800;

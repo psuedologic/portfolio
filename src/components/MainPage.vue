@@ -35,6 +35,9 @@ export default {
     Header,
     Nav
   },
+  mounted: function() {
+    this.changeTheme();
+  },
   methods: {
     onSelected(value) {
       this.selectedTab = value
@@ -46,7 +49,8 @@ export default {
       }
     },
     changeTheme() {
-      Object.entries( colors[this.selectedTab])
+      let colorSelection = this.selectedTab ? this.selectedTab : "default"
+      Object.entries( colors[colorSelection])
       .forEach(color => {
         document.documentElement.style.setProperty(color[0], color[1])
       })
@@ -55,15 +59,6 @@ export default {
 }
 </script>
 <style>
-  :root {
-    --background: #ADF;
-    --headerPrimary: #113C58;
-    --headerBackground: white;
-    --formText: #052;
-    --formHeader: #0A5;
-    --formBody: rgb(224, 250, 242);
-    --formField: rgb(255, 255, 255);
-  }
   html {
     --scrollbarBG: transparent;
     --thumbBG: #90A4AE;

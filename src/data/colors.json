@@ -1,11 +1,14 @@
 {
     "default": {
+        "--background": "#ADF",
         "--headerPrimary": "#113C58",
         "--headerBackground": "white",
         "--formText": "#052",
-        "--formHeader": "#406279",
-        "--formBody": "#AFD",
-        "--formField": "rgba(224, 250, 242, 1)"
+        "--formHeader": "#0A5",
+        "--formHeaderText": "rgb(255, 255, 255)",
+        "--formButtonText": "#406279",
+        "--formBody": "rgb(224, 250, 242)",
+        "--formField": "rgb(255, 255, 255)"
     },
     "pillarGreen": {
         "color": "#0D5C42",
@@ -32,27 +35,34 @@
         "--background": "rgb(7, 34, 34)",
         "--headerPrimary": "rgb(0, 0, 0)",
         "--headerBackground": "rgb(156, 255, 255)",
-        "--formText": "rgb(156, 255, 255)",
+        "--formText": "#e5edf3",
+        "--formHeaderText": "#e5edf3",
+        "--formButtonText": "#0b2a3d",
         "--formHeader": "#0b2a3d",
         "--formBody": "#000",
-        "--formField": "#bfc5ca"
+        "--formField": "#e5edf3"
+        
     },
     "Design": {
         "--background": "rgb(138, 168, 158)",
         "--headerPrimary": "#052",
         "--headerBackground": "#fcd32b",
         "--formText": "#052",
+        "--formHeaderText": "Yellow",
+        "--formButtonText": "#052",
         "--formHeader": "#0A5",
         "--formBody": "#AFD",
-        "--formField": "rgba(224, 250, 242, 1)"
+        "--formField": "LightYellow"
     },
     "Education": {
         "--background": "#CCC",
         "--headerPrimary": "white",
         "--headerBackground": "#d40047",
-        "--formText": "#052",
-        "--formHeader": "#0A5",
-        "--formBody": "#AFD",
-        "--formField": "rgba(224, 250, 242, 1)"
+        "--formText": "#000",
+        "--formButtonText": "#d40047",
+        "--formHeader": "#d40047",
+        "--formHeaderText": "White",
+        "--formBody": "#CCC",
+        "--formField": "white"
     }
 }
