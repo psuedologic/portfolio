@@ -49,6 +49,43 @@
             </article>
           </div>
         </q-carousel-slide>
+        <q-carousel-slide name="arch" class="column no-wrap flex-center">
+          <q-icon name="dns" size="56px" />
+          <div class="q-mt-md text-center">
+            <div class="q-mb-md text-h4">Customer Response Upgrade</div>
+            <img src="@/assets/CustomerResponseDetails.png" @click="showImageBox" alt="" width="600"/>
+            <img style="display:none;" src="@/assets/CustomerResponseDetails_lg.png"  alt="" width="1200"/>
+            <h5>Work Order Application</h5>
+            <p>Customer Response is the work order system for Public Works, the largest department of Bremerton.
+              Primarily driven by calls from the public or cencom, this system processed 2,000 tickets in 2021,
+              most with attachments and the full data stretching back to 1996. Between instability of the hosting 
+              server and maximized disk space of the MS Sql Express instance, a migration was needed.
+            </p>
+            <p>
+              I migrated the system to a new server fleet and upgraded the applications security to use Oauth 2.0 tokens,
+              SAML-compliant logins, and https requests. Performance improvements were realized from seperating the
+              intensive data/disk operations onto a SQL Server, CPU-bound onto a REST server, and the web-hosting portions 
+              onto a web server. The switchover was successful with the 50 users able to sign in and continue work without 
+              a break in service.
+            </p>
+            <img src="@/assets/CustomerResponseMap.png" @click="showImageBox" alt="" width="600"/>
+            <img style="display:none;" src="@/assets/CustomerResponseMap_lg.png"  alt="" width="1200"/>
+            <h5>Map View</h5>
+            <p>
+              With 52,000 issues spanning 25 years, there is a lot of useful data analysis that could be performed. 
+              One example would be looking at trends of where mobility-impaired citizens have had sidewalk access issues 
+              can reveal effective locations to target funding for curb ramp improvement capital. Some analyis was done
+              on earlier table exports, but certain issues like flooding reports are much better analysized with spatial
+              information. To support this effort, I created this Map View of the data as a realtime reflection.
+            </p>
+            <p>
+              The original software used X, Y varchar fields to store the location of where the work order takes place.
+              While capable of being retrieved singularly, it was really slow to render a map view of more than a few dozen.
+              I modified the schema to store the location as an WGS-84 projected shape field. This was one of the changes I used
+              to make a queryable and interactive map-view application.
+            </p>
+          </div>
+        </q-carousel-slide>
         <q-carousel-slide name="frontEnd" class="column no-wrap flex-center">
           <q-icon name="web" size="56px" />
           <div class="q-mt-md text-center">
@@ -57,17 +94,6 @@
               <img id="meterImage" src="@/assets/MeterWorkOrders.png" @click="showImageBox" alt="" width="700"/>
               <img style="display:none;" src="@/assets/MeterWorkOrders_lg.png"  alt="" width="1200"/>
             </article>
-            <span>{{ lorem }}</span>
-          </div>
-        </q-carousel-slide>
-        <q-carousel-slide name="arch" class="column no-wrap flex-center">
-          <q-icon name="dns" size="56px" />
-          <div class="q-mt-md text-center">
-            <div class="q-mb-md text-h4">Customer Response Upgrade</div>
-            <img src="@/assets/CustomerResponseMap.png" @click="showImageBox" alt="" width="600"/>
-            <img style="display:none;" src="@/assets/CustomerResponseMap_lg.png"  alt="" width="1200"/>
-            <img src="@/assets/CustomerResponseDetails.png" @click="showImageBox" alt="" width="600"/>
-            <img style="display:none;" src="@/assets/CustomerResponseDetails_lg.png"  alt="" width="1200"/>
             <span>{{ lorem }}</span>
           </div>
         </q-carousel-slide>
