@@ -2,6 +2,19 @@ Todo
 ---
 # Goals for 1.0 
 [ ] Write and add CV content
+    [X] Back-End
+        [X] Picture/Icon
+        [X] Description
+    [ ] Front-End
+        [X] Picture/Icon - New Meter App
+        [ ] Picture/Icon - Customer Response
+        [ ] Description - New Meter App
+    [ ] Architecture
+        [ ] Picture/Icon
+        [ ] Description
+    [ ] Data / Devops
+        [X] Picture/Icon - Devops
+        [ ] Description
 [ ] Style content for SWARM App
 [ ] Contact form styles for all skins
 
