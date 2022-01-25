@@ -26,6 +26,7 @@
             <div class="q-mb-md text-h4">Node.JS - SWARM App</div>
             <article>
               <img id="swarmImage" src="@/assets/SWARM.png" @click="showImageBox" alt="" width="700"/>
+              <img style="display:none;" src="@/assets/SWARM_lg.png" alt="" width="1200"/>
               <p>Due to the many hills and geography of Bremerton, snow and ice can make for especially dangerous 
                 driving conditions. The city has a mixture of snow plows, sand spreaders, and anti-ice fluid 
                 equipped vehicles. However citizens had no way of determining actual road conditions. I was tasked 
