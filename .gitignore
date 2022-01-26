@@ -2,7 +2,8 @@
 node_modules
 /dist
 /reference
-
+/ExtraAssets
+/Notes
 
 # local env files
 .env.local
