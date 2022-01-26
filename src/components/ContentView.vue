@@ -102,6 +102,10 @@
           <q-icon name="terrain" size="56px" />
           <div class="q-mt-md text-center">
             <div class="q-mb-md text-h4">Dev-Ops</div>
+            <article>
+              <img src="@/assets/ServicesExplorer.png" @click="showImageBox" alt="" width="700"/>
+              <img style="display:none;" src="@/assets/ServicesExplorer_lg.png"  alt="" width="1200"/>
+            </article>
             <span>{{ lorem }}</span>
           </div>
         </q-carousel-slide>      
