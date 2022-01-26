@@ -34,7 +34,7 @@
     "Software": {
         "--background": "rgb(7, 34, 34)",
         "--headerPrimary": "rgb(0, 0, 0)",
-        "--headerBackground": "rgb(156, 255, 255)",
+        "--headerBackground": "#9E3FFD",
         "--formText": "#e5edf3",
         "--formHeaderText": "#e5edf3",
         "--formButtonText": "#0b2a3d",
