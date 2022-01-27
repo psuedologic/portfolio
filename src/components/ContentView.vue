@@ -23,10 +23,11 @@
         <q-carousel-slide name="backEnd" class="column no-wrap flex-center">
           <q-icon name="wysiwyg" size="56px" />
           <div class="q-mt-md text-center">
-            <div class="q-mb-md text-h4">Node.JS - SWARM App</div>
+            <div class="q-mb-md text-h4">SWARM App</div>
             <article>
-              <img id="swarmImage" src="@/assets/SWARM.png" @click="showImageBox" alt="" width="700"/>
+              <img src="@/assets/SWARM.png" @click="showImageBox" alt="" width="700"/>
               <img style="display:none;" src="@/assets/SWARM_lg.png" alt="" width="1200"/>
+              <h5>Dec 2021 Snow Event</h5>
               <p>Due to the many hills and geography of Bremerton, snow and ice can make for especially dangerous 
                 driving conditions. The city has a mixture of snow plows, sand spreaders, and anti-ice fluid 
                 equipped vehicles. However citizens had no way of determining actual road conditions. I was tasked 
@@ -92,10 +93,24 @@
           <div class="q-mt-md text-center">
             <div class="q-mb-md text-h4">JavaScript - Meter Work Orders</div>
             <article>
-              <img id="meterImage" src="@/assets/MeterWorkOrders.png" @click="showImageBox" alt="" width="700"/>
-              <img style="display:none;" src="@/assets/MeterWorkOrders_lg.png"  alt="" width="1200"/>
+              <img id="meterImage" src="@/assets/MeterWorkOrders-Field.png" @click="showImageBox" alt="" width="700"/>
+              <img style="display:none;" src="@/assets/MeterWorkOrders-Field_lg.png"  alt="" width="1200"/>
+              <h5>Field View</h5>
+              <p>
+                I consulted with utility operations and billing to help with their upcoming workload change. They were switching from 
+                Bi-monthly to monthly billing, doubling their workload. They also desired a realtime field work order system, so they could
+                recieve and send updates regarding leaks, billing checks and shut-off/activations. To address these needs, I created the Meter
+                Work Order system.
+              </p>
+              <p>
+              </p>
+              <img id="meterImage" src="@/assets/MeterWorkOrders-Office.png" @click="showImageBox" alt="" width="700"/>
+              <img style="display:none;" src="@/assets/MeterWorkOrders-Office_lg.png"  alt="" width="1200"/>
+              <h5>Office View</h5>
+              <p>
+                One of the considerations during design was how to work with the existing billing system. 
+              </p>
             </article>
-            <span>{{ lorem }}</span>
           </div>
         </q-carousel-slide>
         <q-carousel-slide name="dev-ops" class="column no-wrap flex-center">
@@ -109,16 +124,6 @@
             <span>{{ lorem }}</span>
           </div>
         </q-carousel-slide>      
-        <q-carousel-slide name="data" class="column no-wrap flex-center">
-          <q-icon name="mdi-database-marker" size="56px" />
-          <div class="q-mt-md text-center">
-            <div class="q-mb-md text-h4">Data</div>
-            <article>
-              <h5></h5>
-            </article>
-            <span>{{ lorem }}</span>
-          </div>
-        </q-carousel-slide>
       </q-carousel>
     </div>
 </div>
@@ -230,9 +235,6 @@ div.q-carousel {
   cursor: pointer;
 }
 
-#swarmImage {
-  margin-bottom: 4vh;
-}
 #img_box img {
   margin-top: 5vh;
 }
