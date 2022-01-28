@@ -33,7 +33,6 @@
                 equipped vehicles. However citizens had no way of determining actual road conditions. I was tasked 
                 with designing and implementing a software solution to provide realtime information on the 
                 condition of the roads.</p>
-              <h5>Solution:</h5>
               <p>To address this issue, I built SWARM (Snowy Weather Assessment and Response Map) a predominately 
                 back-end application in Node.JS. We equipped the vehicles with GPS units that are wired to the 
                 vehicles operating equipment. These units broadcast the current location and sensor state every
@@ -41,7 +40,6 @@
                 location, and then sends the finalized results to a geospatial server. Lastly the server
                 graphically serves the sensor paths, based on treatment type and duration elapsed from
                 treatment to a webmap front-end.</p>
-              <h5>Challenge:</h5>
               <p>The company that provided the sensor/gps units had reliability issues. As many as 40% of data
                 requests were being dropped or returning 500 errors. Because the service was unreliable, my
                 system was setup to make requests with an exponential back-off so that as much data could
@@ -102,13 +100,14 @@
                 receive and send updates regarding leaks, billing checks and shut-off/activation. To address these needs, I created the Meter
                 Work Order system.
               </p>                
-              <p>
-              </p>
               <img id="meterImage" src="@/assets/MeterWorkOrders-Office.png" @click="showImageBox" alt="" width="700"/>
               <img style="display:none;" src="@/assets/MeterWorkOrders-Office_lg.png"  alt="" width="1200"/>
               <h5>Office View</h5>
               <p>
-                One of the considerations during design was how to work with the existing billing system. 
+                One of the considerations during design was integration with the existing billing system. I wasn't permitted direct DB access
+                from the vendor, so I created views to synchronize billing information with the app. In order to track work performed and issues 
+                added back into billing records, a office-centric version was added. The two apps reference the same information, with separate
+                permissions and approval steps.
               </p>
             </article>
           </div>
@@ -118,10 +117,37 @@
           <div class="q-mt-md text-center">
             <div class="q-mb-md text-h4">Dev-Ops</div>
             <article>
+              <p>
+                My main project at the City of Bremerton was the migration of the biggest in-house software system is its GIS system, COBGIS. 
+                COBGIS was a single virtual machine (SQL server, web server, and data server) with 50 users, ~500 tables/views spread over 10 databases 
+                and supporting about 50 applications. These range from utility locating and maintenance tracking systems, to work order systems, and 
+                analysis support applications. 
+              </p>
+              <p>
+                We supported a lot of different client environments, native-mobile apps, web, multiple desktop applications which increased complexity
+                especially with older clients. Another challenge was tight coupling between the REST services/data and the applications with a lot of 
+                inner dependencies between them. Understanding and simplifying the services structure, was a large emphasis during the migration
+              </p>
               <img src="@/assets/ServicesExplorer.png" @click="showImageBox" alt="" width="700"/>
               <img style="display:none;" src="@/assets/ServicesExplorer_lg.png"  alt="" width="1200"/>
+              <h5>Services Explorer</h5>
+              <p>
+                One helpful tool I created was a dependency analyzing tool. It crawled our servers and reported on the services many-to-many
+                relationship with database tables. This was invaluable for answering questions such as which services depend on a given DB table or how many
+                tables would be involved with migrating an application. The back-end is a python script that scrapes server data, collates and formats and finally
+                which is exports to JSON. A lightweight js library I found serves the JSON in a interactive format, and makes browsing the data convenient.
+              </p>
+              <p>
+                With better insight into our data, I simplified the database design, going to a single DB for production and strong naming conventions
+                with mandatory metadata. I introduced a staging and development environment to allow for development without impacting users. 
+                Combined with tighter access control, this eliminated our issue of COBGIS being unresponsive frequently.
+              </p>
+              <p>
+                Wherever possible, I simplified system components such as authentication. I moved to a SAML Oauth system as the only method of user identity.
+                We phased out old desktop clients, and removed non-critical mobile applications in favor of web-based ones that would work for multiple. Some 
+                applications were replaced with off-the-shelf solutions freeing up limited developer resources. 
+              </p>
             </article>
-            <span>{{ lorem }}</span>
           </div>
         </q-carousel-slide>      
       </q-carousel>
