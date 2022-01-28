@@ -65,7 +65,7 @@
             </p>
             <p>
               I migrated the system to a new server fleet and upgraded the applications security to use Oauth 2.0 tokens,
-              SAML-compliant logins, and https requests. Performance improvements were realized from seperating the
+              SAML-compliant logins, and https requests. Performance improvements were realized from separating the
               intensive data/disk operations onto a SQL Server, CPU-bound onto a REST server, and the web-hosting portions 
               onto a web server. The switchover was successful with the 50 users able to sign in and continue work without 
               a break in service.
@@ -76,8 +76,8 @@
             <p>
               With 52,000 issues spanning 25 years, there is a lot of useful data analysis that could be performed. 
               One example would be looking at trends of where mobility-impaired citizens have had sidewalk access issues 
-              can reveal effective locations to target funding for curb ramp improvement capital. Some analyis was done
-              on earlier table exports, but certain issues like flooding reports are much better analysized with spatial
+              can reveal effective locations to target funding for curb ramp improvement capital. Some analysis was done
+              on earlier table exports, but certain issues like flooding reports are much better analyzed with spatial
               information. To support this effort, I created this Map View of the data as a realtime reflection.
             </p>
             <p>
@@ -99,9 +99,9 @@
               <p>
                 I consulted with utility operations and billing to help with their upcoming workload change. They were switching from 
                 Bi-monthly to monthly billing, doubling their workload. They also desired a realtime field work order system, so they could
-                recieve and send updates regarding leaks, billing checks and shut-off/activations. To address these needs, I created the Meter
+                receive and send updates regarding leaks, billing checks and shut-off/activation. To address these needs, I created the Meter
                 Work Order system.
-              </p>
+              </p>                
               <p>
               </p>
               <img id="meterImage" src="@/assets/MeterWorkOrders-Office.png" @click="showImageBox" alt="" width="700"/>
