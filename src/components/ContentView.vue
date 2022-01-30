@@ -3,7 +3,7 @@
                                            software: selection=='Software',
                                            design: selection=='Design',
                                            education: selection=='Education'}">
-    <div id="content-view-main" class="clickable" :class="[clickable, {contentActive: selection=='Software'}]">
+    <div id="content-view-main" class="clickable" :class="[clickable, {contentActive: selection}]">
       
       <q-carousel
         v-model="slide"
@@ -18,11 +18,14 @@
         next-icon="keyboard_double_arrow_right"
         padding
         arrows
+        style="display: none;"
         class="software shadow-1 rounded-borders"
+        :class="{contentActive: selection=='Software'}"
       >
         <q-carousel-slide name="backEnd" class="column no-wrap flex-center">
           <q-icon name="wysiwyg" size="56px" />
           <div class="q-mt-md text-center">
+            <!--  Software Content - SWARM  -->
             <div class="q-mb-md text-h4">SWARM App</div>
             <article>
               <img src="@/assets/SWARM.png" @click="showImageBox" alt="" width="700"/>
@@ -49,6 +52,7 @@
             </article>
           </div>
         </q-carousel-slide>
+        <!--  Software Content - Customer Response  --> 
         <q-carousel-slide name="arch" class="column no-wrap flex-center">
           <q-icon name="dns" size="56px" />
           <div class="q-mt-md text-center">
@@ -86,6 +90,7 @@
             </p>
           </div>
         </q-carousel-slide>
+        <!--  Software Content - Meter Work Orders  --> 
         <q-carousel-slide name="frontEnd" class="column no-wrap flex-center">
           <q-icon name="web" size="56px" />
           <div class="q-mt-md text-center">
@@ -112,6 +117,7 @@
             </article>
           </div>
         </q-carousel-slide>
+        <!--  Software Content - Dev-ops  -->
         <q-carousel-slide name="dev-ops" class="column no-wrap flex-center">
           <q-icon name="terrain" size="56px" />
           <div class="q-mt-md text-center">
@@ -149,7 +155,35 @@
               </p>
             </article>
           </div>
-        </q-carousel-slide>      
+        </q-carousel-slide>
+      </q-carousel>
+      
+      <q-carousel
+        v-model="slide"
+        transition-prev="scale"
+        transition-next="scale"
+        swipeable
+        animated
+        control-color="white"
+        navigation
+        navigation-position="top"
+        prev-icon="keyboard_double_arrow_left"
+        next-icon="keyboard_double_arrow_right"
+        padding
+        arrows
+        style="display: none;"
+        :class="[design, shadow-1, rounded-borders, {contentActive: selection=='Design'}]"
+      >
+        <q-carousel-slide name="backEnd" class="column no-wrap flex-center">
+          <q-icon name="wysiwyg" size="56px" />
+          <div class="q-mt-md text-center">
+            <div class="q-mb-md text-h4">Design</div>
+            <article>
+              <h5>Label</h5>
+             {{lorem}}
+            </article>
+          </div>
+        </q-carousel-slide>
       </q-carousel>
     </div>
 </div>
@@ -221,8 +255,10 @@ export default {
 
 /* Content View Main */
 #content-view-container.contentActive,
-#content-view-main.contentActive {
-    display: block;
+#content-view-container.contentActive .q-carousel.contentActive,
+#content-view-main.contentActive
+ {
+    display: block !important;
 }
 
 #content-view-main {
