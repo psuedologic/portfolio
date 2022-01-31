@@ -61,12 +61,12 @@
             <img style="display:none;" src="@/assets/CustomerResponseDetails_lg.png"  alt="" width="1200"/>
             <h5>Work Order Application</h5>
             <p>Customer Response is the work order system for Public Works, the largest department of Bremerton.
-              Primarily driven by calls from the public or cencom, this system processed 2,000 tickets in 2021,
-              most with attachments and the full data stretching back to 1996. Between instability of the hosting 
-              server and maximized disk space of the MS Sql Express instance, a migration was needed.
+              Driven by calls from the public or cencom, this system processed a few thousand tickets per year.
+              Most tickets include a few pictures or attachments and the and the records stretch back to 1996. Between instability of the hosting 
+              server and maximized disk space of the MS Sql Express instance, a platform update was needed.
             </p>
             <p>
-              I migrated the system to a new server fleet and upgraded the applications security to use Oauth 2.0 tokens,
+              I migrated the single server to a new server fleet and upgraded the applications security to use Oauth 2.0 tokens,
               SAML-compliant logins, and https requests. Performance improvements were realized from separating the
               intensive data/disk operations onto a SQL Server, CPU-bound onto a REST server, and the web-hosting portions 
               onto a web server. The switchover was successful with the 50 users able to sign in and continue work without 
