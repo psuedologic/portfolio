@@ -186,6 +186,35 @@
           </div>
         </q-carousel-slide>
       </q-carousel>
+     
+      <q-carousel
+        v-model="slide"
+        transition-prev="scale"
+        transition-next="scale"
+        swipeable
+        animated
+        control-color="white"
+        navigation
+        navigation-position="top"
+        prev-icon="keyboard_double_arrow_left"
+        next-icon="keyboard_double_arrow_right"
+        padding
+        arrows
+        style="display: none;"
+        class="education shadow-1 rounded-borders"
+        :class="{contentActive: selection=='Education'}"
+      >
+        <q-carousel-slide name="backEnd" class="column no-wrap flex-center">
+          <q-icon name="wysiwyg" size="56px" />
+          <div class="q-mt-md text-center">
+            <div class="q-mb-md text-h4">Education</div>
+            <article>
+              <h5>Label</h5>
+             {{lorem}}
+            </article>
+          </div>
+        </q-carousel-slide>
+      </q-carousel>
     </div>
 </div>
 </template>
@@ -268,20 +297,37 @@ export default {
     display: none;
 }
 
-#content-view-main .design {
-  background: rgba(32, 87, 189, 0.8);
+#content-view-container {
   backdrop-filter: blur(4px) grayscale(30%) brightness(40%);
-  color: white;
+  font-size: 1rem;
 }
 
 #content-view-main .software {
   background: rgba(37, 97, 97, 0.8);
-  backdrop-filter: blur(4px) grayscale(30%) brightness(40%);
   color: white;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#content-view-main .design {
+  background: rgba(32, 87, 189, 0.8);
+  color: white;
+  outline: 2px solid lightblue;
+  outline-offset: -22px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+}
+
+#content-view-main .education {
+  background: rgba(255, 245, 245, 0.9);
+  color: black;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1rem;
+}
+
+
 .q-carousel__slide > div {
-  max-width: 900px;
+   max-width: 900px;
+  padding-bottom: 30px;
 }
 .q-btn__content > i {
   font-size: 3rem;
