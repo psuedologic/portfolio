@@ -172,7 +172,8 @@
         padding
         arrows
         style="display: none;"
-        :class="[design, shadow-1, rounded-borders, {contentActive: selection=='Design'}]"
+        class="design shadow-1 rounded-borders"
+        :class="{contentActive: selection=='Design'}"
       >
         <q-carousel-slide name="backEnd" class="column no-wrap flex-center">
           <q-icon name="wysiwyg" size="56px" />
@@ -249,9 +250,9 @@ export default {
     left: 0;
     z-index: 10;
 }
-#content-view-container.design {
+/* #content-view-container.design {
     transform: translate(-76px, -34px) rotate(22.3deg) skew(22.3deg);
-}
+} */
 
 /* Content View Main */
 #content-view-container.contentActive,
@@ -267,8 +268,13 @@ export default {
     display: none;
 }
 
+#content-view-main .design {
+  background: rgba(32, 87, 189, 0.8);
+  backdrop-filter: blur(4px) grayscale(30%) brightness(40%);
+  color: white;
+}
+
 #content-view-main .software {
-  /* background: rgba(216, 216, 216, 0.2); */
   background: rgba(37, 97, 97, 0.8);
   backdrop-filter: blur(4px) grayscale(30%) brightness(40%);
   color: white;
