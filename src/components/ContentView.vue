@@ -232,12 +232,30 @@
         class="education shadow-1 rounded-borders"
         :class="{contentActive: selection=='Education'}"
       >
+        <q-carousel-slide name="descriptiveGeometry" class="column no-wrap flex-center">
+          <q-icon name="wysiwyg" size="56px" />
+          <div class="q-mt-md text-center">
+            <div class="q-mb-md text-h4">Descriptive Geometry</div>
+            <article>
+              <!-- <h5>Label</h5> -->
+             {{lorem}}
+            </article>
+          </div>
+        </q-carousel-slide>
         <q-carousel-slide name="backEnd" class="column no-wrap flex-center">
           <q-icon name="wysiwyg" size="56px" />
           <div class="q-mt-md text-center">
-            <div class="q-mb-md text-h4">Education</div>
+            <div class="q-mb-md text-h4">AutoCAD</div>
             <article>
-              <h5>Label</h5>
+             {{lorem}}
+            </article>
+          </div>
+        </q-carousel-slide>
+        <q-carousel-slide name="backEnd" class="column no-wrap flex-center">
+          <q-icon name="wysiwyg" size="56px" />
+          <div class="q-mt-md text-center">
+            <div class="q-mb-md text-h4">Technical Drawing</div>
+            <article>
              {{lorem}}
             </article>
           </div>
@@ -352,6 +370,10 @@ export default {
   font-size: 1rem;
 }
 
+.software .q-btn__content,
+.education .q-btn__content {
+  color: var(--headerBackground) !important;
+}
 
 .q-carousel__slide > div {
    max-width: 900px;
