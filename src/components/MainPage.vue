@@ -1,8 +1,8 @@
 <template>
   <div class="mainPage" @clicked="checkDeselect"
-      :class="{ Software: activeTab=='Software',
-        Design: activeTab=='Design',
-        Education: activeTab=='Education'}">
+      :class="{ software: activeTab=='software',
+        design: activeTab=='design',
+        education: activeTab=='education'}">
     <Nav @close-form="$refs.formDimmer.classList.remove('formActive')"
          @toggle-form="$refs.formDimmer.classList.toggle('formActive')"></Nav>
     <Header @clicked="onSelected"></Header>

@@ -35,11 +35,11 @@ export default {
     canvasElement.addEventListener("mouseover", this.onHover)
         
     this.calculatePosition()
-    this.pillars = this.createPillars(["Software", "Education", "Design"]) 
+    this.pillars = this.createPillars(["software", "education", "design"]) 
     this.icons = {
-      "Software": new Icon(this.anchor, this.angularOffset[0], "curlyBraces", 12, 0),
-      "Education": new Icon(this.anchor, this.angularOffset[1], "bookStacked", 1, 1.0),
-      "Design": new Icon(this.anchor, this.angularOffset[2], "triangle", 10, 0)
+      "software": new Icon(this.anchor, this.angularOffset[0], "curlyBraces", 12, 0),
+      "education": new Icon(this.anchor, this.angularOffset[1], "bookStacked", 1, 1.0),
+      "design": new Icon(this.anchor, this.angularOffset[2], "triangle", 10, 0)
     }
 
     illo.updateRenderGraph()
@@ -62,9 +62,9 @@ export default {
       // Drawing Constants
       MAGNITUDE: 200,
       POSITIONS: {
-        "Software": 225,
-        "Design": 105,
-        "Education": 345
+        "software": 225,
+        "design": 105,
+        "education": 345
       },
       STEPS_PER_DEGREE: Zdog.TAU / 360,
       //ANIMATION_FREQUENCY: 1,
@@ -96,7 +96,7 @@ export default {
             this.action = "Display"
             this.icons[this.selection].setScale(2)
             this.$emit("content-view-active")
-            if (this.selection == "Software") {
+            if (this.selection == "software") {
               this.setWireframe(true)
               this.icons[this.selection].shape.children.forEach(
                 shape => shape.stroke = 24)

@@ -4,13 +4,13 @@
       <div id="name">Talon Gonyeau</div>
       <div id="roles">
         <span id="softwareTab" class="clickable"
-          @click.stop="$emit('clicked', 'Software')"
+          @click.stop="$emit('clicked', 'software')"
           >Software</span> | 
         <span id="designTab" class="clickable"
-          @click.stop="$emit('clicked', 'Design')"
+          @click.stop="$emit('clicked', 'design')"
           >Design</span> |
         <span id="educationTab" class="clickable"
-          @click.stop="$emit('clicked', 'Education')"
+          @click.stop="$emit('clicked', 'education')"
           >Education</span>        
         </div>
     </div>

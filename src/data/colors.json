@@ -31,7 +31,7 @@
         "topFace": "#62B14D",
         "bottomFace": "#0A3100"
     },
-    "Software": {
+    "software": {
         "--background": "rgb(7, 34, 34)",
         "--headerPrimary": "rgb(0, 0, 0)",
         "--headerBackground": "rgb(156, 255, 255)",
@@ -43,7 +43,7 @@
         "--formField": "#e5edf3"
         
     },
-    "Design": {
+    "design": {
         "--background": "rgb(138, 168, 158)",
         "--headerPrimary": "#052",
         "--headerBackground": "#fcd32b",
@@ -54,7 +54,7 @@
         "--formBody": "#AFD",
         "--formField": "LightYellow"
     },
-    "Education": {
+    "education": {
         "--background": "#CCC",
         "--headerPrimary": "white",
         "--headerBackground": "#d40047",

@@ -1,8 +1,8 @@
 <template>
 <div id="content-view-container" :class="{ contentActive: action=='Display',
-                                           software: selection=='Software',
-                                           design: selection=='Design',
-                                           education: selection=='Education'}">
+                                           software: selection=='software',
+                                           design: selection=='design',
+                                           education: selection=='education'}">
     <div id="content-view-main" class="clickable" :class="{contentActive: selection}">
 
       <q-carousel
@@ -19,12 +19,11 @@
         arrows
         style="display: none;"
         class="software shadow-1 rounded-borders"
-        :class="{contentActive: selection=='Software'}"
+        :class="{contentActive: selection=='software'}"
       >
         <q-carousel-slide name="swarm" class="column no-wrap flex-center">
           <q-icon name="wysiwyg" size="56px" />
           <div class="q-mt-md text-center">
-            <!--  Software Content - SWARM  -->
             <div class="q-mb-md text-h4">SWARM App</div>
             <article>
               <img src="@/assets/SWARM.png" @click="showImageBox" alt="" width="700"/>
@@ -51,7 +50,6 @@
             </article>
           </div>
         </q-carousel-slide>
-        <!--  Software Content - Customer Response  --> 
         <q-carousel-slide name="customerResponse" class="column no-wrap flex-center">
           <q-icon name="dns" size="56px" />
           <div class="q-mt-md text-center">
@@ -89,7 +87,6 @@
             </p>
           </div>
         </q-carousel-slide>
-        <!--  Software Content - Meter Work Orders  --> 
         <q-carousel-slide name="meterWorkOrder" class="column no-wrap flex-center">
           <q-icon name="web" size="56px" />
           <div class="q-mt-md text-center">
@@ -116,7 +113,6 @@
             </article>
           </div>
         </q-carousel-slide>
-        <!--  Software Content - Dev-ops  -->
         <q-carousel-slide name="devOps" class="column no-wrap flex-center">
           <q-icon name="terrain" size="56px" />
           <div class="q-mt-md text-center">
@@ -172,7 +168,7 @@
         arrows
         style="display: none;"
         class="design shadow-1 rounded-borders"
-        :class="{contentActive: selection=='Design'}"
+        :class="{contentActive: selection=='design'}"
       >
         <q-carousel-slide name="gearboxWrench" class="column no-wrap flex-center">
           <q-icon name="wysiwyg" size="56px" />
@@ -229,14 +225,14 @@
         arrows
         style="display: none;"
         class="education shadow-1 rounded-borders"
-        :class="{contentActive: selection=='Education'}"
+        :class="{contentActive: selection=='education'}"
       >
         <q-carousel-slide name="descriptiveGeometry" class="column no-wrap flex-center">
           <q-icon name="wysiwyg" size="56px" />
           <div class="q-mt-md text-center">
             <div class="q-mb-md text-h4">Descriptive Geometry</div>
             <article>
-              <!-- <h5>Label</h5> -->
+              <h5>Label</h5>
              {{lorem}}
             </article>
           </div>
