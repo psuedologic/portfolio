@@ -3,15 +3,14 @@
                                            software: selection=='Software',
                                            design: selection=='Design',
                                            education: selection=='Education'}">
-    <div id="content-view-main" class="clickable" :class="[clickable, {contentActive: selection}]">
-      
+    <div id="content-view-main" class="clickable" :class="{contentActive: selection}">
+
       <q-carousel
-        v-model="slide"
+        v-model="softwareCarousel"
         transition-prev="scale"
         transition-next="scale"
         swipeable
         animated
-        control-color="white"
         navigation
         navigation-position="top"
         prev-icon="keyboard_double_arrow_left"
@@ -22,7 +21,7 @@
         class="software shadow-1 rounded-borders"
         :class="{contentActive: selection=='Software'}"
       >
-        <q-carousel-slide name="backEnd" class="column no-wrap flex-center">
+        <q-carousel-slide name="swarm" class="column no-wrap flex-center">
           <q-icon name="wysiwyg" size="56px" />
           <div class="q-mt-md text-center">
             <!--  Software Content - SWARM  -->
@@ -53,7 +52,7 @@
           </div>
         </q-carousel-slide>
         <!--  Software Content - Customer Response  --> 
-        <q-carousel-slide name="arch" class="column no-wrap flex-center">
+        <q-carousel-slide name="customerResponse" class="column no-wrap flex-center">
           <q-icon name="dns" size="56px" />
           <div class="q-mt-md text-center">
             <div class="q-mb-md text-h4">Customer Response Upgrade</div>
@@ -91,7 +90,7 @@
           </div>
         </q-carousel-slide>
         <!--  Software Content - Meter Work Orders  --> 
-        <q-carousel-slide name="frontEnd" class="column no-wrap flex-center">
+        <q-carousel-slide name="meterWorkOrder" class="column no-wrap flex-center">
           <q-icon name="web" size="56px" />
           <div class="q-mt-md text-center">
             <div class="q-mb-md text-h4">JavaScript - Meter Work Orders</div>
@@ -118,7 +117,7 @@
           </div>
         </q-carousel-slide>
         <!--  Software Content - Dev-ops  -->
-        <q-carousel-slide name="dev-ops" class="column no-wrap flex-center">
+        <q-carousel-slide name="devOps" class="column no-wrap flex-center">
           <q-icon name="terrain" size="56px" />
           <div class="q-mt-md text-center">
             <div class="q-mb-md text-h4">Dev-Ops</div>
@@ -159,7 +158,7 @@
       </q-carousel>
       
       <q-carousel
-        v-model="slide"
+        v-model="designCarousel"
         transition-prev="scale"
         transition-next="scale"
         swipeable
@@ -203,7 +202,7 @@
           </div>
         </q-carousel-slide>
         
-        <q-carousel-slide name="backEnd" class="column no-wrap flex-center">
+        <q-carousel-slide name="fieldInspection" class="column no-wrap flex-center">
           <q-icon name="wysiwyg" size="56px" />
           <div class="q-mt-md text-center">
             <div class="q-mb-md text-h4">Field Inspection</div>
@@ -216,7 +215,7 @@
       </q-carousel>
      
       <q-carousel
-        v-model="slide"
+        v-model="educationCarousel"
         transition-prev="scale"
         transition-next="scale"
         swipeable
@@ -242,7 +241,7 @@
             </article>
           </div>
         </q-carousel-slide>
-        <q-carousel-slide name="backEnd" class="column no-wrap flex-center">
+        <q-carousel-slide name="autoCAD" class="column no-wrap flex-center">
           <q-icon name="wysiwyg" size="56px" />
           <div class="q-mt-md text-center">
             <div class="q-mb-md text-h4">AutoCAD</div>
@@ -251,7 +250,7 @@
             </article>
           </div>
         </q-carousel-slide>
-        <q-carousel-slide name="backEnd" class="column no-wrap flex-center">
+        <q-carousel-slide name="technicalDrawing" class="column no-wrap flex-center">
           <q-icon name="wysiwyg" size="56px" />
           <div class="q-mt-md text-center">
             <div class="q-mb-md text-h4">Technical Drawing</div>
@@ -279,7 +278,9 @@ export default {
   },
   setup () {
     return {
-      slide: ref('backEnd'),
+      softwareCarousel: ref('swarm'),
+      designCarousel: ref('gearboxWrench'),
+      educationCarousel: ref('descriptiveGeometry'),
       lorem: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
     }
   },
