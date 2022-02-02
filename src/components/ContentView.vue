@@ -175,15 +175,40 @@
         class="design shadow-1 rounded-borders"
         :class="{contentActive: selection=='Design'}"
       >
-        <q-carousel-slide name="backEnd" class="column no-wrap flex-center">
+        <q-carousel-slide name="gearboxWrench" class="column no-wrap flex-center">
           <q-icon name="wysiwyg" size="56px" />
           <div class="q-mt-md text-center">
-            <div class="q-mb-md text-h4">Design</div>
+            <div class="q-mb-md text-h4">Mechanical Design</div>
             <article>              
               <img src="@/assets/GearboxWrench2.png" @click="showImageBox" alt="" width="700"/>
               <img style="display:none;" src="@/assets/GearboxWrench.png"  alt="" width="1200"/>
-              <h5>Gearbox Wrench</h5>
+              <h5>Gearbox Wrench - Blueprint</h5>
               <div class="picNote">(click for exploded view)</div>
+              {{lorem}}
+              <img src="@/assets/GearboxWrench2.png" @click="showImageBox" alt="" width="700"/>
+              <img style="display:none;" src="@/assets/GearboxWrench.png"  alt="" width="1200"/>
+              <h5>Gearbox Wrench - Render</h5>
+              {{lorem}}
+            </article>
+          </div>
+        </q-carousel-slide>
+        <q-carousel-slide name="weatherStation" class="column no-wrap flex-center">
+          <q-icon name="wysiwyg" size="56px" />
+          <div class="q-mt-md text-center">
+            <div class="q-mb-md text-h4">Structural Design</div>
+            <article>              
+              <h5>National Weather Service Tower</h5>
+             {{lorem}}
+            </article>
+          </div>
+        </q-carousel-slide>
+        
+        <q-carousel-slide name="backEnd" class="column no-wrap flex-center">
+          <q-icon name="wysiwyg" size="56px" />
+          <div class="q-mt-md text-center">
+            <div class="q-mb-md text-h4">Field Inspection</div>
+            <article>              
+              <h5>Crownhill Project</h5>
              {{lorem}}
             </article>
           </div>
