@@ -179,8 +179,11 @@
           <q-icon name="wysiwyg" size="56px" />
           <div class="q-mt-md text-center">
             <div class="q-mb-md text-h4">Design</div>
-            <article>
-              <h5>Label</h5>
+            <article>              
+              <img src="@/assets/GearboxWrench2.png" @click="showImageBox" alt="" width="700"/>
+              <img style="display:none;" src="@/assets/GearboxWrench.png"  alt="" width="1200"/>
+              <h5>Gearbox Wrench</h5>
+              <div class="picNote">(click for exploded view)</div>
              {{lorem}}
             </article>
           </div>
@@ -351,6 +354,11 @@ div.q-carousel {
 
 #img_box img {
   margin-top: 5vh;
+}
+
+.picNote {
+  margin-top: -2rem;
+  margin-bottom: 2rem;
 }
 
 </style>
