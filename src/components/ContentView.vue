@@ -125,6 +125,8 @@ export default {
         "services_lg": require('@/assets/ServicesExplorer_lg.png'),
         "gearbox_render": require('@/assets/GearboxWrench2.png'),
         "gearbox_section": require('@/assets/GearboxWrench.png'),
+        "crownhill_finished": require('@/assets/Crownhill_Finished.jpg'),
+        "crownhill_finished_hover": require('@/assets/Crownhill_Finished_hover.jpg')
       },
       contentSlides: {
         "SWARM App": `
@@ -234,8 +236,7 @@ export default {
         "Mechanical Design": `
             <img data-src="gearbox_render" @click="showImageBox" alt="" width="700"/>
             <img data-src="gearbox_section" style="display:none;" alt="" width="1200"/>
-            <h5>Gearbox Wrench - Blueprint</h5>
-            <div class="picNote">(click for exploded view)</div>
+            <h5>Gearbox Wrench - Blueprint <div class="subtitle">(click for exploded view)</div></h5>            
             <p data-lorem=""></p>
             <img data-src="gearbox_render" @click="showImageBox" alt="" width="700"/>
             <img data-src="gearbox_section" style="display:none;" alt="" width="1200"/>
@@ -245,7 +246,8 @@ export default {
             <h5>National Weather Service Tower</h5>
             <p data-lorem=""></p>`,
         "Field Inspection": `
-            <h5>Crownhill Project</h5>
+            <img data-src="crownhill_finished" data-hover="" @click="showImageBox" alt="" width="700"/>
+            <h5>Crownhill Safe Routes to School<div class="subtitle">(Hover for pre-construction)</div></h5>
             <p data-lorem=""></p>`,
         "Descriptive Geometry": `
             <p data-lorem=""></p>`,
@@ -263,14 +265,27 @@ export default {
         img.addEventListener("click", this.showImageBox)
       })
 
+      document.querySelectorAll("img[data-hover]").forEach(img => {
+        img.addEventListener("mouseover", () => {
+          img.src = this.images[img.getAttribute("data-src")+"_hover"]
+        })
+        img.addEventListener("mouseleave", () => {
+          img.src = this.images[img.getAttribute("data-src")]
+        })
+      })
+
       //DEV only, can remove for prod
       document.querySelectorAll("p[data-lorem]").forEach(elem => {
         elem.innerHTML = this.lorem
       })
     },
     showImageBox(value) {
-      console.log(value)
-        if (value.target.nextElementSibling && value.target.nextElementSibling.localName == "img") {
+        //check if hover
+        if (value.target.getAttribute("data-hover") === "") {
+          image_box(this.images[value.target.getAttribute("data-src")])
+        }
+        //Check for image_box img as next element
+        else if (value.target.nextElementSibling && value.target.nextElementSibling.localName == "img") {
           image_box(value.target.nextElementSibling)
         } else {
           image_box(value.target)
@@ -291,9 +306,6 @@ export default {
     left: 0;
     z-index: 10;
 }
-/* #content-view-container.design {
-    transform: translate(-76px, -34px) rotate(22.3deg) skew(22.3deg);
-} */
 
 /* Content View Main */
 #content-view-container.contentActive,
@@ -351,6 +363,9 @@ export default {
 
 h5 {
   font-size: 1.5rem;
+}
+.subtitle {
+  font-size: 0.85rem;
 }
 p {
   text-align: left;
