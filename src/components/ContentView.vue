@@ -124,14 +124,13 @@ export default {
         "services": require('@/assets/ServicesExplorer.png'),
         "services_lg": require('@/assets/ServicesExplorer_lg.png'),
         "gearbox_render": require('@/assets/GearboxWrench2.png'),
-        "gearbox_section": require('@/assets/GearboxWrench.png'),
+        "gearbox_render_lg": require('@/assets/GearboxWrench.png'),
         "crownhill_finished": require('@/assets/Crownhill_Finished.jpg'),
         "crownhill_finished_hover": require('@/assets/Crownhill_Finished_hover.jpg')
       },
       contentSlides: {
         "SWARM App": `
             <img data-src="swarm_main" class="imageBox" alt="" width="700"/>
-            <img data-src="swarm_main_lg" style="display:none;" alt="" width="1200"/>
             <h5>Dec 2021 Snow Event</h5>
             <p>Due to the many hills and geography of Bremerton, snow and ice can make for especially dangerous 
               driving conditions. The city has a mixture of snow plows, sand spreaders, and anti-ice fluid 
@@ -153,7 +152,6 @@ export default {
               data availability.</p>`,
         "Customer Response Upgrade":`
             <img data-src="customer_details" @click="showImageBox" alt="" width="600"/>
-            <img data-src="customer_details_lg" style="display:none;" alt="" width="1200"/>
             <h5>Work Order Application</h5>
             <p>Customer Response is the work order system for Public Works, the largest department of Bremerton.
               Driven by calls from the public or cencom, this system processed a few thousand tickets per year.
@@ -168,7 +166,6 @@ export default {
               a break in service.
             </p>
             <img data-src="customer_map" @click="showImageBox" alt="" width="600"/>
-            <img data-src="customer_map_lg" style="display:none;" alt="" width="1200"/>
             <h5>Map View</h5>
             <p>
               With 52,000 issues spanning 25 years, there is a lot of useful data analysis that could be performed. 
@@ -185,7 +182,6 @@ export default {
             </p>`,
         "Meter Work Order": `
             <img data-src="meter_field" @click="showImageBox" alt="" width="700"/>
-            <img data-src="meter_field_lg" style="display:none;" alt="" width="1200"/>
             <h5>Field View</h5>
             <p>
               I consulted with utility operations and billing to help with their upcoming workload change. They were switching from 
@@ -194,7 +190,6 @@ export default {
               Work Order system.
             </p>                
             <img data-src="meter_office" @click="showImageBox" alt="" width="700"/>
-            <img data-src="meter_office_lg" style="display:none;" alt="" width="1200"/>
             <h5>Office View</h5>
             <p>
               One of the considerations during design was integration with the existing billing system. I wasn't permitted direct DB access
@@ -215,7 +210,6 @@ export default {
               inner dependencies between them. Understanding and simplifying the services structure, was a large emphasis during the migration
             </p>
             <img data-src="services" @click="showImageBox" alt="" width="700"/>
-            <img data-src="services_lg" style="display:none;" alt="" width="1200"/>
             <h5>Services Explorer</h5>
             <p>
               One helpful tool I created was a dependency analyzing tool. It crawled our servers and reported on the services many-to-many
@@ -235,11 +229,9 @@ export default {
             </p>`,
         "Mechanical Design": `
             <img data-src="gearbox_render" @click="showImageBox" alt="" width="700"/>
-            <img data-src="gearbox_section" style="display:none;" alt="" width="1200"/>
             <h5>Gearbox Wrench - Blueprint <div class="subtitle">(click for exploded view)</div></h5>            
             <p data-lorem=""></p>
             <img data-src="gearbox_render" @click="showImageBox" alt="" width="700"/>
-            <img data-src="gearbox_section" style="display:none;" alt="" width="1200"/>
             <h5>Gearbox Wrench - Render</h5>
             <p data-lorem=""></p>`,
         "Structural Design": `
@@ -280,13 +272,13 @@ export default {
       })
     },
     showImageBox(value) {
-        //check if hover
-        if (value.target.getAttribute("data-hover") === "") {
+        //Check for image_box with '_lg' variant 
+        if (this.images[value.target.getAttribute("data-src")+"_lg"]) {
+          image_box(this.images[value.target.getAttribute("data-src")+"_lg"])
+        } 
+        //check if hover        
+        else if (value.target.getAttribute("data-hover") === "") {
           image_box(this.images[value.target.getAttribute("data-src")])
-        }
-        //Check for image_box img as next element
-        else if (value.target.nextElementSibling && value.target.nextElementSibling.localName == "img") {
-          image_box(value.target.nextElementSibling)
         } else {
           image_box(value.target)
         }
