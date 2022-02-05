@@ -126,7 +126,8 @@ export default {
         "gearbox_render": require('@/assets/GearboxWrench2.png'),
         "gearbox_render_lg": require('@/assets/GearboxWrench.png'),
         "crownhill_finished": require('@/assets/Crownhill_Finished.jpg'),
-        "crownhill_finished_hover": require('@/assets/Crownhill_Finished_hover.jpg')
+        "crownhill_finished_hover": require('@/assets/Crownhill_Finished_hover.jpg'),
+        "crownhill_plan": require('@/assets/Crownhill_Plan.png')
       },
       contentSlides: {
         "SWARM App": `
@@ -240,6 +241,8 @@ export default {
         "Field Inspection": `
             <img data-src="crownhill_finished" data-hover="" @click="showImageBox" alt="" width="700"/>
             <h5>Crownhill Safe Routes to School<div class="subtitle">(Hover for pre-construction)</div></h5>
+            <img data-src="crownhill_plan" data-hover="" @click="showImageBox" alt="" width="700"/>
+            <h5>Project Drawings - Plan View</h5>
             <p data-lorem=""></p>`,
         "Descriptive Geometry": `
             <p data-lorem=""></p>`,
