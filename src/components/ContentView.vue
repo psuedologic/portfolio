@@ -241,10 +241,23 @@ export default {
             <p data-lorem=""></p>`,
         "Field Inspection": `
             <img data-src="crownhill_finished" data-hover="" @click="showImageBox" alt="" width="700"/>
-            <h5>Crownhill Safe Routes to School<div class="subtitle">(Hover for pre-construction)</div></h5>
+            <h5>Project Mid-construction<div class="subtitle">(Hover for pre-construction)</div></h5>
+            <p>The Crownhill Elementary Safe Routes to School was the first project I had been able to participate
+            in the design review and see through the entirety as the project inspector. Overall the project was
+            very successful and was finished within the half-million budget. One of my most important contributions
+            to the project was my thorough documentation of daily notes and 1000s of pictures. At the end 
+            of the project the contractor submitted many change orders and attempted to run the budget 20% over the bid.
+            My record keeping was cited as the primary reason why we were able to dismiss almost all claims for extra charges.</p>
             <img data-src="crownhill_plan" data-hover="" @click="showImageBox" alt="" width="700"/>
             <h5>Project Drawings - Plan View</h5>
-            <p data-lorem=""></p>`,
+            <p>There were challenges that came up during the construction that were tricky to navigate. In order to create
+            the new sidewalks, we used city right-of-way which is often used by residents as lawns, or vehicle parking. In other 
+            situations the residents had vehicle's illegal parked, and constructing their driveways to code would mean limiting their
+            access. Assuaging their anger but ensuring that things were constructed as necessary was challenging.</p>
+            <p>Between the sidewalks and roadway reconstruction, new stormwater facilities, and flashing beacon lit sidewalk crossing
+            there was a lot to learn. Other duties included measuring work performed and authorizing payment, reporting construction
+            progress to the project engineer, coordinating with contractors with impacts to school access, and ensuring proper erosion
+            and sediment control measure were followed.</p>`,
         "Descriptive Geometry": `
             <p data-lorem=""></p>`,
         "AutoCAD": `
