@@ -30,7 +30,7 @@
           class="column no-wrap flex-center">
           <q-icon :name="slide.icon" size="56px" />
           <div class="q-mt-md text-center">
-            <div class="q-mb-md text-h4">{{slide.name}}</div>
+            <div class="q-mb-md text-h4">{{slide.title ? slide.title : slide.name}}</div>
             <article v-html="contentSlides[slide.name]">
             </article>
           </div>
@@ -92,6 +92,7 @@ export default {
             "name": "Structural Design",
             "icon": "wysiwyg"
           },{
+            "title": "Crownhill Safe Routes to School",
             "name": "Field Inspection",
             "icon": "wysiwyg"
           }]
@@ -369,6 +370,10 @@ p {
 
 div.q-carousel {
   height: initial;
+}
+
+.q-carousel__slide .text-h4 {
+  margin: 2vw 2vh;
 }
 
 .q-carousel__slide img {
