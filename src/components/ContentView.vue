@@ -186,17 +186,29 @@ export default {
             <img data-src="meter_field" @click="showImageBox" alt="" width="700"/>
             <h5>Field View</h5>
             <p>
-              I consulted with utility operations and billing to help with their upcoming workload change. They were switching from 
-              Bi-monthly to monthly billing, doubling their workload. They also desired a realtime field work order system, so they could
-              receive and send updates regarding leaks, billing checks and shut-off/activation. To address these needs, I created the Meter
-              Work Order system.
-            </p>                
+              The Utility Operations and Billing departments consulted with me to help alleviate their upcoming process change. Council doubled
+              the billing cycle frequency, greatly increasing their workload. Another limitations of their current system was the inability to
+              coordinate information easily. A lot of time was spent filling out forms and calls the field and office crew to report change in 
+              conditions. With this work order system they wanted to be able to receive and send updates regarding leaks, billing checks and 
+              shut-off/activation. To address these needs, I created the Meter Work Order system (A very clever name).
+            </p>
+            <p>
+              One of the considerations during design was integration with the existing billing system. I wasn't permitted direct DB access
+              from the vendor, so I created views to synchronize billing information with the app. This way I could retrieve live authoritative 
+              data and be sure not to interfere with the other applications. This satisfied the field crew, I could provide meter locations, customer 
+              information and meter flow reads. The other consequence was the location data became more important. I could use the customers service
+              address with a geolocator, and that would show a map marker on the correct property. But with multi-family housing, and older meter standards,
+              it was inefficient to find the physical meter repeatedly. I added a shape field to the meter maintenance and using high-resolution aerial imagery 
+              and their ipads, the field could store precise locations of the meters. 
+            </p>
             <img data-src="meter_office" @click="showImageBox" alt="" width="700"/>
             <h5>Office View</h5>
             <p>
-              One of the considerations during design was integration with the existing billing system. I wasn't permitted direct DB access
-              from the vendor, so I created views to synchronize billing information with the app. In order to track work performed and issues 
-              added back into billing records, a office-centric version was added. The two apps reference the same information, with separate
+              With the new spatial data, and many important records about meter types and field conditions, we needed a way to store this information. Data
+              specific to this application was appropriate to store locally in our gis application database. Most of the the data needed to be entered
+              into the billing's system of record. Without the permission to directly modify, I created a staging interface for the office staff to access.
+              This allowed for them to track work performed and communicate with the field staff. The recently submitted meter work orders waited in a queue
+              to be processed by billing and ultimately close the issue. This office-centric version of the app referenced the same information, with the separate
               permissions and approval steps.
             </p>`,
         "Dev-Ops": `
@@ -238,6 +250,7 @@ export default {
             <p class="lorem"></p>`,
         "Structural Design": `
             <h5>National Weather Service Tower</h5>
+            <p>The National Weather Service was seeking a fall protection</p>
             <p class="lorem"></p>`,
         "Field Inspection": `
             <img data-src="crownhill_finished" data-hover="" @click="showImageBox" alt="" width="700"/>
