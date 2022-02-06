@@ -232,13 +232,13 @@ export default {
         "Mechanical Design": `
             <img data-src="gearbox_render" @click="showImageBox" alt="" width="700"/>
             <h5>Gearbox Wrench - Blueprint <div class="subtitle">(click for exploded view)</div></h5>            
-            <p data-lorem=""></p>
+            <p class="lorem"></p>
             <img data-src="gearbox_render" @click="showImageBox" alt="" width="700"/>
             <h5>Gearbox Wrench - Render</h5>
-            <p data-lorem=""></p>`,
+            <p class="lorem"></p>`,
         "Structural Design": `
             <h5>National Weather Service Tower</h5>
-            <p data-lorem=""></p>`,
+            <p class="lorem"></p>`,
         "Field Inspection": `
             <img data-src="crownhill_finished" data-hover="" @click="showImageBox" alt="" width="700"/>
             <h5>Project Mid-construction<div class="subtitle">(Hover for pre-construction)</div></h5>
@@ -259,11 +259,11 @@ export default {
             progress to the project engineer, coordinating with contractors with impacts to school access, and ensuring proper erosion
             and sediment control measure were followed.</p>`,
         "Descriptive Geometry": `
-            <p data-lorem=""></p>`,
+            <p class="lorem"></p>`,
         "AutoCAD": `
-            <p data-lorem=""></p>`,
+            <p class="lorem"></p>`,
         "Technical Drawing": `
-            <p data-lorem=""></p>`
+            <p class="lorem"></p>`
       }
     }
   },
@@ -284,7 +284,7 @@ export default {
       })
 
       //DEV only, can remove for prod
-      document.querySelectorAll("p[data-lorem]").forEach(elem => {
+      document.querySelectorAll("p.lorem").forEach(elem => {
         elem.innerHTML = this.lorem
       })
     },
