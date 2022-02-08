@@ -2,19 +2,21 @@ Todo
 ---
 # Goals for 1.0 
 [ ] Write and add CV content
-    [X] Back-End
-        [X] Picture/Icon
-        [X] Description
-    [ ] Front-End
-        [X] Picture/Icon - New Meter App
-        [ ] Picture/Icon - Customer Response
-        [ ] Description - New Meter App
-    [ ] Architecture
+    [ ] Final Check
         [ ] Picture/Icon
-        [ ] Description
-    [ ] Data / Devops
-        [X] Picture/Icon - Devops
-        [ ] Description
+            [ ] Description
+
+    [ ] [X] [X] SWARM App
+    [ ] [X] [X] Customer Response Upgrade
+    [ ] [X] [X] Meter Work Order
+    [ ] [X] [X] Dev-Ops
+    [ ] [ ] [ ] Mechanical Design
+    [ ] [ ] [ ] Structural Design
+    [ ] [X] [X] Field Inspection
+    [ ] [ ] [ ] Descriptive Geometry
+    [ ] [ ] [ ] AutoCAD
+    [ ] [ ] [ ] Technical Drawing
+
 [ ] Style content for SWARM App
 [ ] Contact form styles for all skins
 
