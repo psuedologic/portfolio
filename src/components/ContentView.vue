@@ -86,14 +86,15 @@ export default {
         {
           "name": "design",
           "slides": [{
-            "name": "Mechanical Design",
+            "title": "Crownhill Safe Routes to School",
+            "name": "Field Inspection",
             "icon": "wysiwyg"
           },{
             "name": "Structural Design",
             "icon": "wysiwyg"
           },{
-            "title": "Crownhill Safe Routes to School",
-            "name": "Field Inspection",
+            "name": "Mechanical Design",
+            "title": "Gearbox Wrench",
             "icon": "wysiwyg"
           }]
         },
@@ -124,8 +125,8 @@ export default {
         "meter_office_lg": require('@/assets/MeterWorkOrders-Office_lg.png'),
         "services": require('@/assets/ServicesExplorer.png'),
         "services_lg": require('@/assets/ServicesExplorer_lg.png'),
-        "gearbox_render": require('@/assets/GearboxWrench2.png'),
-        "gearbox_render_lg": require('@/assets/GearboxWrench.png'),
+        "gearbox_plan": require('@/assets/GearboxWrench_1.png'),
+        "gearbox_details": require('@/assets/GearboxWrench_3.png'),
         "crownhill_finished": require('@/assets/Crownhill_Finished.jpg'),
         "crownhill_finished_hover": require('@/assets/Crownhill_Finished_hover.jpg'),
         "crownhill_plan": require('@/assets/Crownhill_Plan.png')
@@ -242,11 +243,11 @@ export default {
               applications were replaced with off-the-shelf solutions freeing up limited developer resources. 
             </p>`,
         "Mechanical Design": `
-            <img data-src="gearbox_render" @click="showImageBox" alt="" width="700"/>
-            <h5>Gearbox Wrench - Blueprint <div class="subtitle">(click for exploded view)</div></h5>            
+            <img data-src="gearbox_plan" @click="showImageBox" alt="" width="700"/>
+            <h5>Render View</h5>            
             <p class="lorem"></p>
-            <img data-src="gearbox_render" @click="showImageBox" alt="" width="700"/>
-            <h5>Gearbox Wrench - Render</h5>
+            <img data-src="gearbox_details" @click="showImageBox" alt="" width="700"/>
+            <h5>Section View</h5>
             <p class="lorem"></p>`,
         "Structural Design": `
             <h5>National Weather Service Tower</h5>
