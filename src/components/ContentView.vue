@@ -127,6 +127,8 @@ export default {
         "services_lg": require('@/assets/ServicesExplorer_lg.png'),
         "gearbox_plan": require('@/assets/GearboxWrench_1.png'),
         "gearbox_details": require('@/assets/GearboxWrench_3.png'),
+        "weather_tower": require('@/assets/Dual_Polarization_Tower.png'),
+        "weather_tower_sketch": require('@/assets/Dual_Polarization_Tower_Sketch.png'),
         "crownhill_finished": require('@/assets/Crownhill_Finished.jpg'),
         "crownhill_finished_hover": require('@/assets/Crownhill_Finished_hover.jpg'),
         "crownhill_plan": require('@/assets/Crownhill_Plan.png')
@@ -252,6 +254,10 @@ export default {
         "Structural Design": `
             <h5>National Weather Service Tower</h5>
             <p>The National Weather Service was seeking a fall protection</p>
+            <img data-src="weather_tower" @click="showImageBox" alt="" width="700"/>
+            <h5>Dual Polarization Tower</h5>
+            <img data-src="weather_tower_sketch" @click="showImageBox" alt="" width="700"/>
+            <h5>3d Modeling Sketch</h5>
             <p class="lorem"></p>`,
         "Field Inspection": `
             <img data-src="crownhill_finished" data-hover="" @click="showImageBox" alt="" width="700"/>
