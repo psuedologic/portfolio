@@ -247,10 +247,18 @@ export default {
         "Mechanical Design": `
             <img data-src="gearbox_plan" @click="showImageBox" alt="" width="700"/>
             <h5>Render View</h5>            
-            <p class="lorem"></p>
+            <p>For one of my classes in Technical Design, we were required to create a wrench. I had been interested in gears and wanted to create something
+            novel that I hadn't seen before. I thought it would be interesting to have an adjustable-style wrench that could be operated from either hand
+            and could still be opened or closed even if the mouth of the wrench was obscured, such as inside an engine. 
+            </p>
             <img data-src="gearbox_details" @click="showImageBox" alt="" width="700"/>
             <h5>Section View</h5>
-            <p class="lorem"></p>`,
+            <p>To make this idea possible, I started with the design of a typical adjustable wrench, which uses what's called a worm gear (Dark Pink). Usually 
+            this worm gear is the part that is exposed to the user's thumb. While this works great normally, I also needed mechanical input on the far side. To transfer
+            the rotational motion, I added a central shaft that by spinning could turn the worm gear. Now I just needed input on both ends, and for that I settled on 
+            helical bevel gears, These have the advantage of enabling very precise movement and positioning, and provided a convenient thumbscrew-like interface which
+            would work allow the design to work. Lastly I added the casing, thumb grooves and finger grips to make the wrench comfortable to hold. With some careful tolerances
+            I was able to 3d Print off my design, fully-assembled and it was completely functional.</p>`,
         "Structural Design": `
             <h5>National Weather Service Tower</h5>
             <p>The National Weather Service was seeking a fall protection</p>
