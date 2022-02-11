@@ -88,27 +88,27 @@ export default {
           "slides": [{
             "title": "Crownhill Safe Routes to School",
             "name": "Field Inspection",
-            "icon": "wysiwyg"
+            "icon": "construction"
           },{
             "name": "Structural Design",
-            "icon": "wysiwyg"
+            "icon": "foundation"
           },{
             "name": "Mechanical Design",
             "title": "Gearbox Wrench",
-            "icon": "wysiwyg"
+            "icon": "plumbing"
           }]
         },
         {
           "name": "education",
           "slides": [{
             "name": "Descriptive Geometry",
-            "icon": "wysiwyg"
+            "icon": "view_in_ar"
           },{
             "name": "AutoCAD",
-            "icon": "wysiwyg"
+            "icon": "precision_manufacturing"
           },{
             "name": "Technical Drawing",
-            "icon": "wysiwyg"
+            "icon": "architecture"
           }]
         }
       ],
@@ -261,12 +261,19 @@ export default {
             I was able to 3d Print off my design, fully-assembled and it was completely functional.</p>`,
         "Structural Design": `
             <h5>National Weather Service Tower</h5>
-            <p>The National Weather Service was seeking a fall protection</p>
             <img data-src="weather_tower" @click="showImageBox" alt="" width="700"/>
+            <p>The National Weather Service (NWS) was seeking a fall protection solution for technicians that maintained and operated their dual polarization tower. 
+            Due to the complex structure of the radar towers, the company I worked for wanted to employ a secondary method of stress calculation called Finite Element Analysis 
+            (FME). While requiring higher lever of input accuracy and more complex design geometry, FEA allows for a better prediction of performance, more insight into
+            where the failure condition's can occur. This stands in contrast to analytical stress analysis, which relies on simplified and idealized loading with large
+            safety factors based on engineering experience. </p>
             <h5>Dual Polarization Tower</h5>
             <img data-src="weather_tower_sketch" @click="showImageBox" alt="" width="700"/>
             <h5>3d Modeling Sketch</h5>
-            <p class="lorem"></p>`,
+            <p>One thing required to perform FEA is a high quality 3d model of the structure, but the client only had 2d drawings. I used a unique method of 3d projection, 
+            where I aligned the profile, perspective and plan views in 3d space and projected them together. With the intersection of the projections, I had reliable baselines
+            that I could use to double-check the extruded shape and create a precise model. A few features on the 2d Drawings were distorted and this method didn't work, such as
+            flanges at the base of the main post. For these repeating elements, I projected the number of flanges around an isometric circle.</p>`,
         "Field Inspection": `
             <img data-src="crownhill_finished" data-hover="" @click="showImageBox" alt="" width="700"/>
             <h5>Project Mid-construction<div class="subtitle">(Hover for pre-construction)</div></h5>
