@@ -39,7 +39,7 @@
         "--formHeaderText": "#e5edf3",
         "--formButtonText": "#0b2a3d",
         "--formHeader": "#0b2a3d",
-        "--formBody": "#000",
+        "--formBody": "#242424",
         "--formField": "#e5edf3"
         
     },
@@ -51,7 +51,7 @@
         "--formHeaderText": "Yellow",
         "--formButtonText": "#052",
         "--formHeader": "#0A5",
-        "--formBody": "#AFD",
+        "--formBody": "#a6e3cf",
         "--formField": "LightYellow"
     },
     "education": {

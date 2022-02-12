@@ -73,7 +73,7 @@ export default {
 
 #contactFormWrapper, #contactFormWrapper > div {
   position: absolute;
-  z-index: 10;
+  z-index: 100;
   margin: 4em 2em;
   min-width: 20em;
 }

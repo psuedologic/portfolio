@@ -10,8 +10,8 @@ Todo
     [ ] [X] [X] Customer Response Upgrade
     [ ] [X] [X] Meter Work Order
     [ ] [X] [X] Dev-Ops
-    [ ] [ ] [ ] Mechanical Design
-    [ ] [ ] [ ] Structural Design
+    [ ] [X] [X] Mechanical Design
+    [ ] [ ] [X] Structural Design (Needs thicker lineweights)
     [ ] [X] [X] Field Inspection
     [ ] [ ] [ ] Descriptive Geometry
     [ ] [ ] [ ] AutoCAD
