@@ -131,7 +131,8 @@ export default {
         "weather_tower_sketch": require('@/assets/Dual_Polarization_Tower_Sketch.png'),
         "crownhill_finished": require('@/assets/Crownhill_Finished.jpg'),
         "crownhill_finished_hover": require('@/assets/Crownhill_Finished_hover.jpg'),
-        "crownhill_plan": require('@/assets/Crownhill_Plan.png')
+        "crownhill_plan": require('@/assets/Crownhill_Plan.png'),
+        "tech_drawing": require('@/assets/TechnicalDrawing.png')
       },
       contentSlides: {
         "SWARM App": `
@@ -298,7 +299,20 @@ export default {
         "AutoCAD": `
             <p class="lorem"></p>`,
         "Technical Drawing": `
-            <p class="lorem"></p>`
+            <p>Technical Drawing also known as drafting, is the process of creating a unambiguous representation of an object
+              so that it can be manufactured or provides a demonstration of how it functions. Various drafting elements such as the 
+              thickness of the lines, dash patterns, dimensioning symbols make the technical drawing a visual language. This stands in
+              contrast to other types of drawings which are expressive in nature and subjectively interpreted.
+            </p>
+            <img data-src="tech_drawing" @click="showImageBox" alt="" width="700"/>
+            <p>
+              While drafting isn't commonly done by hand anymore, there are some important reasons it is still taught. The modern equivalent
+              Computer-Aided Drafting (CAD) is based on the same principles as manual drafting. Most techniques are transferable and the student
+              who first learns Technical Drawing gains a strong intuitive understanding of the principles. Another benefit for drafters and engineers
+              is it gives them the skills to make technical sketches. Computers are not always at-hand, and sketching out a design is a quick way
+              to refine and explore complex ideas. Drawings provide a level of abstraction and can greatly simplify the communication of industry
+              and engineering
+            </p>`
       }
     }
   },
