@@ -11,14 +11,14 @@ Todo
     [ ] [X] [X] Meter Work Order
     [ ] [X] [X] Dev-Ops
     [ ] [X] [X] Mechanical Design
-    [ ] [ ] [X] Structural Design (Needs thicker lineweights)
+    [ ] [X] [X] Structural Design (Needs thicker lineweights)
     [ ] [X] [X] Field Inspection
     [ ] [ ] [ ] Descriptive Geometry
-    [ ] [ ] [ ] AutoCAD
-    [ ] [ ] [ ] Technical Drawing
+    [ ] [X] [ ] AutoCAD
+    [ ] [X] [X] Technical Drawing
 
-[ ] Style content for SWARM App
-[ ] Contact form styles for all skins
+[X] Style content for SWARM App
+[X] Contact form styles for all skins
 
 # More Goals 
 [ ] Make only the canvas interactive and allow manipulation of the pillars

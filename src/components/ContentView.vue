@@ -127,12 +127,15 @@ export default {
         "services_lg": require('@/assets/ServicesExplorer_lg.png'),
         "gearbox_plan": require('@/assets/GearboxWrench_1.png'),
         "gearbox_details": require('@/assets/GearboxWrench_3.png'),
-        "weather_tower": require('@/assets/Dual_Polarization_Tower.png'),
+        "weather_tower": require('@/assets/NWS_Design.png'),
         "weather_tower_sketch": require('@/assets/Dual_Polarization_Tower_Sketch.png'),
         "crownhill_finished": require('@/assets/Crownhill_Finished.jpg'),
         "crownhill_finished_hover": require('@/assets/Crownhill_Finished_hover.jpg'),
         "crownhill_plan": require('@/assets/Crownhill_Plan.png'),
-        "tech_drawing": require('@/assets/TechnicalDrawing.png')
+        "tech_drawing": require('@/assets/TechnicalDrawing.png'),
+        "acad_coversheet": require('@/assets/ACAD_CS-1.png'),
+        "acad_details": require('@/assets/ACAD_D-2.png'),
+        "acad_details_hover": require('@/assets/ACAD_D-1.png')
       },
       contentSlides: {
         "SWARM App": `
@@ -284,7 +287,7 @@ export default {
             to the project was my thorough documentation of daily notes and 1000s of pictures. At the end 
             of the project the contractor submitted many change orders and attempted to run the budget 20% over the bid.
             My record keeping was cited as the primary reason why we were able to dismiss almost all claims for extra charges.</p>
-            <img data-src="crownhill_plan" data-hover="" @click="showImageBox" alt="" width="700"/>
+            <img data-src="crownhill_plan" @click="showImageBox" alt="" width="700"/>
             <h5>Project Drawings - Plan View</h5>
             <p>There were challenges that came up during the construction that were tricky to navigate. In order to create
             the new sidewalks, we used city right-of-way which is often used by residents as lawns, or vehicle parking. In other 
@@ -295,9 +298,16 @@ export default {
             progress to the project engineer, coordinating with contractors with impacts to school access, and ensuring proper erosion
             and sediment control measure were followed.</p>`,
         "Descriptive Geometry": `
-            <p class="lorem"></p>`,
+            <p>Descriptive Geometry is the </p>`,
         "AutoCAD": `
-            <p class="lorem"></p>`,
+            <img data-src="acad_details" data-hover="" @click="showImageBox" alt="" width="700"/>
+            <h5>Production AutoCAD drawings<div class="subtitle">(Hover for assembly view)</div></h5>
+            <p>As the most ubiquitous CAD program, AutoCAD is used across many industries. While other CAD programs have domain-specific applications
+              especially 3D, AutoCAD is the standard for drawing file compatibility and producing production drawings. Based on the principles of manual
+              drafting, AutoCAD is intuitive to learn for people with engineering drawing experience. 
+            </p>
+            <img data-src="acad_coversheet" @click="showImageBox" alt="" width="700"/>
+            <h5>Coversheet including 3d Model</h5>`,
         "Technical Drawing": `
             <p>Technical Drawing also known as drafting, is the process of creating a unambiguous representation of an object
               so that it can be manufactured or provides a demonstration of how it functions. Various drafting elements such as the 
@@ -305,6 +315,7 @@ export default {
               contrast to other types of drawings which are expressive in nature and subjectively interpreted.
             </p>
             <img data-src="tech_drawing" @click="showImageBox" alt="" width="700"/>
+            <h5>Roller Guide - Section View</h5>
             <p>
               While drafting isn't commonly done by hand anymore, there are some important reasons it is still taught. The modern equivalent
               Computer-Aided Drafting (CAD) is based on the same principles as manual drafting. Most techniques are transferable and the student
