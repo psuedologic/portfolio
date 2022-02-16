@@ -101,14 +101,14 @@ export default {
         {
           "name": "education",
           "slides": [{
-            "name": "Descriptive Geometry",
-            "icon": "view_in_ar"
-          },{
             "name": "AutoCAD",
             "icon": "precision_manufacturing"
           },{
             "name": "Technical Drawing",
             "icon": "architecture"
+          },{
+            "name": "Descriptive Geometry",
+            "icon": "view_in_ar"
           }]
         }
       ],
@@ -135,7 +135,8 @@ export default {
         "tech_drawing": require('@/assets/TechnicalDrawing.png'),
         "acad_coversheet": require('@/assets/ACAD_CS-1.png'),
         "acad_details": require('@/assets/ACAD_D-2.png'),
-        "acad_details_hover": require('@/assets/ACAD_D-1.png')
+        "acad_details_hover": require('@/assets/ACAD_D-1.png'),
+        "descriptive_geometry": require('@/assets/DescriptiveGeometry.png')
       },
       contentSlides: {
         "SWARM App": `
@@ -298,7 +299,12 @@ export default {
             progress to the project engineer, coordinating with contractors with impacts to school access, and ensuring proper erosion
             and sediment control measure were followed.</p>`,
         "Descriptive Geometry": `
-            <p>Descriptive Geometry is the </p>`,
+            <p>Descriptive Geometry was invented by Gaspard Monge in the middle of the 18th Century as a military secret and later incorporated as a major element
+              of architectural drawing. One of the main functions is to represent three-dimensional objects in two dimensions while preserving measurement accuracy.
+              This means that 3d objects can be drawn with a true size, scale, and shape, and the perspective can vary depending on what information is needed to be
+              conveyed. 
+              </p>
+            <img data-src="descriptive_geometry" @click="showImageBox" alt="" width="700"/>`,            
         "AutoCAD": `
             <img data-src="acad_details" data-hover="" @click="showImageBox" alt="" width="700"/>
             <h5>Production AutoCAD drawings<div class="subtitle">(Hover for assembly view)</div></h5>
