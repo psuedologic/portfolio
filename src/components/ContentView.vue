@@ -149,11 +149,11 @@ export default {
               condition of the roads.</p>
             <p>To address this issue, I built SWARM (Snowy Weather Assessment and Response Map) a predominately 
               back-end application in Node.JS. We equipped the vehicles with GPS units that are wired to the 
-              vehicles operating equipment. These units broadcast the current location and sensor state every
+              vehicles electronic system. These units broadcast the current location and sensor state every
               15 seconds. My system collates the sensor data, draws vehicle paths based on the individual
               location, and then sends the finalized results to a geospatial server. Lastly the server
-              graphically serves the sensor paths, based on treatment type and duration elapsed from
-              treatment to a webmap front-end.</p>
+              provides the sensor paths, based on treatment type and duration elapsed from treatment to a map front-end.
+            </p>
             <p>The company that provided the sensor/gps units had reliability issues. As many as 40% of data
               requests were being dropped or returning 500 errors. Because the service was unreliable, my
               system was setup to make requests with an exponential back-off so that as much data could
@@ -179,8 +179,8 @@ export default {
             <h5>Map View</h5>
             <p>
               With 52,000 issues spanning 25 years, there is a lot of useful data analysis that could be performed. 
-              One example would be looking at trends of where mobility-impaired citizens have had sidewalk access issues 
-              can reveal effective locations to target funding for curb ramp improvement capital. Some analysis was done
+              One example would be looking at trends of where mobility-impaired citizens have had sidewalk access issues. 
+              This can reveal effective locations to target funding for curb ramp improvement capital. Some analysis was done
               on earlier table exports, but certain issues like flooding reports are much better analyzed with spatial
               information. To support this effort, I created this Map View of the data as a realtime reflection.
             </p>
@@ -196,9 +196,9 @@ export default {
             <p>
               The Utility Operations and Billing departments consulted with me to help alleviate their upcoming process change. Council doubled
               the billing cycle frequency, greatly increasing their workload. Another limitations of their current system was the inability to
-              coordinate information easily. A lot of time was spent filling out forms and calls the field and office crew to report change in 
+              coordinate information easily. A lot of time was spent filling out forms and placing calls between the field and office crew to report change in 
               conditions. With this work order system they wanted to be able to receive and send updates regarding leaks, billing checks and 
-              shut-off/activation. To address these needs, I created the Meter Work Order system (A very clever name).
+              shut-off/activations. To address these needs, I created the Meter Work Order system.
             </p>
             <p>
               One of the considerations during design was integration with the existing billing system. I wasn't permitted direct DB access
@@ -207,7 +207,7 @@ export default {
               information and meter flow reads. The other consequence was the location data became more important. I could use the customers service
               address with a geolocator, and that would show a map marker on the correct property. But with multi-family housing, and older meter standards,
               it was inefficient to find the physical meter repeatedly. I added a shape field to the meter maintenance and using high-resolution aerial imagery 
-              and their ipads, the field could store precise locations of the meters. 
+              and their ipads, the field crew could store precise locations of the meters. 
             </p>
             <img data-src="meter_office" @click="showImageBox" alt="" width="700"/>
             <h5>Office View</h5>
@@ -216,43 +216,43 @@ export default {
               specific to this application was appropriate to store locally in our gis application database. Most of the the data needed to be entered
               into the billing's system of record. Without the permission to directly modify, I created a staging interface for the office staff to access.
               This allowed for them to track work performed and communicate with the field staff. The recently submitted meter work orders waited in a queue
-              to be processed by billing and ultimately close the issue. This office-centric version of the app referenced the same information, with the separate
+              to be processed by billing and ultimately close the issue. This office-centric version of the app referenced the same information, with separate
               permissions and approval steps.
             </p>`,
         "Dev-Ops": `
             <p>
-              My main project at the City of Bremerton was the migration of the biggest in-house software system is its GIS system, COBGIS. 
+              One of my most involved projects at Bremerton was the migration of the biggest in-house software system, its GIS system called COBGIS. 
               COBGIS was a single virtual machine (SQL server, web server, and data server) with 50 users, ~500 tables/views spread over 10 databases 
               and supporting about 50 applications. These range from utility locating and maintenance tracking systems, to work order systems, and 
               analysis support applications. 
             </p>
             <p>
-              We supported a lot of different client environments, native-mobile apps, web, multiple desktop applications which increased complexity
-              especially with older clients. Another challenge was tight coupling between the REST services/data and the applications with a lot of 
-              inner dependencies between them. Understanding and simplifying the services structure, was a large emphasis during the migration
+              We supported a lot of different client environments: native-mobile apps, web, and multiple desktop applications. This increased complexity
+              especially with older or legacy clients. Another challenge was tight coupling between the REST services/data and the applications with a lot of 
+              inner dependencies between them. During the migration process, a large emphasis of mine was to understand and simplify the services structure.
             </p>
             <img data-src="services" @click="showImageBox" alt="" width="700"/>
             <h5>Services Explorer</h5>
             <p>
               One helpful tool I created was a dependency analyzing tool. It crawled our servers and reported on the services many-to-many
               relationship with database tables. This was invaluable for answering questions such as which services depend on a given DB table or how many
-              tables would be involved with migrating an application. The back-end is a python script that scrapes server data, collates and formats and finally
-              which is exports to JSON. A lightweight js library I found serves the JSON in a interactive format, and makes browsing the data convenient.
+              tables would be involved with migrating an application. The back-end is a python script that scrapes server data, collects, formats, and finally
+              exports it to JSON. I then used a lightweight javascript library to serve the JSON in a interactive format and make browsing the data convenient.
             </p>
             <p>
               With better insight into our data, I simplified the database design, going to a single DB for production and strong naming conventions
               with mandatory metadata. I introduced a staging and development environment to allow for development without impacting users. 
-              Combined with tighter access control, this eliminated our issue of COBGIS being unresponsive frequently.
+              Combined with tighter access control, this eliminated our issue of COBGIS frequently being unresponsive.
             </p>
             <p>
               Wherever possible, I simplified system components such as authentication. I moved to a SAML Oauth system as the only method of user identity.
-              We phased out old desktop clients, and removed non-critical mobile applications in favor of web-based ones that would work for multiple. Some 
+              We phased out legacy desktop clients, and removed non-critical mobile applications in favor of web-based ones that where more flexible. Some 
               applications were replaced with off-the-shelf solutions freeing up limited developer resources. 
             </p>`,
         "Mechanical Design": `
             <img data-src="gearbox_plan" @click="showImageBox" alt="" width="700"/>
             <h5>Render View</h5>            
-            <p>For one of my classes in Technical Design, we were required to create a wrench. I had been interested in gears and wanted to create something
+            <p>For one of my classes in Technical Design, the final project was to create a wrench. I had been interested in gears and wanted to create something
               novel that I hadn't seen before. I thought it would be interesting to have an adjustable-style wrench that could be operated from either hand
               and could still be opened or closed even if the mouth of the wrench was obscured, such as inside an engine. 
             </p>
@@ -269,8 +269,8 @@ export default {
             <img data-src="weather_tower" @click="showImageBox" alt="" width="700"/>
             <p>The National Weather Service (NWS) was seeking a fall protection solution for technicians that maintained and operated their dual polarization tower. 
               Due to the complex structure of the radar towers, the company I worked for wanted to employ a secondary method of stress calculation called Finite Element Analysis 
-              (FME). While requiring higher lever of input accuracy and more complex design geometry, FEA allows for a better prediction of performance, more insight into
-              where the failure condition's can occur. This stands in contrast to analytical stress analysis, which relies on simplified and idealized loading with large
+              (FME). While requiring higher lever of input accuracy and more complex design geometry, FEA allows for a better prediction of performance and more insight into
+              where the failure conditions can occur. This stands in contrast to analytical stress analysis, which relies on simplified and idealized loading with large
               safety factors based on engineering experience. </p>
               <h5>Dual Polarization Tower</h5>
               <img data-src="weather_tower_sketch" @click="showImageBox" alt="" width="700"/>
@@ -278,13 +278,13 @@ export default {
               <p>One thing required to perform FEA is a high quality 3d model of the structure, but the client only had 2d drawings. I used a unique method of 3d projection, 
               where I aligned the profile, perspective and plan views in 3d space and projected them together. With the intersection of the projections, I had reliable baselines
               that I could use to double-check the extruded shape and create a precise model. A few features on the 2d Drawings were distorted and this method didn't work, such as
-              flanges at the base of the main post. For these repeating elements, I projected the number of flanges around an isometric circle.</p>`,
+              flanges at the base of the main post. For these repeating elements, I projected the number of flanges around an isometric circle achieving accuracy.</p>`,
         "Field Inspection": `
             <img data-src="crownhill_finished" data-hover="" @click="showImageBox" alt="" width="700"/>
             <h5>Project Mid-construction<div class="subtitle">(Hover for pre-construction)</div></h5>
-            <p>The Crownhill Elementary Safe Routes to School was the first project I had been able to participate
-              in the design review and see through the entirety as the project inspector. Overall the project was
-              very successful and was finished within the half-million budget. One of my most important contributions
+            <p>The Crownhill Elementary Safe Routes to School project was the first project I had been able to participate
+              in both the design review and see through the entirety as the project inspector. Overall the project was
+              very successful and was finished within the half-million dollar budget. One of my most important contributions
               to the project was my thorough documentation of daily notes and 1000s of pictures. At the end 
               of the project the contractor submitted many change orders and attempted to run the budget 20% over the bid.
               My record keeping was cited as the primary reason why we were able to dismiss almost all claims for extra charges.</p>
@@ -292,12 +292,12 @@ export default {
               <h5>Project Drawings - Plan View</h5>
               <p>There were challenges that came up during the construction that were tricky to navigate. In order to create
               the new sidewalks, we used city right-of-way which is often used by residents as lawns, or vehicle parking. In other 
-              situations the residents had vehicle's illegal parked, and constructing their driveways to code would mean limiting their
+              situations the residents had vehicles illegally parked. Constructing their driveways to code would mean limiting their
               access. Assuaging their anger but ensuring that things were constructed as necessary was challenging.</p>
-              <p>Between the sidewalks and roadway reconstruction, new stormwater facilities, and flashing beacon lit sidewalk crossing
+              <p>Between the sidewalks and roadway reconstruction, new stormwater facilities, and flashing beacon sidewalk crossing
               there was a lot to learn. Other duties included measuring work performed and authorizing payment, reporting construction
               progress to the project engineer, coordinating with contractors with impacts to school access, and ensuring proper erosion
-              and sediment control measure were followed.</p>`,
+              and sediment control measures were followed.</p>`,
         "Descriptive Geometry": `
             <p>Descriptive Geometry was invented by Gaspard Monge in the middle of the 18th Century as a military secret and later incorporated as a major element
               of architectural drawing. One of the main functions is to represent three-dimensional objects in two dimensions while preserving measurement accuracy.
@@ -308,17 +308,20 @@ export default {
         "AutoCAD": `
             <img data-src="acad_details" data-hover="" @click="showImageBox" alt="" width="700"/>
             <h5>Production AutoCAD drawings<div class="subtitle">(Hover for assembly view)</div></h5>
-            <p>As the most ubiquitous CAD program, AutoCAD is used across many industries. While other CAD programs have domain-specific applications,
+            <p>AutoCAD is the class I taught the most often due to it being in high demand. As the most ubiquitous CAD program, AutoCAD is used across many industries. While other CAD programs have domain-specific applications,
               especially 3D, AutoCAD is the standard for drawing file compatibility and production drawings. Based on the principles of manual
               drafting, AutoCAD is intuitive to learn for people with engineering drawing experience. 
             </p>
             <img data-src="acad_coversheet" @click="showImageBox" alt="" width="700"/>
             <h5>Coversheet including 3d Model</h5>
             <p>The way AutoCAD organizes itself is by providing two distinct environments model-space and paper-space. Model space is unbounded, where things are drawn
-            as close to accurate size as is known. Here an architect would draw a given building perhaps 50 feet across. When it comes time to represent this building on 
-            paper, the model must be scaled down to fit for obvious reasons. Here paper-space provides a viewport, or window that can look into model space at a given scale.</p>`,
+              as close to accurate size as is known. Here an architect would draw a given building perhaps 50 feet across. When it comes time to represent this building on 
+              paper, the model must be scaled down to fit for obvious reasons. Here paper-space provides a viewport, or window that can look into model space at a given scale.
+              With this seperation of concerns, AutoCAD achieves an elegant design allowing for the realistic depictions of objects in model space, and the appropriately sized
+              representations in paper space.
+            </p>`,
         "Technical Drawing": `
-            <p>Technical Drawing also known as drafting, is the process of creating a unambiguous representation of an object
+            <p>Technical Drawing also known as drafting, is the prerequisite class taken before AutoCAD. The main purpose of a technical drawing is to convey an unambiguous representation of an object
               so that it can be manufactured or provides a demonstration of how it functions. Various drafting elements such as the 
               thickness of the lines, dash patterns, dimensioning symbols make the technical drawing a visual language. This stands in
               contrast to other types of drawings which are expressive in nature and subjectively interpreted.
@@ -326,12 +329,12 @@ export default {
             <img data-src="tech_drawing" @click="showImageBox" alt="" width="700"/>
             <h5>Roller Guide - Section View</h5>
             <p>
-              While drafting isn't commonly done by hand anymore, there are some important reasons it is still taught. The modern equivalent
+              While drafting is no longer commonly done by hand, there are some important reasons it is still taught. The modern equivalent
               Computer-Aided Drafting (CAD) is based on the same principles as manual drafting. Most techniques are transferable and the student
               who first learns Technical Drawing gains a strong intuitive understanding of the principles. Another benefit for drafters and engineers
               is it gives them the skills to make technical sketches. Computers are not always at-hand, and sketching out a design is a quick way
               to refine and explore complex ideas. Drawings provide a level of abstraction and can greatly simplify the communication of industry
-              and engineering
+              and engineering.
             </p>`
       }
     }

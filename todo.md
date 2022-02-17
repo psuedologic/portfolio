@@ -1,25 +1,5 @@
 Todo
 ---
-# Goals for 1.0 
-[ ] Write and add CV content
-    [ ] Final Check
-        [ ] Picture/Icon
-            [ ] Description
-
-    [ ] [X] [X] SWARM App
-    [ ] [X] [X] Customer Response Upgrade
-    [ ] [X] [X] Meter Work Order
-    [ ] [X] [X] Dev-Ops
-    [ ] [X] [X] Mechanical Design
-    [ ] [X] [X] Structural Design (Needs thicker lineweights)
-    [ ] [X] [X] Field Inspection
-    [ ] [ ] [ ] Descriptive Geometry
-    [ ] [X] [ ] AutoCAD
-    [ ] [X] [X] Technical Drawing
-
-[X] Style content for SWARM App
-[X] Contact form styles for all skins
-
 # More Goals 
 [ ] Make only the canvas interactive and allow manipulation of the pillars
 [ ] Slowly spin icon when pillar is selected (Drawing method for icons would need to be reworked. Rotating the shapes in the icon causing random behavior, they probably need a central anchor.)
@@ -76,3 +56,23 @@ Todo
 [X] Make Contact form into an overlay, and make clicks outside close the form, Dim the rest when form active
 [X] fix bug with form click shows pink at bottom of screen (check stash)
 [X] Pillar animation - content should only appear when pillar is done animating
+
+# Goals for 1.0 
+[X] Write and add CV content
+    [X] Final Check
+        [X] Picture/Icon
+            [X] Description
+
+    [X] [X] [X] SWARM App
+    [X] [X] [X] Customer Response Upgrade
+    [X] [X] [X] Meter Work Order
+    [X] [X] [X] Dev-Ops
+    [X] [X] [X] Mechanical Design
+    [X] [X] [X] Structural Design (Needs thicker lineweights)
+    [X] [X] [X] Field Inspection
+    [X] [X] [X] Descriptive Geometry
+    [X] [X] [X] AutoCAD
+    [X] [X] [X] Technical Drawing
+
+[X] Style content for SWARM App
+[X] Contact form styles for all skins
