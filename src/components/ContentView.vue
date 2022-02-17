@@ -253,67 +253,70 @@ export default {
             <img data-src="gearbox_plan" @click="showImageBox" alt="" width="700"/>
             <h5>Render View</h5>            
             <p>For one of my classes in Technical Design, we were required to create a wrench. I had been interested in gears and wanted to create something
-            novel that I hadn't seen before. I thought it would be interesting to have an adjustable-style wrench that could be operated from either hand
-            and could still be opened or closed even if the mouth of the wrench was obscured, such as inside an engine. 
+              novel that I hadn't seen before. I thought it would be interesting to have an adjustable-style wrench that could be operated from either hand
+              and could still be opened or closed even if the mouth of the wrench was obscured, such as inside an engine. 
             </p>
-            <img data-src="gearbox_details" @click="showImageBox" alt="" width="700"/>
-            <h5>Section View</h5>
-            <p>To make this idea possible, I started with the design of a typical adjustable wrench, which uses what's called a worm gear (Dark Pink). Usually 
-            this worm gear is the part that is exposed to the user's thumb. While this works great normally, I also needed mechanical input on the far side. To transfer
-            the rotational motion, I added a central shaft that by spinning could turn the worm gear. Now I just needed input on both ends, and for that I settled on 
-            helical bevel gears, These have the advantage of enabling very precise movement and positioning, and provided a convenient thumbscrew-like interface which
-            would work allow the design to work. Lastly I added the casing, thumb grooves and finger grips to make the wrench comfortable to hold. With some careful tolerances
-            I was able to 3d Print off my design, fully-assembled and it was completely functional.</p>`,
-        "Structural Design": `
+              <img data-src="gearbox_details" @click="showImageBox" alt="" width="700"/>
+              <h5>Section View</h5>
+              <p>To make this idea possible, I started with the design of a typical adjustable wrench, which uses what's called a worm gear (Dark Pink). Usually 
+              this worm gear is the part that is exposed to the user's thumb. While this works great normally, I also needed mechanical input on the far side. To transfer
+              the rotational motion, I added a central shaft that by spinning could turn the worm gear. Now I just needed input on both ends, and for that I settled on 
+              helical bevel gears, These have the advantage of enabling very precise movement and positioning, and provided a convenient thumbscrew-like interface which
+              would work allow the design to work. Lastly I added the casing, thumb grooves and finger grips to make the wrench comfortable to hold. With some careful tolerances
+              I was able to 3d Print off my design, fully-assembled and it was completely functional.</p>`,
+          "Structural Design": `
             <h5>National Weather Service Tower</h5>
             <img data-src="weather_tower" @click="showImageBox" alt="" width="700"/>
             <p>The National Weather Service (NWS) was seeking a fall protection solution for technicians that maintained and operated their dual polarization tower. 
-            Due to the complex structure of the radar towers, the company I worked for wanted to employ a secondary method of stress calculation called Finite Element Analysis 
-            (FME). While requiring higher lever of input accuracy and more complex design geometry, FEA allows for a better prediction of performance, more insight into
-            where the failure condition's can occur. This stands in contrast to analytical stress analysis, which relies on simplified and idealized loading with large
-            safety factors based on engineering experience. </p>
-            <h5>Dual Polarization Tower</h5>
-            <img data-src="weather_tower_sketch" @click="showImageBox" alt="" width="700"/>
-            <h5>3d Modeling Sketch</h5>
-            <p>One thing required to perform FEA is a high quality 3d model of the structure, but the client only had 2d drawings. I used a unique method of 3d projection, 
-            where I aligned the profile, perspective and plan views in 3d space and projected them together. With the intersection of the projections, I had reliable baselines
-            that I could use to double-check the extruded shape and create a precise model. A few features on the 2d Drawings were distorted and this method didn't work, such as
-            flanges at the base of the main post. For these repeating elements, I projected the number of flanges around an isometric circle.</p>`,
+              Due to the complex structure of the radar towers, the company I worked for wanted to employ a secondary method of stress calculation called Finite Element Analysis 
+              (FME). While requiring higher lever of input accuracy and more complex design geometry, FEA allows for a better prediction of performance, more insight into
+              where the failure condition's can occur. This stands in contrast to analytical stress analysis, which relies on simplified and idealized loading with large
+              safety factors based on engineering experience. </p>
+              <h5>Dual Polarization Tower</h5>
+              <img data-src="weather_tower_sketch" @click="showImageBox" alt="" width="700"/>
+              <h5>3d Modeling Sketch</h5>
+              <p>One thing required to perform FEA is a high quality 3d model of the structure, but the client only had 2d drawings. I used a unique method of 3d projection, 
+              where I aligned the profile, perspective and plan views in 3d space and projected them together. With the intersection of the projections, I had reliable baselines
+              that I could use to double-check the extruded shape and create a precise model. A few features on the 2d Drawings were distorted and this method didn't work, such as
+              flanges at the base of the main post. For these repeating elements, I projected the number of flanges around an isometric circle.</p>`,
         "Field Inspection": `
             <img data-src="crownhill_finished" data-hover="" @click="showImageBox" alt="" width="700"/>
             <h5>Project Mid-construction<div class="subtitle">(Hover for pre-construction)</div></h5>
             <p>The Crownhill Elementary Safe Routes to School was the first project I had been able to participate
-            in the design review and see through the entirety as the project inspector. Overall the project was
-            very successful and was finished within the half-million budget. One of my most important contributions
-            to the project was my thorough documentation of daily notes and 1000s of pictures. At the end 
-            of the project the contractor submitted many change orders and attempted to run the budget 20% over the bid.
-            My record keeping was cited as the primary reason why we were able to dismiss almost all claims for extra charges.</p>
-            <img data-src="crownhill_plan" @click="showImageBox" alt="" width="700"/>
-            <h5>Project Drawings - Plan View</h5>
-            <p>There were challenges that came up during the construction that were tricky to navigate. In order to create
-            the new sidewalks, we used city right-of-way which is often used by residents as lawns, or vehicle parking. In other 
-            situations the residents had vehicle's illegal parked, and constructing their driveways to code would mean limiting their
-            access. Assuaging their anger but ensuring that things were constructed as necessary was challenging.</p>
-            <p>Between the sidewalks and roadway reconstruction, new stormwater facilities, and flashing beacon lit sidewalk crossing
-            there was a lot to learn. Other duties included measuring work performed and authorizing payment, reporting construction
-            progress to the project engineer, coordinating with contractors with impacts to school access, and ensuring proper erosion
-            and sediment control measure were followed.</p>`,
+              in the design review and see through the entirety as the project inspector. Overall the project was
+              very successful and was finished within the half-million budget. One of my most important contributions
+              to the project was my thorough documentation of daily notes and 1000s of pictures. At the end 
+              of the project the contractor submitted many change orders and attempted to run the budget 20% over the bid.
+              My record keeping was cited as the primary reason why we were able to dismiss almost all claims for extra charges.</p>
+              <img data-src="crownhill_plan" @click="showImageBox" alt="" width="700"/>
+              <h5>Project Drawings - Plan View</h5>
+              <p>There were challenges that came up during the construction that were tricky to navigate. In order to create
+              the new sidewalks, we used city right-of-way which is often used by residents as lawns, or vehicle parking. In other 
+              situations the residents had vehicle's illegal parked, and constructing their driveways to code would mean limiting their
+              access. Assuaging their anger but ensuring that things were constructed as necessary was challenging.</p>
+              <p>Between the sidewalks and roadway reconstruction, new stormwater facilities, and flashing beacon lit sidewalk crossing
+              there was a lot to learn. Other duties included measuring work performed and authorizing payment, reporting construction
+              progress to the project engineer, coordinating with contractors with impacts to school access, and ensuring proper erosion
+              and sediment control measure were followed.</p>`,
         "Descriptive Geometry": `
             <p>Descriptive Geometry was invented by Gaspard Monge in the middle of the 18th Century as a military secret and later incorporated as a major element
               of architectural drawing. One of the main functions is to represent three-dimensional objects in two dimensions while preserving measurement accuracy.
               This means that 3d objects can be drawn with a true size, scale, and shape, and the perspective can vary depending on what information is needed to be
               conveyed. 
-              </p>
+            </p>
             <img data-src="descriptive_geometry" @click="showImageBox" alt="" width="700"/>`,            
         "AutoCAD": `
             <img data-src="acad_details" data-hover="" @click="showImageBox" alt="" width="700"/>
             <h5>Production AutoCAD drawings<div class="subtitle">(Hover for assembly view)</div></h5>
-            <p>As the most ubiquitous CAD program, AutoCAD is used across many industries. While other CAD programs have domain-specific applications
-              especially 3D, AutoCAD is the standard for drawing file compatibility and producing production drawings. Based on the principles of manual
+            <p>As the most ubiquitous CAD program, AutoCAD is used across many industries. While other CAD programs have domain-specific applications,
+              especially 3D, AutoCAD is the standard for drawing file compatibility and production drawings. Based on the principles of manual
               drafting, AutoCAD is intuitive to learn for people with engineering drawing experience. 
             </p>
             <img data-src="acad_coversheet" @click="showImageBox" alt="" width="700"/>
-            <h5>Coversheet including 3d Model</h5>`,
+            <h5>Coversheet including 3d Model</h5>
+            <p>The way AutoCAD organizes itself is by providing two distinct environments model-space and paper-space. Model space is unbounded, where things are drawn
+            as close to accurate size as is known. Here an architect would draw a given building perhaps 50 feet across. When it comes time to represent this building on 
+            paper, the model must be scaled down to fit for obvious reasons. Here paper-space provides a viewport, or window that can look into model space at a given scale.</p>`,
         "Technical Drawing": `
             <p>Technical Drawing also known as drafting, is the process of creating a unambiguous representation of an object
               so that it can be manufactured or provides a demonstration of how it functions. Various drafting elements such as the 
