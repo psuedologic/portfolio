@@ -80,6 +80,7 @@ export default {
 }
 a {
   color: inherit;
+  text-decoration: none;
 }
 .outer-circle, .inner-circle, .material-icons {
   display: inline-flex !important;
