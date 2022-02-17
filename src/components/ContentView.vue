@@ -140,7 +140,7 @@ export default {
       },
       contentSlides: {
         "SWARM App": `
-            <img data-src="swarm_main" class="imageBox" alt="" width="700"/>
+            <img class="contentImage" data-src="swarm_main" class="imageBox" alt="" width="700"/>
             <h5>Dec 2021 Snow Event</h5>
             <p>Due to the many hills and geography of Bremerton, snow and ice can make for especially dangerous 
               driving conditions. The city has a mixture of snow plows, sand spreaders, and anti-ice fluid 
@@ -161,7 +161,7 @@ export default {
               to be a robust approach and the system was successful in overcoming limitations in source
               data availability.</p>`,
         "Customer Response Upgrade":`
-            <img data-src="customer_details" @click="showImageBox" alt="" width="600"/>
+            <img class="contentImage" data-src="customer_details" @click="showImageBox" alt="" width="600"/>
             <h5>Work Order Application</h5>
             <p>Customer Response is the work order system for Public Works, the largest department of Bremerton.
               Driven by calls from the public or cencom, this system processed a few thousand tickets per year.
@@ -175,7 +175,7 @@ export default {
               onto a web server. The switchover was successful with the 50 users able to sign in and continue work without 
               a break in service.
             </p>
-            <img data-src="customer_map" @click="showImageBox" alt="" width="600"/>
+            <img class="contentImage" data-src="customer_map" @click="showImageBox" alt="" width="600"/>
             <h5>Map View</h5>
             <p>
               With 52,000 issues spanning 25 years, there is a lot of useful data analysis that could be performed. 
@@ -191,7 +191,7 @@ export default {
               to make a queryable and interactive map-view application.
             </p>`,
         "Meter Work Order": `
-            <img data-src="meter_field" @click="showImageBox" alt="" width="700"/>
+            <img class="contentImage" data-src="meter_field" @click="showImageBox" alt="" width="700"/>
             <h5>Field View</h5>
             <p>
               The Utility Operations and Billing departments consulted with me to help alleviate their upcoming process change. Council doubled
@@ -209,7 +209,7 @@ export default {
               it was inefficient to find the physical meter repeatedly. I added a shape field to the meter maintenance and using high-resolution aerial imagery 
               and their ipads, the field crew could store precise locations of the meters. 
             </p>
-            <img data-src="meter_office" @click="showImageBox" alt="" width="700"/>
+            <img class="contentImage" data-src="meter_office" @click="showImageBox" alt="" width="700"/>
             <h5>Office View</h5>
             <p>
               With the new spatial data, and many important records about meter types and field conditions, we needed a way to store this information. Data
@@ -231,7 +231,7 @@ export default {
               especially with older or legacy clients. Another challenge was tight coupling between the REST services/data and the applications with a lot of 
               inner dependencies between them. During the migration process, a large emphasis of mine was to understand and simplify the services structure.
             </p>
-            <img data-src="services" @click="showImageBox" alt="" width="700"/>
+            <img class="contentImage" data-src="services" @click="showImageBox" alt="" width="700"/>
             <h5>Services Explorer</h5>
             <p>
               One helpful tool I created was a dependency analyzing tool. It crawled our servers and reported on the services many-to-many
@@ -250,13 +250,13 @@ export default {
               applications were replaced with off-the-shelf solutions freeing up limited developer resources. 
             </p>`,
         "Mechanical Design": `
-            <img data-src="gearbox_plan" @click="showImageBox" alt="" width="700"/>
+            <img class="contentImage" data-src="gearbox_plan" @click="showImageBox" alt="" width="700"/>
             <h5>Render View</h5>            
             <p>For one of my classes in Technical Design, the final project was to create a wrench. I had been interested in gears and wanted to create something
               novel that I hadn't seen before. I thought it would be interesting to have an adjustable-style wrench that could be operated from either hand
               and could still be opened or closed even if the mouth of the wrench was obscured, such as inside an engine. 
             </p>
-              <img data-src="gearbox_details" @click="showImageBox" alt="" width="700"/>
+              <img class="contentImage" data-src="gearbox_details" @click="showImageBox" alt="" width="700"/>
               <h5>Section View</h5>
               <p>To make this idea possible, I started with the design of a typical adjustable wrench, which uses what's called a worm gear (Dark Pink). Usually 
               this worm gear is the part that is exposed to the user's thumb. While this works great normally, I also needed mechanical input on the far side. To transfer
@@ -266,21 +266,21 @@ export default {
               I was able to 3d Print off my design, fully-assembled and it was completely functional.</p>`,
           "Structural Design": `
             <h5>National Weather Service Tower</h5>
-            <img data-src="weather_tower" @click="showImageBox" alt="" width="700"/>
+            <img class="contentImage" data-src="weather_tower" @click="showImageBox" alt="" width="700"/>
             <p>The National Weather Service (NWS) was seeking a fall protection solution for technicians that maintained and operated their dual polarization tower. 
               Due to the complex structure of the radar towers, the company I worked for wanted to employ a secondary method of stress calculation called Finite Element Analysis 
               (FME). While requiring higher lever of input accuracy and more complex design geometry, FEA allows for a better prediction of performance and more insight into
               where the failure conditions can occur. This stands in contrast to analytical stress analysis, which relies on simplified and idealized loading with large
               safety factors based on engineering experience. </p>
               <h5>Dual Polarization Tower</h5>
-              <img data-src="weather_tower_sketch" @click="showImageBox" alt="" width="700"/>
+              <img class="contentImage" data-src="weather_tower_sketch" @click="showImageBox" alt="" width="700"/>
               <h5>3d Modeling Sketch</h5>
               <p>One thing required to perform FEA is a high quality 3d model of the structure, but the client only had 2d drawings. I used a unique method of 3d projection, 
               where I aligned the profile, perspective and plan views in 3d space and projected them together. With the intersection of the projections, I had reliable baselines
               that I could use to double-check the extruded shape and create a precise model. A few features on the 2d Drawings were distorted and this method didn't work, such as
               flanges at the base of the main post. For these repeating elements, I projected the number of flanges around an isometric circle achieving accuracy.</p>`,
         "Field Inspection": `
-            <img data-src="crownhill_finished" data-hover="" @click="showImageBox" alt="" width="700"/>
+            <img class="contentImage" data-src="crownhill_finished" data-hover="" @click="showImageBox" alt="" width="700"/>
             <h5>Project Mid-construction<div class="subtitle">(Hover for pre-construction)</div></h5>
             <p>The Crownhill Elementary Safe Routes to School project was the first project I had been able to participate
               in both the design review and see through the entirety as the project inspector. Overall the project was
@@ -288,7 +288,7 @@ export default {
               to the project was my thorough documentation of daily notes and 1000s of pictures. At the end 
               of the project the contractor submitted many change orders and attempted to run the budget 20% over the bid.
               My record keeping was cited as the primary reason why we were able to dismiss almost all claims for extra charges.</p>
-              <img data-src="crownhill_plan" @click="showImageBox" alt="" width="700"/>
+              <img class="contentImage" data-src="crownhill_plan" @click="showImageBox" alt="" width="700"/>
               <h5>Project Drawings - Plan View</h5>
               <p>There were challenges that came up during the construction that were tricky to navigate. In order to create
               the new sidewalks, we used city right-of-way which is often used by residents as lawns, or vehicle parking. In other 
@@ -304,15 +304,15 @@ export default {
               This means that 3d objects can be drawn with a true size, scale, and shape, and the perspective can vary depending on what information is needed to be
               conveyed. 
             </p>
-            <img data-src="descriptive_geometry" @click="showImageBox" alt="" width="700"/>`,            
+            <img class="contentImage" data-src="descriptive_geometry" @click="showImageBox" alt="" width="700"/>`,            
         "AutoCAD": `
-            <img data-src="acad_details" data-hover="" @click="showImageBox" alt="" width="700"/>
+            <img class="contentImage" data-src="acad_details" data-hover="" @click="showImageBox" alt="" width="700"/>
             <h5>Production AutoCAD drawings<div class="subtitle">(Hover for assembly view)</div></h5>
             <p>AutoCAD is the class I taught the most often due to it being in high demand. As the most ubiquitous CAD program, AutoCAD is used across many industries. While other CAD programs have domain-specific applications,
               especially 3D, AutoCAD is the standard for drawing file compatibility and production drawings. Based on the principles of manual
               drafting, AutoCAD is intuitive to learn for people with engineering drawing experience. 
             </p>
-            <img data-src="acad_coversheet" @click="showImageBox" alt="" width="700"/>
+            <img class="contentImage" data-src="acad_coversheet" @click="showImageBox" alt="" width="700"/>
             <h5>Coversheet including 3d Model</h5>
             <p>The way AutoCAD organizes itself is by providing two distinct environments model-space and paper-space. Model space is unbounded, where things are drawn
               as close to accurate size as is known. Here an architect would draw a given building perhaps 50 feet across. When it comes time to represent this building on 
@@ -326,7 +326,7 @@ export default {
               thickness of the lines, dash patterns, dimensioning symbols make the technical drawing a visual language. This stands in
               contrast to other types of drawings which are expressive in nature and subjectively interpreted.
             </p>
-            <img data-src="tech_drawing" @click="showImageBox" alt="" width="700"/>
+            <img class="contentImage" data-src="tech_drawing" @click="showImageBox" alt="" width="700"/>
             <h5>Roller Guide - Section View</h5>
             <p>
               While drafting is no longer commonly done by hand, there are some important reasons it is still taught. The modern equivalent
@@ -435,11 +435,15 @@ export default {
 }
 
 .q-carousel__slide > div {
-   max-width: 900px;
+  max-width: 900px;
   padding-bottom: 30px;
 }
 .q-btn__content > i {
   font-size: 3rem;
+}
+
+.contentImage {
+  max-width: 100vw;
 }
 
 h5 {
