@@ -7,7 +7,8 @@
          @toggle-form="$refs.formDimmer.classList.toggle('formActive')"></Nav>
     <Header @clicked="onSelected"></Header>
     <ZdogCanvas :selection="selectedTab" 
-      @content-view-active="activeTab = selectedTab; changeTheme()">
+      @content-view-active="activeTab = selectedTab; changeTheme()"
+      @close-content-view="onSelected">
     </ZdogCanvas>
     <div ref="formDimmer" id="formDimmer"></div>
   </div>  

@@ -20,7 +20,7 @@
         arrows
         style="display: none;"
         class="shadow-1 rounded-borders"
-        @transition="loadCarouselImages"
+        @transition="transitionSlide"
         :class="[pane.name, {contentActive: selection==pane.name}]"
       >
         <q-carousel-slide 
@@ -28,7 +28,8 @@
             :key="i"
             :name="i"
           class="column no-wrap flex-center">
-          <q-icon :name="slide.icon" size="56px" />
+          <q-icon class="contentClose" name="close" size="32px" />
+          <q-icon :name="slide.icon" size="56px" />          
           <div class="q-mt-md text-center">
             <div class="q-mb-md text-h4">{{slide.title ? slide.title : slide.name}}</div>
             <article v-html="contentSlides[slide.name]">
@@ -54,14 +55,10 @@ export default {
         img.src = this.images[img.getAttribute("data-src")]
         img.addEventListener("click", this.showImageBox)
     })
+    this.registerCloseEventHandler()
   },
   created() {
     this.panes = this.panes.map(v => ({...v, model: 0}))
-  },
-  setup () {
-    return {
-      lorem: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-    }
   },
   data() {
     return {
@@ -340,6 +337,10 @@ export default {
     }
   },
   methods: {
+    transitionSlide() {
+      this.loadCarouselImages()
+      this.registerCloseEventHandler()
+    },
     loadCarouselImages() {
       document.querySelectorAll(".contentActive article img").forEach(img => {
         img.src = this.images[img.getAttribute("data-src")]
@@ -354,11 +355,6 @@ export default {
           img.src = this.images[img.getAttribute("data-src")]
         })
       })
-
-      //DEV only, can remove for prod
-      document.querySelectorAll("p.lorem").forEach(elem => {
-        elem.innerHTML = this.lorem
-      })
     },
     showImageBox(value) {
         //Check for image_box with '_lg' variant 
@@ -372,6 +368,13 @@ export default {
           image_box(value.target)
         }
     },
+    registerCloseEventHandler() {
+      for (let closeButton of document.getElementsByClassName("contentClose")) {
+        closeButton.addEventListener( "click", () => {
+          this.$emit("close-content-view",'')
+        })
+      }
+    }
   }
 }
 
@@ -432,6 +435,14 @@ export default {
 .software .q-btn__content,
 .education .q-btn__content {
   color: var(--headerBackground) !important;
+}
+
+i.contentClose {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .q-carousel__slide > div {

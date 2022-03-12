@@ -3,7 +3,8 @@
   <div id="inner-container">
     <svg class="zdog-canvas" width="600" height="1080"></svg>
     <ContentView :selection="selection"
-                 :action="action == 'Display' ? 'Display': ''"></ContentView>
+                 :action="action == 'Display' ? 'Display': ''"
+                 @close-content-view="$emit('close-content-view','')"></ContentView>
   </div>
 </div>
 </template>
