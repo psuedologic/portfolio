@@ -5,6 +5,10 @@ Todo
 [ ] Slowly spin icon when pillar is selected (Drawing method for icons would need to be reworked. Rotating the shapes in the icon causing random behavior, they probably need a central anchor.)
 [ ] Take historical data and make a demo version of SWARM during a snow event.
 [ ] Splash-screen hint that shows "click for more details" on the images on content panes
+[ ] Make the columns clickable as well as nav
+[ ] Add a button to return to default appearance, or my name would return it to normal
+[ ] Increase the size of the content view navigation dots and arrows
+[ ] Add tooltips to top left buttons
 
 # Features
 [ ] Feature: Enhance pillar draw - Need to support groups and groups transistions for closed book stack icon, as well as other functionality for the other icons, notably curves.
