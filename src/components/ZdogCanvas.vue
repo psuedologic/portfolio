@@ -152,18 +152,21 @@ export default {
       let pillars = {}
 
       this.colors = [{
+          class: 'Software',
           color: '#113C58',
           leftFace: '#24516F',
           rightFace: '#04273F',
           topFace: '#3F6A86',
           bottomFace: '#011725'},
           {
+          class: 'Design',
           color: '#257410',
           leftFace: '#3F912A',
           rightFace: '#12652B',
           topFace: '#62B14D',
           bottomFace: '#0A3100'},
           {
+          class: 'Education',
           color: '#0D5C42',
           leftFace: '#217358',
           rightFace: '#00412C',
@@ -180,17 +183,18 @@ export default {
     },
     addClasses: function() {
       let canvasElement = document.getElementsByClassName("zdog-canvas")[0]
-      
-      this.colors.forEach(colorGroup =>
-        Object.values(colorGroup).forEach( color => {
-          // Find SVG paths that match the same color as pillars
-          Array.from(canvasElement.children).filter(svgPath => {
-            return color == svgPath.attributes["fill"].value
-          }).forEach(svgPath => {
-            return svgPath.className.baseVal="pillar"
-          })
-        }
-      ))
+      let allColors = []
+      this.colors.forEach(colorGroup => {
+          allColors = allColors.concat(Object.values(colorGroup))
+      })
+
+      Array.from(canvasElement.children).filter(svgPath => {
+        this.colors.forEach(colorGroup => {
+          if (Object.values(colorGroup).indexOf(svgPath.attributes["stroke"].value) != -1) {
+            svgPath.className.baseVal = "pillar " + colorGroup.class
+          }
+        })
+      })
     },
     calculatePosition: function() {
       this.angularOffset = []
@@ -262,11 +266,11 @@ export default {
     /* border: 1px solid black; // For debug*/
   }
   .pillar {
-    opacity: 0.5;
-    stroke-opacity: 0;
+    opacity: 0.8;
   }
   .pillar:hover {
-    fill: rgb(136, 166, 192);
+    display: none;
+    cursor: pointer;
   }
 
 </style>
