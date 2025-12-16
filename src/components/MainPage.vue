@@ -3,9 +3,9 @@
       :class="{ software: activeTab=='software',
         design: activeTab=='design',
         education: activeTab=='education'}">
-    <Nav @close-form="$refs.formDimmer.classList.remove('formActive')"
-         @toggle-form="$refs.formDimmer.classList.toggle('formActive')"></Nav>
-    <Header @clicked="onSelected"></Header>
+    <AppNav @close-form="$refs.formDimmer.classList.remove('formActive')"
+         @toggle-form="$refs.formDimmer.classList.toggle('formActive')"></AppNav>
+    <AppHeader @clicked="onSelected"></AppHeader>
     <ZdogCanvas :selection="selectedTab" 
       @content-view-active="activeTab = selectedTab; changeTheme()"
       @close-content-view="onSelected">
@@ -16,8 +16,8 @@
 
 <script>
 import ZdogCanvas from './ZdogCanvas.vue'
-import Header from './Header.vue'
-import Nav from './Nav.vue'
+import AppHeader from './AppHeader.vue'
+import AppNav from './AppNav.vue'
 import colors from '../data/colors.json'
 
 export default {
@@ -33,8 +33,8 @@ export default {
   },
   components: {
     ZdogCanvas,
-    Header,
-    Nav
+    AppHeader,
+    AppNav
   },
   mounted: function() {
     this.changeTheme();
